@@ -82,12 +82,6 @@ crashlytics-build.properties
 /[Aa]ssets/Plugins/FMOD/Cache.meta
 /[Aa]ssets/Plugins/FMOD/Cache/Editor.meta
 
-# Hidden folders
-[Aa]ssets/Audio/**.user
-[Aa]ssets/Audio/**.unsaved
-[Aa]ssets/Audio/**.cache
-[Aa]ssets/Audio/**.restore
-
 # Log-files
 fmod.log
 fmod_editor.log
