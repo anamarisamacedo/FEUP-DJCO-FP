@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &208562769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8568890929178434876, guid: 4b420aab40a5cae4dabeefbfd5274c57, type: 3}
+  m_PrefabInstance: {fileID: 8803333545794952386}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &208562771
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208562769}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.6187078
+  m_Height: 2.3843656
+  m_Direction: 1
+  m_Center: {x: -0.00000005960466, y: 0.000000059604645, z: 0.000000014901165}
 --- !u!1001 &513408928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -285,6 +304,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &761871171 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 997b9fb347276c94b9bd416d18c47194, type: 3}
+  m_PrefabInstance: {fileID: 513408928}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &761871176
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761871171}
+  serializedVersion: 2
+  m_Mass: 10
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &761871177
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761871171}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.23
+  m_Height: 0.91453373
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.000000014901161, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,6 +514,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: humanboy_final_estatico
       objectReference: {fileID: 0}
+    - target: {fileID: 8803333545314967471, guid: 4b420aab40a5cae4dabeefbfd5274c57, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803333545314967471, guid: 4b420aab40a5cae4dabeefbfd5274c57, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803333545314967471, guid: 4b420aab40a5cae4dabeefbfd5274c57, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9052517047745841030, guid: 4b420aab40a5cae4dabeefbfd5274c57, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -504,5 +570,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8803333545314967469, guid: 4b420aab40a5cae4dabeefbfd5274c57, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4b420aab40a5cae4dabeefbfd5274c57, type: 3}

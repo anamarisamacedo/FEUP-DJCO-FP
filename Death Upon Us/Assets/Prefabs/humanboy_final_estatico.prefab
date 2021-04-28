@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5336444362190489635}
   - component: {fileID: 7920191918616673513}
   - component: {fileID: 8803333545314967471}
-  - component: {fileID: 8803333545314967469}
   - component: {fileID: 8803333545314967468}
+  - component: {fileID: 6504269818677157218}
   m_Layer: 0
   m_Name: humanboy_final_estatico
   m_TagString: Untagged
@@ -110,19 +110,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &8803333545314967469
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8568890929178434876}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2374156, y: 2.3843656, z: 0.42825568}
-  m_Center: {x: -0.00000005960466, y: 0.000000059604645, z: 0.000000014901165}
 --- !u!114 &8803333545314967468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,3 +123,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
+  jumpForce: 0.5
+--- !u!136 &6504269818677157218
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8568890929178434876}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.6187078
+  m_Height: 2.3843656
+  m_Direction: 1
+  m_Center: {x: -0.00000005960466, y: 0.000000059604645, z: 0.000000014901165}
