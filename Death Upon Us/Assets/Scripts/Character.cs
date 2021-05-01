@@ -5,10 +5,11 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     private Rigidbody rigidBody;
-    [SerializeField] private float movementSpeed = 10f;
-    [SerializeField] private float jumpForce = 0.5f;
+    private float movementSpeed = 10f;
+    private float rotationSpeed = 6f;
+    private float jumpForce = 3f;
     private float movementDirection;
-    private bool isGrounded;
+    private bool isGrounded = true;
 
     private void Start()
     {
@@ -27,9 +28,15 @@ public class Character : MonoBehaviour
         {
             Rotate(mouseDelta < 0);
         }
-        if (Input.GetKey(KeyCode.W))
+
+        if (Input.GetButton("Vertical"))
         {
             MoveForward();
+        }
+
+        if (Input.GetButton("Jump"))
+        {
+            Jump();
         }
     }
 
@@ -40,14 +47,13 @@ public class Character : MonoBehaviour
 
     private void Rotate(bool clockwise)
     {
-        transform.Rotate(Vector3.up * 2f * (clockwise ? 1 : -1));
+        transform.Rotate(Vector3.up * rotationSpeed * (clockwise ? -1 : 1));
     }
 
     private void Jump()
     {
-        if (Input.GetButton("Jump") && isGrounded)
-        {
-            rigidBody.velocity = Vector3.up * jumpForce;
+        if(isGrounded) {
+            rigidBody.velocity += Vector3.up * jumpForce;
         }
     }
 

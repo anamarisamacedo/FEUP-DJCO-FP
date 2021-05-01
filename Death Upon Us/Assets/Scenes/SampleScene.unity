@@ -518,6 +518,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: humanboy_final_estatico
       objectReference: {fileID: 0}
+    - target: {fileID: 8803333545314967468, guid: 4b420aab40a5cae4dabeefbfd5274c57, type: 3}
+      propertyPath: jumpForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803333545314967468, guid: 4b420aab40a5cae4dabeefbfd5274c57, type: 3}
+      propertyPath: rotationSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803333545314967471, guid: 4b420aab40a5cae4dabeefbfd5274c57, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8803333545314967471, guid: 4b420aab40a5cae4dabeefbfd5274c57, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8803333545314967471, guid: 4b420aab40a5cae4dabeefbfd5274c57, type: 3}
       propertyPath: m_Interpolate
       value: 0
