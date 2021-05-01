@@ -7,15 +7,29 @@ public class Character : MonoBehaviour
 {
     private Rigidbody rigidBody;
     private float movementSpeed;
+    private int rotateDirection;
     private bool isGrounded;
+    private bool isMoving;
+    private bool isRunning;
+    private bool isCrouched;
 
     private void Start()
     {
+        isMoving = false;
+        isRunning = false;
+        isCrouched = false;
         rigidBody = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        HandleInput();
+        UpdateMovementSpeed();
     }
     private void FixedUpdate()
     {
-        HandleInput();
+        MoveForward();
+        Rotate();
     }
 
     private void HandleInput()
@@ -23,20 +37,43 @@ public class Character : MonoBehaviour
         float mouseDelta = Input.GetAxis("Mouse X");
         if (mouseDelta != 0)
         {
-            Rotate(mouseDelta < 0);
+            rotateDirection = (mouseDelta < 0 ? -1 : 1);
+        }
+        else
+        {
+            rotateDirection = 0;
         }
 
         if (Input.GetButton("Vertical"))
         {
-            MoveForward();
+            isMoving = true;
         }
-
-        if (Input.GetButton("Vertical"))
+        else
         {
-            MoveForward();
+            isMoving = false;
         }
 
         if (Input.GetKey(KeyCode.LeftShift))
+        {
+            isRunning = true;
+        }
+        else
+        {
+            isRunning = false;
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            isCrouched = !isCrouched;
+        }
+    }
+
+    private void UpdateMovementSpeed()
+    {
+        if (isCrouched)
+        {
+            movementSpeed = CrouchSpeed;
+        }
+        else if (isRunning)
         {
             movementSpeed = RunningSpeed;
         }
@@ -46,14 +83,19 @@ public class Character : MonoBehaviour
         }
     }
 
+
     private void MoveForward()
     {
-        transform.position += transform.forward * Time.deltaTime * movementSpeed;
+        if (isMoving)
+        {
+
+            transform.position += transform.forward * Time.deltaTime * movementSpeed;
+        }
     }
 
-    private void Rotate(bool clockwise)
+    private void Rotate()
     {
-        transform.Rotate(Vector3.up * RotationSpeed * (clockwise ? -1 : 1));
+        transform.Rotate(Vector3.up * RotationSpeed * rotateDirection);
     }
 
     private void Jump()
