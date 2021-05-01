@@ -16,10 +16,20 @@ public class Character : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
     }
 
-    private void Update()
-    {
+    void Update () 
+     {
         movementDirection = Input.GetAxis("Horizontal");
-    }
+         
+        if(Input.GetAxis("Mouse X") < 0)
+            transform.Rotate(Vector3.up* 2) ;
+        if(Input.GetAxis("Mouse X") > 0)
+            transform.Rotate(Vector3.up* -2f) ;
+
+        if(Input.GetKey(KeyCode.W)) {
+            transform.position += transform.forward * Time.deltaTime * movementSpeed;
+         }
+     }
+    
 
     private void FixedUpdate()
     {
@@ -31,7 +41,7 @@ public class Character : MonoBehaviour
     {
         float horizontalMovementDirection = Input.GetAxis("Horizontal");
         float verticalMovementDirection = -Input.GetAxis("Vertical");
-        rigidBody.velocity = new Vector3(verticalMovementDirection * movementSpeed, rigidBody.velocity.y, horizontalMovementDirection * movementSpeed);
+        //rigidBody.velocity += Vector3.forward * horizontalMovementDirection;//new Vector3(verticalMovementDirection * movementSpeed, rigidBody.velocity.y, horizontalMovementDirection * movementSpeed);
     }
 
     private void Jump()
