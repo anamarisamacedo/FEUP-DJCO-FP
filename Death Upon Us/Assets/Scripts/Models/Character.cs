@@ -1,19 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static utils.Configs;
 
 public class Character : MonoBehaviour
 {
     private Rigidbody rigidBody;
-    private float movementSpeed = 5f;
-    private float rotationSpeed = 6f;
-    private float jumpForce = 7f;
-    private float movementDirection;
+    private float movementSpeed;
     private bool isGrounded;
 
     private void Start()
     {
-        movementDirection = 0;
         rigidBody = GetComponent<Rigidbody>();
     }
     private void FixedUpdate()
@@ -41,11 +38,11 @@ public class Character : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            movementSpeed = 10;
+            movementSpeed = RunningSpeed;
         }
         else
         {
-            movementSpeed = 5;
+            movementSpeed = WalkingSpeed;
         }
     }
 
@@ -56,14 +53,14 @@ public class Character : MonoBehaviour
 
     private void Rotate(bool clockwise)
     {
-        transform.Rotate(Vector3.up * rotationSpeed * (clockwise ? -1 : 1));
+        transform.Rotate(Vector3.up * RotationSpeed * (clockwise ? -1 : 1));
     }
 
     private void Jump()
     {
         if (isGrounded)
         {
-            rigidBody.velocity = Vector3.up * jumpForce;
+            rigidBody.velocity = Vector3.up * JumpForce;
         }
     }
 
