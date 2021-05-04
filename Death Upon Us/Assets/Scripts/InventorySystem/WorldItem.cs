@@ -7,7 +7,7 @@ public class WorldItem : MonoBehaviour
     [SerializeField] private string itemType;
     [SerializeField] private int amount;
     private Item item;
-    // Start is called before the first frame update
+    
     void Start()
     {
         Item.ItemType type = Item.ItemType.Medkit;
