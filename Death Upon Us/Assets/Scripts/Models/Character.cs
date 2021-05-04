@@ -12,6 +12,8 @@ public class Character : MonoBehaviour
     private bool isMoving;
     private bool isRunning;
     private bool isCrouched;
+    private Inventory inventory;
+    [SerializeField] private UI_Inventory uiInventory;
 
     private void Start()
     {
@@ -19,6 +21,8 @@ public class Character : MonoBehaviour
         isRunning = false;
         isCrouched = false;
         rigidBody = GetComponent<Rigidbody>();
+        inventory = new Inventory();
+        uiInventory.SetInventory(inventory);
     }
 
     private void Update()
@@ -114,5 +118,15 @@ public class Character : MonoBehaviour
     private void OnCollisionExit()
     {
         isGrounded = false;
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        WorldItem worldItem = collider.GetComponent<WorldItem>();
+        if (worldItem != null)
+        {
+            inventory.AddItem(worldItem.GetItem());
+            worldItem.DestroySelf();
+        }
     }
 }
