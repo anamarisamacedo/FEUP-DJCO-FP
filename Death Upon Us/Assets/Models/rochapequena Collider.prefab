@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!136 &-2666220967377665359
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3166346394270059883}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.38210905
+  m_Height: 0.48891383
+  m_Direction: 1
+  m_Center: {x: -0.01984398, y: 0.19638503, z: -0.0043137074}
+--- !u!1001 &2823887348251717690
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 7b0741dea3f072c468a5ab5996936917, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b0741dea3f072c468a5ab5996936917, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 994.90906
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b0741dea3f072c468a5ab5996936917, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b0741dea3f072c468a5ab5996936917, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 497.75772
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b0741dea3f072c468a5ab5996936917, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b0741dea3f072c468a5ab5996936917, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b0741dea3f072c468a5ab5996936917, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b0741dea3f072c468a5ab5996936917, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b0741dea3f072c468a5ab5996936917, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b0741dea3f072c468a5ab5996936917, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7b0741dea3f072c468a5ab5996936917, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7b0741dea3f072c468a5ab5996936917, type: 3}
+      propertyPath: m_Name
+      value: rochapequena Collider
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7b0741dea3f072c468a5ab5996936917, type: 3}
+--- !u!1 &3166346394270059883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7b0741dea3f072c468a5ab5996936917, type: 3}
+  m_PrefabInstance: {fileID: 2823887348251717690}
+  m_PrefabAsset: {fileID: 0}

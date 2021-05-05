@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -618,6 +618,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   medKitSprite: {fileID: 21300000, guid: 07042afbff8732b4f996d95382ae5271, type: 3}
   arrowSprite: {fileID: 21300000, guid: ba4a3fc2fc783ac4a905faaa003d0c73, type: 3}
+  bowSprite: {fileID: 0}
+  knifeSprite: {fileID: 0}
+  blueMonsterDropSprite: {fileID: 0}
+  orangeMonsterDropSprite: {fileID: 0}
+  purpleMonsterDropSprite: {fileID: 0}
 --- !u!4 &699351372
 Transform:
   m_ObjectHideFlags: 0
