@@ -9,6 +9,11 @@ public class Item
     {
         Medkit, 
         Arrows,
+        Bow,
+        Knife,
+        BlueMonsterDrop,
+        OrangeMonsterDrop,
+        PurpleMonsterDrop,
     }
 
     public ItemType itemType;
@@ -23,6 +28,16 @@ public class Item
                 return ItemAssets.Instance.medKitSprite;
             case ItemType.Arrows: 
                 return ItemAssets.Instance.arrowSprite;
+            case ItemType.Bow: 
+                return ItemAssets.Instance.bowSprite;
+            case ItemType.Knife: 
+                return ItemAssets.Instance.knifeSprite;
+            case ItemType.BlueMonsterDrop: 
+                return ItemAssets.Instance.blueMonsterDropSprite;
+            case ItemType.OrangeMonsterDrop: 
+                return ItemAssets.Instance.orangeMonsterDropSprite;
+            case ItemType.PurpleMonsterDrop: 
+                return ItemAssets.Instance.purpleMonsterDropSprite;
         }
     }
 

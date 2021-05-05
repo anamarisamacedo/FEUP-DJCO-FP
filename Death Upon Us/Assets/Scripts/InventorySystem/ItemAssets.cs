@@ -13,5 +13,10 @@ public class ItemAssets : MonoBehaviour
 
     public Sprite medKitSprite;
     public Sprite arrowSprite;
+    public Sprite bowSprite;
+    public Sprite knifeSprite;
+    public Sprite blueMonsterDropSprite;
+    public Sprite orangeMonsterDropSprite;
+    public Sprite purpleMonsterDropSprite;
 
 }

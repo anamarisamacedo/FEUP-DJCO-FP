@@ -13,8 +13,13 @@ public class Inventory
     {
         itemList = new List<Item>();
 
-        AddItem(new Item { itemType = Item.ItemType.Medkit, amount = 1});
-        AddItem(new Item { itemType = Item.ItemType.Medkit, amount = 1});
+        AddItem(new Item { itemType = Item.ItemType.Medkit, amount = 2});
+        AddItem(new Item { itemType = Item.ItemType.Arrows, amount = 20});
+        AddItem(new Item { itemType = Item.ItemType.BlueMonsterDrop, amount = 2});
+        AddItem(new Item { itemType = Item.ItemType.OrangeMonsterDrop, amount = 3});
+        AddItem(new Item { itemType = Item.ItemType.PurpleMonsterDrop, amount = 10});
+        AddItem(new Item { itemType = Item.ItemType.Bow, amount = 1});
+        AddItem(new Item { itemType = Item.ItemType.Knife, amount = 1});
     }
 
     public void AddItem(Item item)
