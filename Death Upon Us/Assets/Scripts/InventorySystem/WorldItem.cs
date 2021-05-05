@@ -19,6 +19,9 @@ public class WorldItem : MonoBehaviour
             case "arrow":
                 type = Item.ItemType.Arrows;
                 break;
+            case "key":
+                type = Item.ItemType.Key;
+                break;
         }
         item = new Item { itemType = type, amount = amount};
     }

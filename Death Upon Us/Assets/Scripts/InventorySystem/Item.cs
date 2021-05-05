@@ -14,6 +14,7 @@ public class Item
         BlueMonsterDrop,
         OrangeMonsterDrop,
         PurpleMonsterDrop,
+        Key
     }
 
     public ItemType itemType;
@@ -38,6 +39,8 @@ public class Item
                 return ItemAssets.Instance.orangeMonsterDropSprite;
             case ItemType.PurpleMonsterDrop: 
                 return ItemAssets.Instance.purpleMonsterDropSprite;
+            case ItemType.Key: 
+                return ItemAssets.Instance.keySprite;
         }
     }
 
