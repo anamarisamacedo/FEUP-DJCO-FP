@@ -92,7 +92,6 @@ public class Character : MonoBehaviour
     {
         if (isMoving)
         {
-
             transform.position += transform.forward * Time.deltaTime * movementSpeed;
         }
     }
