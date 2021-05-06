@@ -6,16 +6,36 @@ using static utils.Configs;
 
 public class Monster : MonoBehaviour
 {
-    private void Start()
-    {
-    }
+    private Rigidbody rigidBody;
 
     private void Update()
     {
-        Move();
+        if (!FollowPlayer())
+        {
+            MoveRandomly();
+        }
+
     }
 
-    private void Move()
+    public bool FollowPlayer()
+    {
+        Transform character = GameObject.Find("GirlCharacter").transform;
+
+        float distanceFromPlayer = Vector3.Distance(transform.position, character.position);
+
+        if (distanceFromPlayer < MonsterFollowRadius)
+        {
+            transform.LookAt(character);
+            transform.position += transform.forward * MonsterSpeed * Time.deltaTime;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private void MoveRandomly()
     {
         System.Random rand = new System.Random();
         int randomAngle = rand.Next(-22500, 22500);
