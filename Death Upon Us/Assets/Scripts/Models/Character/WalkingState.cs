@@ -15,7 +15,7 @@ public class WalkingState : CharacterState
         {
             character.ChangeState(new CrouchWalkingState(character));
         }
-        else if (!Input.GetButton("Vertical"))
+        else if (!Input.GetKey(KeyCode.W))
         {
             character.ChangeState(new IdleState(character));
         }

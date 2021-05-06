@@ -9,7 +9,7 @@ public class CrouchIdleState : CharacterState
         {
             character.ChangeState(new IdleState(character));
         }
-        else if (Input.GetButton("Vertical"))
+        else if (Input.GetKey(KeyCode.W))
         {
             character.ChangeState(new CrouchWalkingState(character));
         }
