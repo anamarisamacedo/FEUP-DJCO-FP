@@ -12,7 +12,7 @@ public class RunningState : CharacterState
 
     public override void HandleKeyBoardInput()
     {
-        if (!Input.GetButton("Vertical"))
+        if (!Input.GetKey(KeyCode.W))
         {
             character.ChangeState(new IdleState(character));
         }
