@@ -1,15 +1,17 @@
 using UnityEngine;
 using static utils.Configs;
 
-public class CrouchWalkingState : CharacterState {
-    public CrouchWalkingState(Character character) : base(character) {}
+public class CrouchWalkingState : CharacterState
+{
+    public CrouchWalkingState(Character character) : base(character) { }
 
-    public override void MoveForward() {
+    public override void MoveForward()
+    {
         character.transform.position += character.transform.forward * Time.deltaTime * CrouchSpeed;
     }
 
-    public override void HandleInput() {
-        base.HandleInput();
+    public override void HandleKeyBoardInput()
+    {
         if (Input.GetKeyDown(KeyCode.C))
         {
             character.ChangeState(new WalkingState(character));
@@ -20,5 +22,5 @@ public class CrouchWalkingState : CharacterState {
             character.ChangeState(new CrouchIdleState(character));
         }
     }
-    public override void Jump() {}
+    public override void Jump() { }
 }
