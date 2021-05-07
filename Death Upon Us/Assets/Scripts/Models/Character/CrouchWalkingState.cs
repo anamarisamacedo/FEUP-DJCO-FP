@@ -10,14 +10,15 @@ public class CrouchWalkingState : CharacterState
         character.transform.position += character.transform.forward * Time.deltaTime * CrouchSpeed;
     }
 
-    public override void HandleKeyBoardInput()
+    public override void HandleKeyboardInput()
     {
+        base.HandleKeyboardInput();
+
         if (Input.GetKeyDown(KeyCode.C))
         {
             character.ChangeState(new WalkingState(character));
         }
-
-        if (!Input.GetKey(KeyCode.W))
+        else if (!Input.GetKey(KeyCode.W))
         {
             character.ChangeState(new CrouchIdleState(character));
         }

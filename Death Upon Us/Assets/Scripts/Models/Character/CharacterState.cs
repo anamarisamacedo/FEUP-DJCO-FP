@@ -11,16 +11,27 @@ public abstract class CharacterState
     {
         this.character = character;
     }
+
     public virtual void MoveForward() { }
     public virtual void Jump() { } // TODO
 
     public void HandleInput()
     {
         HandleMouseInput();
-        HandleKeyBoardInput();
+        HandleKeyboardInput();
     }
 
-    public virtual void HandleKeyBoardInput() { }
+    public virtual void HandleKeyboardInput()
+    {
+        if (Input.GetKey(KeyCode.A))
+        {
+            character.rotateDirection = -1;
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            character.rotateDirection = 1;
+        }
+    }
 
     public virtual void HandleMouseInput()
     {

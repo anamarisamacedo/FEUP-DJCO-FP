@@ -10,8 +10,10 @@ public class RunningState : CharacterState
         character.transform.position += character.transform.forward * Time.deltaTime * RunningSpeed;
     }
 
-    public override void HandleKeyBoardInput()
+    public override void HandleKeyboardInput()
     {
+        base.HandleKeyboardInput();
+
         if (!Input.GetKey(KeyCode.W))
         {
             character.ChangeState(new IdleState(character));

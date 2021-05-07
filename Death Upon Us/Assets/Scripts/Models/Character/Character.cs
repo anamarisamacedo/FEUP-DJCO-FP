@@ -11,7 +11,7 @@ public class Character : MonoBehaviour
 
     private CharacterState state;
     private Inventory inventory;
-    [SerializeField] private UI_Inventory uiInventory;
+    [SerializeField] private UI_Inventory uiInventory; // TODO
 
     public Character() : base() {}
 
