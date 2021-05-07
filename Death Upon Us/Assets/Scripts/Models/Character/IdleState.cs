@@ -4,8 +4,10 @@ public class IdleState : CharacterState
 {
     public IdleState(Character character) : base(character) { }
 
-    public override void HandleKeyBoardInput()
+    public override void HandleKeyboardInput()
     {
+        base.HandleKeyboardInput();
+
         if (Input.GetKeyDown(KeyCode.C))
         {
             character.ChangeState(new CrouchIdleState(character));
