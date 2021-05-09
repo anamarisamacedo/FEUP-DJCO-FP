@@ -9,38 +9,36 @@ public class Health : MonoBehaviour
 	public Gradient gradient;
 	public Image fill;
 
-	private int healthValue;
+	private int value;
 
 	private void Start() {
-		SetMaxHealth(100);
+		SetMaxValue(100);
 	}
 
 	/// <summary>
     /// Sets the max health value to be taken into account in the slider range.
     /// </summary>
-	public void SetMaxHealth(int health)
+	public void SetMaxValue(int value)
 	{
-		slider.maxValue = health;
-		slider.value = health;
+		slider.maxValue = value;
+		slider.value = value;
 
 		fill.color = gradient.Evaluate(1f);
-		healthValue = health;
+		this.value = value;
 	}
 
 	/// <summary>
     /// Sets the current value of the slider.
     /// </summary>
-    public void UpdateHealthUI()
+    public void UpdateUI()
 	{
-		slider.value = healthValue;
+		slider.value = value;
 		fill.color = gradient.Evaluate(slider.normalizedValue);
 	}
 
-    public void ChangeHealth(int healthDelta)
+    public void ChangeValue(int deltaValue)
 	{
-		Debug.Log(healthValue);
-		healthValue += healthDelta;
-		Debug.Log(healthValue);
-		UpdateHealthUI();
+		value += deltaValue;
+		UpdateUI();
 	}
 }

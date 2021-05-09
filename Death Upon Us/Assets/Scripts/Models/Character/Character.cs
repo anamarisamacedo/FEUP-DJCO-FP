@@ -46,11 +46,11 @@ public class Character : MonoBehaviour
     }
 
     public void TakeDamage(int value) {
-        hp.ChangeHealth(-value);
+        hp.ChangeValue(-value);
     }
 
     public void Heal(int value) {
-        hp.ChangeHealth(value);
+        hp.ChangeValue(value);
     }
 
     private void OnCollisionStay()
