@@ -14,7 +14,6 @@ public class Monster : MonoBehaviour
         {
             MoveRandomly();
         }
-
     }
 
     public bool FollowPlayer()

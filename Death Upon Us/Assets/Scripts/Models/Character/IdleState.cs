@@ -10,6 +10,7 @@ public class IdleState : CharacterState
 
         if (Input.GetKeyDown(KeyCode.C))
         {
+            character.TakeDamage(10);
             character.ChangeState(new CrouchIdleState(character));
         }
         else if (Input.GetKey(KeyCode.W))
