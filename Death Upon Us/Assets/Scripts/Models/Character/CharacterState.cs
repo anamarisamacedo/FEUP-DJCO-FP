@@ -25,10 +25,12 @@ public abstract class CharacterState
     {
         if (Input.GetKey(KeyCode.A))
         {
+            character.TakeDamage(1); // Testing purposes
             character.rotateDirection = -1;
         }
         else if (Input.GetKey(KeyCode.D))
         {
+            character.IncreaseHunger(1); // Testing purposes
             character.rotateDirection = 1;
         }
     }
