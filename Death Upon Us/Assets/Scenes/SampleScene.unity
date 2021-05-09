@@ -858,7 +858,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: ac283bb29e65af344bd3b8eeb3e14129, type: 3}
     - target: {fileID: 995239621481668244, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
       propertyPath: m_Name
-      value: Health bar (1)
+      value: Health bar
       objectReference: {fileID: 0}
     - target: {fileID: 995239621481668251, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
       propertyPath: m_Pivot.x
@@ -1114,16 +1114,16 @@ MonoBehaviour:
   slider: {fileID: 922689208}
   gradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0.9481828, b: 0.94350326, a: 1}
-    key1: {r: 1, g: 0.082828775, b: 0, a: 1}
+    key0: {r: 0.6037736, g: 0.507076, b: 0.498398, a: 1}
+    key1: {r: 0.64982116, g: 0.24150053, b: 0.764151, a: 1}
     key2: {r: 1, g: 1, b: 1, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
+    ctime0: 771
+    ctime1: 64186
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -1131,7 +1131,7 @@ MonoBehaviour:
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 63222
+    atime1: 10216
     atime2: 0
     atime3: 0
     atime4: 0
@@ -2243,7 +2243,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: ac283bb29e65af344bd3b8eeb3e14129, type: 3}
     - target: {fileID: 995239621481668244, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
       propertyPath: m_Name
-      value: Health bar (2)
+      value: Hunger bar
       objectReference: {fileID: 0}
     - target: {fileID: 995239621481668251, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
       propertyPath: m_Pivot.x
@@ -2348,7 +2348,7 @@ PrefabInstance:
     - target: {fileID: 995239622186571636, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 756cfcb292ab7c44ca34de80f32daaa6, type: 3}
+      objectReference: {fileID: 21300000, guid: 3e7be7006b38fe643b45ef649378547c, type: 3}
     - target: {fileID: 995239622186571637, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
       propertyPath: m_SizeDelta.x
       value: 61.6453
