@@ -13,6 +13,7 @@ public class Character : MonoBehaviour
     private Inventory inventory;
     [SerializeField] private UI_Inventory uiInventory; // TODO
     [SerializeField] private Health hp;
+    [SerializeField] private Hunger hunger;
 
     public Character() : base() {}
 
@@ -51,6 +52,10 @@ public class Character : MonoBehaviour
 
     public void Heal(int value) {
         hp.ChangeValue(value);
+    }
+
+    public void IncreaseHunger(int value) {
+        hunger.ChangeValue(-value);
     }
 
     private void OnCollisionStay()
