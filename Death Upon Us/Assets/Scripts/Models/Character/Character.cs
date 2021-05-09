@@ -12,6 +12,7 @@ public class Character : MonoBehaviour
     private CharacterState state;
     private Inventory inventory;
     [SerializeField] private UI_Inventory uiInventory; // TODO
+    [SerializeField] private Health hp;
 
     public Character() : base() {}
 
@@ -42,6 +43,14 @@ public class Character : MonoBehaviour
     private void Rotate()
     {
         transform.Rotate(Vector3.up * RotationSpeed * rotateDirection);
+    }
+
+    public void TakeDamage(int value) {
+        hp.ChangeHealth(-value);
+    }
+
+    public void Heal(int value) {
+        hp.ChangeHealth(value);
     }
 
     private void OnCollisionStay()
