@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Bar : MonoBehaviour
+public abstract class Bar : MonoBehaviour
 {
 	public Slider slider;
 	public Gradient gradient;
@@ -29,10 +29,7 @@ public class Bar : MonoBehaviour
 
 	public void ChangeValue(int deltaValue)
 	{
-		Debug.Log(value);
 		value += deltaValue;
-		Debug.Log(value);
-
 		UpdateUI();
 	}
 
