@@ -23,13 +23,18 @@ public class CharactersSwitch : MonoBehaviour
             //girl character
             if (currentCharacter == 0){
                 girl.GetComponent<Character>().enabled = false;
+                girl.GetComponentInChildren<Camera>().enabled = false;
                 boy.GetComponent<Character>().enabled = true;
+                boy.GetComponentInChildren<Camera>().enabled = true;
+
                 // change camera
             }
             //boy character
             else{
                 boy.GetComponent<Character>().enabled = false;
+                boy.GetComponentInChildren<Camera>().enabled = false;
                 girl.GetComponent<Character>().enabled = true;
+                girl.GetComponentInChildren<Camera>().enabled = true;
                 // change camera
             }
         }
