@@ -7,7 +7,9 @@ public class Inventory
 {
 
     public event EventHandler OnItemListChanged;
-    public List<Item> itemList;
+    public event EventHandler OnItemSelected;
+    private List<Item> itemList;
+    private int selectedItem = -1;
 
     public Inventory()
     {
@@ -38,8 +40,19 @@ public class Inventory
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
 
+    public void SelectItem(int position)
+    {
+        selectedItem = position > itemList.Count ? -1 : position;
+        OnItemSelected?.Invoke(this, EventArgs.Empty);
+    }
+
     public List<Item> GetItemList()
     {
         return itemList;
+    }
+
+    public int GetSelectedItem()
+    {
+        return selectedItem;
     }
 }

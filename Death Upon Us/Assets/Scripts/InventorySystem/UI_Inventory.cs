@@ -10,11 +10,13 @@ public class UI_Inventory : MonoBehaviour
     private Inventory inventory;
     private Transform itemSlotContainer;
     private Transform itemSlotTemplate;
+    private List<RectTransform> inventoryItemsUI;
 
     private void Awake()
     {
         itemSlotContainer = transform.Find("itemSlotContainer");
         itemSlotTemplate = itemSlotContainer.Find("itemSlotTemplate");
+        inventoryItemsUI = new List<RectTransform>();
     }
 
     public void SetInventory(Inventory inventory)
@@ -22,6 +24,7 @@ public class UI_Inventory : MonoBehaviour
         this.inventory = inventory;
 
         inventory.OnItemListChanged += Inventory_OnItemListChanged;
+        inventory.OnItemSelected += Inventory_OnItemSelected;
         RefreshInventoryItems();
     }
 
@@ -40,6 +43,7 @@ public class UI_Inventory : MonoBehaviour
 
         int x = 0;
         float itemSlotCellSize = 95f;
+        inventoryItemsUI.Clear();
         foreach (Item item in inventory.GetItemList())
         {
             RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
@@ -51,7 +55,23 @@ public class UI_Inventory : MonoBehaviour
 
             TextMeshProUGUI uiText = itemSlotRectTransform.Find("amountText").GetComponent<TextMeshProUGUI>();
             uiText.SetText(item.amount.ToString());
+
+            inventoryItemsUI.Add(itemSlotRectTransform);
+
             x++;
+
+            item.position = x;
+        }
+    }
+
+    private void Inventory_OnItemSelected(object sender, System.EventArgs e)
+    {
+        RefreshInventoryItems();
+        int selectedItem = inventory.GetSelectedItem();
+        if (selectedItem > 0)
+        {   
+            RectTransform itemUI = inventoryItemsUI[selectedItem-1];
+            itemUI.Find("amountText").GetComponent<TextMeshProUGUI>().SetText("90");
         }
     }
 }

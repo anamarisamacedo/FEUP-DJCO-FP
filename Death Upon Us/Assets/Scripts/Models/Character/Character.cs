@@ -81,4 +81,9 @@ public class Character : MonoBehaviour
             worldItem.DestroySelf();
         }
     }
+    
+    public Inventory GetInventory()
+    {
+        return inventory;
+    }
 }
