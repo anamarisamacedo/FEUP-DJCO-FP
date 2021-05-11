@@ -58,6 +58,11 @@ public class UI_Inventory : MonoBehaviour
 
             inventoryItemsUI.Add(itemSlotRectTransform);
 
+            if (item.position == inventory.GetSelectedItem())
+            {
+                itemSlotRectTransform.Find("border").gameObject.SetActive(true);
+            }
+
             x++;
 
             item.position = x;
@@ -71,7 +76,7 @@ public class UI_Inventory : MonoBehaviour
         if (selectedItem > 0)
         {   
             RectTransform itemUI = inventoryItemsUI[selectedItem-1];
-            itemUI.Find("amountText").GetComponent<TextMeshProUGUI>().SetText("90");
+            itemUI.Find("border").gameObject.SetActive(true);
         }
     }
 }
