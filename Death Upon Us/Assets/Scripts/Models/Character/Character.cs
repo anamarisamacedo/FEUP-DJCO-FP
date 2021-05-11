@@ -6,23 +6,23 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
-    private Rigidbody rigidBody;
-    private float movementSpeed;
-    private int rotateDirection;
-    private bool isGrounded;
-    private bool isMoving;
-    private bool isRunning;
-    private bool isCrouched;
+    public Rigidbody rigidBody;
+    public int rotateDirection;
+    public bool isGrounded;
+
+    private CharacterState state;
     private Inventory inventory;
-    [SerializeField] private UI_Inventory uiInventory;
+    [SerializeField] private UI_Inventory uiInventory; // TODO
+    [SerializeField] private Health hp;
+    [SerializeField] private Hunger hunger;
     public Text textElement;
     public string message;
 
+    public Character() : base() { }
+
     private void Start()
     {
-        isMoving = false;
-        isRunning = false;
-        isCrouched = false;
+        state = new IdleState(this);
         rigidBody = GetComponent<Rigidbody>();
         inventory = new Inventory();
         uiInventory.SetInventory(inventory);
@@ -30,75 +30,20 @@ public class Character : MonoBehaviour
 
     private void Update()
     {
-        HandleInput();
-        UpdateMovementSpeed();
+        state.HandleInput();
         textElement.text = message;
     }
+
     private void FixedUpdate()
     {
-        MoveForward();
+        state.MoveForward();
+        state.Jump();
         Rotate();
     }
 
-    private void HandleInput()
+    public void ChangeState(CharacterState state)
     {
-        float mouseDelta = Input.GetAxis("Mouse X");
-        if (mouseDelta != 0)
-        {
-            rotateDirection = (mouseDelta < 0 ? -1 : 1);
-        }
-        else
-        {
-            rotateDirection = 0;
-        }
-
-        if (Input.GetButton("Vertical"))
-        {
-            isMoving = true;
-        }
-        else
-        {
-            isMoving = false;
-        }
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            isRunning = true;
-        }
-        else
-        {
-            isRunning = false;
-        }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            isCrouched = !isCrouched;
-        }
-    }
-
-    private void UpdateMovementSpeed()
-    {
-        if (isCrouched)
-        {
-            movementSpeed = CrouchSpeed;
-        }
-        else if (isRunning)
-        {
-            movementSpeed = RunningSpeed;
-        }
-        else
-        {
-            movementSpeed = WalkingSpeed;
-        }
-    }
-
-
-    private void MoveForward()
-    {
-        if (isMoving)
-        {
-
-            transform.position += transform.forward * Time.deltaTime * movementSpeed;
-        }
+        this.state = state;
     }
 
     private void Rotate()
@@ -106,12 +51,19 @@ public class Character : MonoBehaviour
         transform.Rotate(Vector3.up * RotationSpeed * rotateDirection);
     }
 
-    private void Jump()
+    public void TakeDamage(int value)
     {
-        if (isGrounded)
-        {
-            rigidBody.velocity = Vector3.up * JumpForce;
-        }
+        hp.ChangeValue(-value);
+    }
+
+    public void Heal(int value)
+    {
+        hp.ChangeValue(value);
+    }
+
+    public void IncreaseHunger(int value)
+    {
+        hunger.ChangeValue(-value);
     }
 
     private void OnCollisionStay()
@@ -133,6 +85,7 @@ public class Character : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
+
         if (collider.CompareTag("House1"))
         {
             List<Item> items = inventory.GetItemList();
