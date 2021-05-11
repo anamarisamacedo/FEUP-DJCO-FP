@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static utils.Configs;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class Character : MonoBehaviour
     private bool isCrouched;
     private Inventory inventory;
     [SerializeField] private UI_Inventory uiInventory;
+    public Text textElement;
+    public string message;
 
     private void Start()
     {
@@ -29,6 +32,7 @@ public class Character : MonoBehaviour
     {
         HandleInput();
         UpdateMovementSpeed();
+        textElement.text = message;
     }
     private void FixedUpdate()
     {
@@ -120,13 +124,49 @@ public class Character : MonoBehaviour
         isGrounded = false;
     }
 
+    IEnumerator displayMessage(string new_message)
+    {
+        message = new_message;
+        yield return new WaitForSeconds(3);
+        message = "";
+    }
+
     private void OnTriggerEnter(Collider collider)
     {
+        if (collider.CompareTag("House1"))
+        {
+            List<Item> items = inventory.GetItemList();
+            if (inventory.GetKeysAmount() >= 3)
+            {
+                HouseDoor houseDoor = collider.GetComponent<HouseDoor>();
+                if (houseDoor != null)
+                {
+                    houseDoor.openDoor();
+                }
+            }
+            else
+            {
+                StartCoroutine(displayMessage("Door is locked..."));
+            }
+        }
+
         WorldItem worldItem = collider.GetComponent<WorldItem>();
         if (worldItem != null)
         {
             inventory.AddItem(worldItem.GetItem());
             worldItem.DestroySelf();
+        }
+    }
+
+    private void OnTriggerExit(Collider collider)
+    {
+        if (collider.CompareTag("House1"))
+        {
+            HouseDoor houseDoor = collider.GetComponent<HouseDoor>();
+            if (houseDoor != null)
+            {
+                houseDoor.closeDoor();
+            }
         }
     }
 }

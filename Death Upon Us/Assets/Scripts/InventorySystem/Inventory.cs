@@ -42,4 +42,17 @@ public class Inventory
     {
         return itemList;
     }
+
+    public int GetKeysAmount()
+    {
+        foreach (Item inventoryItem in itemList)
+        {
+            if (inventoryItem.itemType == Item.ItemType.Key)
+            {
+                return inventoryItem.getAmount();
+            }
+        }
+
+        return 0;
+    }
 }
