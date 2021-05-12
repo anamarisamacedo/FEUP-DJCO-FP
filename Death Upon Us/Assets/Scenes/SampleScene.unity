@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 354283757}
   - component: {fileID: 354283759}
   - component: {fileID: 354283758}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 470231395}
   - component: {fileID: 470231394}
   - component: {fileID: 470231393}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,6 +425,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GirlCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 997b9fb347276c94b9bd416d18c47194, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 997b9fb347276c94b9bd416d18c47194, type: 3}
 --- !u!1 &516794254
@@ -438,7 +442,7 @@ GameObject:
   - component: {fileID: 516794255}
   - component: {fileID: 516794257}
   - component: {fileID: 516794256}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,7 +517,7 @@ GameObject:
   - component: {fileID: 628374131}
   - component: {fileID: 628374133}
   - component: {fileID: 628374132}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -743,8 +747,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 0}
+  capsuleCollider: {fileID: 0}
   rotateDirection: 0
   isGrounded: 0
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 1
   uiInventory: {fileID: 1074371054}
   hp: {fileID: 1702287074}
   hunger: {fileID: 922689207}
@@ -819,6 +827,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 470231392}
     m_Modifications:
+    - target: {fileID: 995239621231826297, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 995239621231826303, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -826,6 +838,10 @@ PrefabInstance:
     - target: {fileID: 995239621481668244, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
       propertyPath: m_Name
       value: Health bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 995239621481668244, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 995239621481668251, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
       propertyPath: m_Pivot.x
@@ -927,6 +943,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 995239622063720946, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 995239622186571636, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -942,6 +962,10 @@ PrefabInstance:
     - target: {fileID: 995239622186571637, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 995239622186571638, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8090544179239725206, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
@@ -1026,7 +1050,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1194,7 +1218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1074371053}
   - component: {fileID: 1074371054}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: UI_Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1308,7 +1332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1206253582}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: itemSlotTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1347,7 +1371,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1206827546}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: itemSlotContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1580,7 +1604,7 @@ GameObject:
   - component: {fileID: 1738395896}
   - component: {fileID: 1738395898}
   - component: {fileID: 1738395897}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: amountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1719,7 +1743,7 @@ GameObject:
   - component: {fileID: 1937439717}
   - component: {fileID: 1937439719}
   - component: {fileID: 1937439718}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1790,6 +1814,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 470231392}
     m_Modifications:
+    - target: {fileID: 995239621231826297, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 995239621231826303, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1797,6 +1825,10 @@ PrefabInstance:
     - target: {fileID: 995239621481668244, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
       propertyPath: m_Name
       value: Hunger bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 995239621481668244, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 995239621481668251, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
       propertyPath: m_Pivot.x
@@ -1898,6 +1930,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 995239622063720946, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 995239622186571636, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1913,6 +1949,10 @@ PrefabInstance:
     - target: {fileID: 995239622186571637, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 995239622186571638, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8090544179239725206, guid: 8ac3aacf10d9c3b46959a2c6b3e21f55, type: 3}

@@ -6,8 +6,10 @@ using static utils.Configs;
 public class Character : MonoBehaviour
 {
     public Rigidbody rigidBody;
+    public CapsuleCollider capsuleCollider;
     public int rotateDirection;
     public bool isGrounded;
+    public LayerMask groundLayers;
 
     private CharacterState state;
     private Inventory inventory;
@@ -21,6 +23,7 @@ public class Character : MonoBehaviour
     {
         state = new IdleState(this);
         rigidBody = GetComponent<Rigidbody>();
+        capsuleCollider = GetComponent<CapsuleCollider>();
         inventory = new Inventory();
         uiInventory.SetInventory(inventory);
     }
@@ -33,7 +36,6 @@ public class Character : MonoBehaviour
     private void FixedUpdate()
     {
         state.MoveForward();
-        state.Jump();
         Rotate();
     }
 

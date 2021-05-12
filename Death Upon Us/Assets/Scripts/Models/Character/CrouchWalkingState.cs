@@ -23,5 +23,4 @@ public class CrouchWalkingState : CharacterState
             character.ChangeState(new CrouchIdleState(character));
         }
     }
-    public override void Jump() { }
 }

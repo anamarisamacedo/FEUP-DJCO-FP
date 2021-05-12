@@ -12,8 +12,23 @@ public abstract class CharacterState
         this.character = character;
     }
 
+    public float jumpForce = 7f;
     public virtual void MoveForward() { }
-    public virtual void Jump() { } // TODO
+    public void Jump() 
+    { 
+        if (IsGrounded())
+        {
+            character.rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+        }
+    }
+
+    private bool IsGrounded()
+    {
+        CapsuleCollider col = character.capsuleCollider;
+        return Physics.CheckCapsule(col.bounds.center, new Vector3(col.bounds.center.x, col.bounds.min.y, col.bounds.center.z), col.radius * 0.9f, 
+            character.groundLayers);
+    }
 
     public void HandleInput()
     {
@@ -32,6 +47,10 @@ public abstract class CharacterState
         {
             character.IncreaseHunger(1); // Testing purposes
             character.rotateDirection = 1;
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
         }
         else if (Input.GetKey(KeyCode.Alpha1))
         {
