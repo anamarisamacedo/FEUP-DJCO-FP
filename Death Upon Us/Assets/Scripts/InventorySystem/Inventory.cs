@@ -44,6 +44,11 @@ public class Inventory
         selectedItem = position > itemList.Count ? -1 : position;
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
+    public void RemoveItemType(Item.ItemType type)
+    {
+        itemList.RemoveAll(item => item.itemType == type);
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
+    }
 
     public List<Item> GetItemList()
     {
@@ -54,7 +59,6 @@ public class Inventory
     {
         return selectedItem;
     }
-
     public void UseItem()
     {
         if (selectedItem == -1) return;
@@ -89,5 +93,17 @@ public class Inventory
 
             OnItemListChanged?.Invoke(this, EventArgs.Empty);
         }
+    }
+    public int GetItemAmount(Item.ItemType type)
+    {
+        foreach (Item inventoryItem in itemList)
+        {
+            if (inventoryItem.itemType == type)
+            {
+                return inventoryItem.getAmount();
+            }
+        }
+
+        return 0;
     }
 }
