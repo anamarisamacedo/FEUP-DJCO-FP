@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static utils.Configs;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class Character : MonoBehaviour
     [SerializeField] private UI_Inventory uiInventory; // TODO
     [SerializeField] private Health hp;
     [SerializeField] private Hunger hunger;
+    public Text textElement;
+    public string message;
+    bool hasKeysHouse1 = false;
 
     public Character() : base() { }
 
@@ -28,6 +32,7 @@ public class Character : MonoBehaviour
     private void Update()
     {
         state.HandleInput();
+        textElement.text = message;
     }
 
     private void FixedUpdate()
@@ -72,13 +77,53 @@ public class Character : MonoBehaviour
         isGrounded = false;
     }
 
+    IEnumerator displayMessage(string new_message)
+    {
+        message = new_message;
+        yield return new WaitForSeconds(3);
+        message = "";
+    }
+
     private void OnTriggerEnter(Collider collider)
     {
+
+        if (collider.CompareTag("House1"))
+        {
+            if (inventory.GetItemAmount(Item.ItemType.KeyHouse1) >= 3)
+            {
+                hasKeysHouse1 = true;
+                inventory.RemoveItemType(Item.ItemType.KeyHouse1);
+            }
+            if(hasKeysHouse1 == true) { 
+                HouseDoor houseDoor = collider.GetComponent<HouseDoor>();
+                if (houseDoor != null)
+                {
+                    houseDoor.openDoor();
+                }
+            }
+            else { 
+                StartCoroutine(displayMessage("Door is locked..."));
+            }
+        }
+
         WorldItem worldItem = collider.GetComponent<WorldItem>();
         if (worldItem != null)
         {
             inventory.AddItem(worldItem.GetItem());
             worldItem.DestroySelf();
+        }
+    }
+
+    
+    private void OnTriggerExit(Collider collider)
+    {
+        if (collider.CompareTag("House1"))
+        {
+            HouseDoor houseDoor = collider.GetComponent<HouseDoor>();
+            if (houseDoor != null)
+            {
+                houseDoor.closeDoor();
+            }
         }
     }
 }
