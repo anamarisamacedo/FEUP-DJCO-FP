@@ -19,6 +19,7 @@ public class Item
 
     public ItemType itemType;
     public int amount;
+    public int position;
 
     public Sprite GetSprite()
     {
@@ -44,6 +45,22 @@ public class Item
         }
     }
 
+    public bool IsUsable()
+    {
+        switch (itemType)
+        {
+            default:
+            case ItemType.Knife: 
+            case ItemType.Arrows: 
+                return false;
+            case ItemType.Bow: 
+            case ItemType.Medkit:
+            case ItemType.BlueMonsterDrop: 
+            case ItemType.OrangeMonsterDrop: 
+            case ItemType.PurpleMonsterDrop: 
+                return true;
+        }
+    }
     public int getAmount()
     {
         return amount;

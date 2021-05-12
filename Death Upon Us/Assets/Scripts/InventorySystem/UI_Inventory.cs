@@ -10,11 +10,13 @@ public class UI_Inventory : MonoBehaviour
     private Inventory inventory;
     private Transform itemSlotContainer;
     private Transform itemSlotTemplate;
+    private List<RectTransform> inventoryItemsUI;
 
     private void Awake()
     {
         itemSlotContainer = transform.Find("itemSlotContainer");
         itemSlotTemplate = itemSlotContainer.Find("itemSlotTemplate");
+        inventoryItemsUI = new List<RectTransform>();
     }
 
     public void SetInventory(Inventory inventory)
@@ -40,6 +42,7 @@ public class UI_Inventory : MonoBehaviour
 
         int x = 0;
         float itemSlotCellSize = 95f;
+        inventoryItemsUI.Clear();
         foreach (Item item in inventory.GetItemList())
         {
             RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
@@ -51,7 +54,17 @@ public class UI_Inventory : MonoBehaviour
 
             TextMeshProUGUI uiText = itemSlotRectTransform.Find("amountText").GetComponent<TextMeshProUGUI>();
             uiText.SetText(item.amount.ToString());
+
+            inventoryItemsUI.Add(itemSlotRectTransform);
+
+            if (item.position == inventory.GetSelectedItem())
+            {
+                itemSlotRectTransform.Find("border").gameObject.SetActive(true);
+            }
+
             x++;
+
+            item.position = x;
         }
     }
 }
