@@ -88,18 +88,20 @@ public class Character : MonoBehaviour
     {
 
         if (collider.CompareTag("House1"))
-        {           
+        {
             if (inventory.GetItemAmount(Item.ItemType.KeyHouse1) >= 3)
             {
                 hasKeysHouse1 = true;
+                inventory.RemoveItemType(Item.ItemType.KeyHouse1);
+            }
+            if(hasKeysHouse1 == true) { 
                 HouseDoor houseDoor = collider.GetComponent<HouseDoor>();
                 if (houseDoor != null)
                 {
                     houseDoor.openDoor();
-                    inventory.RemoveItemType(Item.ItemType.KeyHouse1);
                 }
             }
-            if(hasKeysHouse1 == false){
+            else { 
                 StartCoroutine(displayMessage("Door is locked..."));
             }
         }
@@ -112,7 +114,7 @@ public class Character : MonoBehaviour
         }
     }
 
-    /*
+    
     private void OnTriggerExit(Collider collider)
     {
         if (collider.CompareTag("House1"))
@@ -123,5 +125,5 @@ public class Character : MonoBehaviour
                 houseDoor.closeDoor();
             }
         }
-    }*/
+    }
 }
