@@ -82,5 +82,10 @@ public abstract class CharacterState
         {
             character.rotateDirection = 0;
         }
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            character.GetInventory().UseItem();
+        }
     }
 }

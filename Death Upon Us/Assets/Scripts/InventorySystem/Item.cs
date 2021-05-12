@@ -42,4 +42,21 @@ public class Item
         }
     }
 
+    public bool IsUsable()
+    {
+        switch (itemType)
+        {
+            default:
+            case ItemType.Knife: 
+            case ItemType.Arrows: 
+                return false;
+            case ItemType.Bow: 
+            case ItemType.Medkit:
+            case ItemType.BlueMonsterDrop: 
+            case ItemType.OrangeMonsterDrop: 
+            case ItemType.PurpleMonsterDrop: 
+                return true;
+        }
+    }
+
 }

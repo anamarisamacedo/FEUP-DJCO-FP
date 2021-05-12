@@ -24,7 +24,6 @@ public class UI_Inventory : MonoBehaviour
         this.inventory = inventory;
 
         inventory.OnItemListChanged += Inventory_OnItemListChanged;
-        inventory.OnItemSelected += Inventory_OnItemSelected;
         RefreshInventoryItems();
     }
 
@@ -66,17 +65,6 @@ public class UI_Inventory : MonoBehaviour
             x++;
 
             item.position = x;
-        }
-    }
-
-    private void Inventory_OnItemSelected(object sender, System.EventArgs e)
-    {
-        RefreshInventoryItems();
-        int selectedItem = inventory.GetSelectedItem();
-        if (selectedItem > 0)
-        {   
-            RectTransform itemUI = inventoryItemsUI[selectedItem-1];
-            itemUI.Find("border").gameObject.SetActive(true);
         }
     }
 }

@@ -7,7 +7,6 @@ public class Inventory
 {
 
     public event EventHandler OnItemListChanged;
-    public event EventHandler OnItemSelected;
     private List<Item> itemList;
     private int selectedItem = -1;
 
@@ -43,7 +42,7 @@ public class Inventory
     public void SelectItem(int position)
     {
         selectedItem = position > itemList.Count ? -1 : position;
-        OnItemSelected?.Invoke(this, EventArgs.Empty);
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public List<Item> GetItemList()
@@ -54,5 +53,41 @@ public class Inventory
     public int GetSelectedItem()
     {
         return selectedItem;
+    }
+
+    public void UseItem()
+    {
+        if (selectedItem == -1) return;
+
+        Item itemToUse = itemList[selectedItem-1];
+
+        if (itemToUse.IsUsable())
+        {
+            if (itemToUse.itemType == Item.ItemType.Bow)
+            {
+                bool hasArrows = false;
+                foreach (Item item in itemList)
+                {
+                    if (item.itemType == Item.ItemType.Arrows)
+                    {
+                        itemToUse = item;
+                        hasArrows = true;
+                    }
+                }
+                if (!hasArrows) return;
+            }
+
+            if (itemToUse.amount == 1)
+            {
+                itemList.Remove(itemToUse);
+                selectedItem = -1;
+            }
+            else
+            {
+                itemToUse.amount -= 1;
+            }
+
+            OnItemListChanged?.Invoke(this, EventArgs.Empty);
+        }
     }
 }
