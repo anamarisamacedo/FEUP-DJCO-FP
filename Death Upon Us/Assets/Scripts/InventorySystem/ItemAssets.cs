@@ -18,5 +18,5 @@ public class ItemAssets : MonoBehaviour
     public Sprite blueMonsterDropSprite;
     public Sprite orangeMonsterDropSprite;
     public Sprite purpleMonsterDropSprite;
-
+    public Sprite keySprite;
 }

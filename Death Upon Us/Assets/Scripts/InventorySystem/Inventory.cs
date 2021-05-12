@@ -38,8 +38,27 @@ public class Inventory
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
 
+    public void RemoveItemType(Item.ItemType type)
+    {
+        itemList.RemoveAll(item => item.itemType == type);
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
+    }
+
     public List<Item> GetItemList()
     {
         return itemList;
+    }
+
+    public int GetItemAmount(Item.ItemType type)
+    {
+        foreach (Item inventoryItem in itemList)
+        {
+            if (inventoryItem.itemType == type)
+            {
+                return inventoryItem.getAmount();
+            }
+        }
+
+        return 0;
     }
 }
