@@ -12,8 +12,10 @@ public class Character : MonoBehaviour
     private CharacterState state;
     private Inventory inventory;
     [SerializeField] private UI_Inventory uiInventory; // TODO
+    [SerializeField] private Health hp;
+    [SerializeField] private Hunger hunger;
 
-    public Character() : base() {}
+    public Character() : base() { }
 
     private void Start()
     {
@@ -27,7 +29,7 @@ public class Character : MonoBehaviour
     {
         state.HandleInput();
     }
-    
+
     private void FixedUpdate()
     {
         state.MoveForward();
@@ -35,13 +37,29 @@ public class Character : MonoBehaviour
         Rotate();
     }
 
-    public void ChangeState(CharacterState state) {
+    public void ChangeState(CharacterState state)
+    {
         this.state = state;
     }
-    
+
     private void Rotate()
     {
         transform.Rotate(Vector3.up * RotationSpeed * rotateDirection);
+    }
+
+    public void TakeDamage(int value)
+    {
+        hp.ChangeValue(-value);
+    }
+
+    public void Heal(int value)
+    {
+        hp.ChangeValue(value);
+    }
+
+    public void IncreaseHunger(int value)
+    {
+        hunger.ChangeValue(-value);
     }
 
     private void OnCollisionStay()
