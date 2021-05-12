@@ -258,7 +258,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &339505473 stripped
 MonoBehaviour:
@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 486741328}
   - component: {fileID: 486741331}
   m_Layer: 0
-  m_Name: Key
+  m_Name: Key 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -512,11 +512,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 486741326}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 765.2053, y: 1.2854979, z: 322.5422}
+  m_LocalPosition: {x: -0.16320801, y: -1.0545022, z: 6.4070435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 1707822438}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &486741328
 CapsuleCollider:
@@ -593,7 +593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2708d2b7eb7dde45a174928e8eb5351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: key
+  itemType: keyHouse1
   amount: 1
 --- !u!1001 &513408928
 PrefabInstance:
@@ -620,7 +620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 997b9fb347276c94b9bd416d18c47194, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 989
+      value: 765
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 997b9fb347276c94b9bd416d18c47194, type: 3}
       propertyPath: m_LocalPosition.y
@@ -628,7 +628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 997b9fb347276c94b9bd416d18c47194, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 500
+      value: 320
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 997b9fb347276c94b9bd416d18c47194, type: 3}
       propertyPath: m_LocalRotation.w
@@ -864,7 +864,7 @@ Transform:
   - {fileID: 390490795}
   - {fileID: 1581987693}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &628374130
 GameObject:
@@ -1580,7 +1580,7 @@ GameObject:
   - component: {fileID: 940653005}
   - component: {fileID: 940653004}
   m_Layer: 0
-  m_Name: Key (2)
+  m_Name: Key 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1594,11 +1594,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 940653002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 768.2053, y: 1.2854979, z: 325.5422}
+  m_LocalPosition: {x: 2.836792, y: -1.0545022, z: 9.407043}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 1707822438}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &940653004
 MonoBehaviour:
@@ -1612,7 +1612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2708d2b7eb7dde45a174928e8eb5351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: key
+  itemType: keyHouse1
   amount: 1
 --- !u!136 &940653005
 CapsuleCollider:
@@ -2332,6 +2332,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1707822437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1707822438}
+  m_Layer: 0
+  m_Name: KeysHouse1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1707822438
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707822437}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 765.3685, y: 2.3400002, z: 316.13516}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 486741327}
+  - {fileID: 1764683588}
+  - {fileID: 940653003}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1738395895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2590,7 +2623,7 @@ GameObject:
   - component: {fileID: 1764683590}
   - component: {fileID: 1764683589}
   m_Layer: 0
-  m_Name: Key (1)
+  m_Name: Key 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2604,11 +2637,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1764683587}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 760, y: 1.2854979, z: 325}
+  m_LocalPosition: {x: -5.3685303, y: -1.0545022, z: 8.864838}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 1707822438}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1764683589
 MonoBehaviour:
@@ -2622,7 +2655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2708d2b7eb7dde45a174928e8eb5351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: key
+  itemType: keyHouse1
   amount: 1
 --- !u!136 &1764683590
 CapsuleCollider:
@@ -3035,7 +3068,6 @@ GameObject:
   - component: {fileID: 2074895928}
   - component: {fileID: 2074895930}
   - component: {fileID: 2074895929}
-  - component: {fileID: 2074895931}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -3055,9 +3087,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 540443318}
-  - {fileID: 2107700048}
   m_Father: {fileID: 2064226531}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 53.946667, z: 0}
 --- !u!95 &2074895929
 Animator:
@@ -3095,19 +3126,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &2074895931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2074895927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47e74605661f7d34192196e7e48b94ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myDoor: {fileID: 0}
 --- !u!1 &2107700047
 GameObject:
   m_ObjectHideFlags: 0
@@ -3136,11 +3154,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107700047}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.1782886, y: -1.4826, z: 1.4351683}
+  m_LocalPosition: {x: -0.44171143, y: 0.59739995, z: 6.155182}
   m_LocalScale: {x: 4.0212517, y: 1.5064371, z: 1.6726}
   m_Children: []
-  m_Father: {fileID: 2074895928}
-  m_RootOrder: 1
+  m_Father: {fileID: 2064226531}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2107700049
 MonoBehaviour:

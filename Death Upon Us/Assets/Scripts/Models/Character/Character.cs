@@ -17,6 +17,7 @@ public class Character : MonoBehaviour
     [SerializeField] private Hunger hunger;
     public Text textElement;
     public string message;
+    bool hasKeysHouse1 = false;
 
     public Character() : base() { }
 
@@ -87,18 +88,18 @@ public class Character : MonoBehaviour
     {
 
         if (collider.CompareTag("House1"))
-        {
-            List<Item> items = inventory.GetItemList();
-            if (inventory.GetKeysAmount() >= 3)
+        {           
+            if (inventory.GetItemAmount(Item.ItemType.KeyHouse1) >= 3)
             {
+                hasKeysHouse1 = true;
                 HouseDoor houseDoor = collider.GetComponent<HouseDoor>();
                 if (houseDoor != null)
                 {
                     houseDoor.openDoor();
+                    inventory.RemoveItemType(Item.ItemType.KeyHouse1);
                 }
             }
-            else
-            {
+            if(hasKeysHouse1 == false){
                 StartCoroutine(displayMessage("Door is locked..."));
             }
         }
@@ -111,6 +112,7 @@ public class Character : MonoBehaviour
         }
     }
 
+    /*
     private void OnTriggerExit(Collider collider)
     {
         if (collider.CompareTag("House1"))
@@ -121,5 +123,5 @@ public class Character : MonoBehaviour
                 houseDoor.closeDoor();
             }
         }
-    }
+    }*/
 }
