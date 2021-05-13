@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using static utils.Configs;
 using UnityEngine.UI;
 
@@ -21,6 +22,10 @@ public class Character : MonoBehaviour
     public Text textElement;
     public string message;
     bool hasKeysHouse1 = false;
+    public bool collideClue1 = false;
+    private float distance;
+    private float someDistance = 3f;
+    private GameObject clue;
 
     public Character() : base() { }
 
@@ -31,13 +36,24 @@ public class Character : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider>();
         inventory = new Inventory();
         uiInventory.SetInventory(inventory);
+        clue = GameObject.Find("Clipboard");
     }
 
     private void Update()
     {
         state.HandleInput();
         textElement.text = message;
+        
+        distance = Vector3.Distance(transform.position, clue.transform.position);
+        if (distance < someDistance)
+        {
+            if (clue.CompareTag("Clue1"))
+            {
+                collideClue1 = true;
+            }
+        }
     }
+
 
     private void FixedUpdate()
     {
@@ -82,17 +98,14 @@ public class Character : MonoBehaviour
         isGrounded = false;
     }
 
-    IEnumerator displayMessage(string new_message)
+    public void displayMessage(string new_message)
     {
         message = new_message;
-        yield return new WaitForSeconds(3);
-        message = "";
     }
 
     private void OnTriggerEnter(Collider collider)
     {
-
-        if (collider.CompareTag("House1"))
+            if (collider.CompareTag("House1"))
         {
             if (inventory.GetItemAmount(Item.ItemType.KeyHouse1) >= 3)
             {
@@ -107,8 +120,13 @@ public class Character : MonoBehaviour
                 }
             }
             else { 
-                StartCoroutine(displayMessage("Door is locked..."));
+                displayMessage("Door is locked...");
             }
+        }
+
+        if (collider.CompareTag("Clue1"))
+        {
+            displayMessage("Press R.");
         }
 
         WorldItem worldItem = collider.GetComponent<WorldItem>();
@@ -127,11 +145,17 @@ public class Character : MonoBehaviour
     {
         if (collider.CompareTag("House1"))
         {
+            displayMessage("");
             HouseDoor houseDoor = collider.GetComponent<HouseDoor>();
             if (houseDoor != null)
             {
                 houseDoor.closeDoor();
             }
+        }
+        if (collider.CompareTag("Clue1"))
+        {
+            collideClue1 = false;
+            displayMessage("");
         }
     }
 }
