@@ -14,9 +14,10 @@ public class Character : MonoBehaviour
 
     private CharacterState state;
     private Inventory inventory;
-    [SerializeField] private UI_Inventory uiInventory; // TODO
-    [SerializeField] private Health hp;
-    [SerializeField] private Hunger hunger;
+    [SerializeField] public UI_Inventory uiInventory; // TODO
+    [SerializeField] public Health hp;
+    [SerializeField] public Hunger hunger;
+    [SerializeField] public BloodEffect blood;
     public Text textElement;
     public string message;
     bool hasKeysHouse1 = false;
@@ -57,11 +58,13 @@ public class Character : MonoBehaviour
     public void TakeDamage(int value)
     {
         hp.ChangeValue(-value);
+        StartCoroutine(blood.takeDamage());
     }
 
     public void Heal(int value)
     {
         hp.ChangeValue(value);
+        blood.heal();
     }
 
     public void IncreaseHunger(int value)
