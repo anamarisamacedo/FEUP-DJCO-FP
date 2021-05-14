@@ -15,5 +15,6 @@ namespace utils
 
         /* Attack mechanics */
         public const float PlayerAttackRadius = 2f;
+        public const float PlayerAttackRate = 2f;
     }
 }
