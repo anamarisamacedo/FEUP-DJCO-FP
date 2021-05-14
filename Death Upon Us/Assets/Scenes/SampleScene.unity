@@ -1693,6 +1693,9 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 0
+  monsterLayers:
+    serializedVersion: 2
+    m_Bits: 64
   uiInventory: {fileID: 1074371054}
   hp: {fileID: 1702287074}
   hunger: {fileID: 922689207}
@@ -2235,7 +2238,7 @@ GameObject:
   - component: {fileID: 926914503}
   - component: {fileID: 926914502}
   - component: {fileID: 926914501}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Monster (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
