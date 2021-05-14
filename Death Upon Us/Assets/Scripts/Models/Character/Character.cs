@@ -11,7 +11,7 @@ public class Character : MonoBehaviour
     public CapsuleCollider capsuleCollider;
     public int rotateDirection;
     public bool isGrounded;
-    public LayerMask groundLayers;
+    public LayerMask groundLayers, monsterLayers;
 
     private CharacterState state;
     private Inventory inventory;

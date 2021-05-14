@@ -12,5 +12,8 @@ namespace utils
         /* Monster mechanics */
         public const float MonsterSpeed = 1f; 
         public const float MonsterFollowRadius = 15f; 
+
+        /* Attack mechanics */
+        public const float PlayerAttackRadius = 2f;
     }
 }
