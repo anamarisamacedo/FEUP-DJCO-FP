@@ -77,6 +77,14 @@ public class Character : MonoBehaviour
         StartCoroutine(blood.TakeDamage());
     }
 
+    public void Attack() {
+        Collider[] hitMonsters = Physics.OverlapSphere(transform.position, PlayerAttackRadius, monsterLayers);
+        Debug.Log("Size " + hitMonsters.Length);
+        foreach(Collider monster in hitMonsters) {
+            monster.gameObject.GetComponent<Monster>().TakeDamage(35);
+        }
+    }
+
     public void Heal(int value)
     {
         hp.ChangeValue(value);
