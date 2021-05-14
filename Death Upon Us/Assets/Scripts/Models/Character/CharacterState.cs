@@ -21,7 +21,6 @@ public abstract class CharacterState
         if (IsGrounded())
         {
             character.rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-
         }
     }
 
@@ -114,6 +113,10 @@ public abstract class CharacterState
         if (Input.GetButtonDown("Fire1"))
         {
             character.GetInventory().UseItem();
+        }
+
+        if (Input.GetMouseButtonDown(0)) {
+            character.Attack();
         }
     }
 }

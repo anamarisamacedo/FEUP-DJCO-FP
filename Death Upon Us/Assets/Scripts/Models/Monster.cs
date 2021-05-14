@@ -57,9 +57,14 @@ public class Monster : MonoBehaviour
     public void TakeDamage(int value)
     {
         hp -= value;
-        Debug.Log("Monster: damage taken. Hp left = " + hp);
-        if(hp <= 0) {
-            Destroy(gameObject);
+        if (hp <= 0)
+        {
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }
