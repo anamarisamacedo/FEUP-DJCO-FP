@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using static utils.Configs;
+using UnityEngine.UI;
 
 public abstract class CharacterState
 {
@@ -47,6 +49,13 @@ public abstract class CharacterState
         {
             character.IncreaseHunger(1); // Testing purposes
             character.rotateDirection = 1;
+        }
+        else if (Input.GetKey(KeyCode.R))
+        {
+            if(character.collideClue1 == true)
+            {
+                character.DisplayMessage("This is a clue");
+            }
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {

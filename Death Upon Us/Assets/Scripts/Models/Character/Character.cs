@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using static utils.Configs;
 using UnityEngine.UI;
 
@@ -14,12 +15,17 @@ public class Character : MonoBehaviour
 
     private CharacterState state;
     private Inventory inventory;
-    [SerializeField] private UI_Inventory uiInventory; // TODO
-    [SerializeField] private Health hp;
-    [SerializeField] private Hunger hunger;
+    [SerializeField] public UI_Inventory uiInventory; // TODO
+    [SerializeField] public Health hp;
+    [SerializeField] public Hunger hunger;
+    [SerializeField] public BloodEffect blood;
     public Text textElement;
     public string message;
     bool hasKeysHouse1 = false;
+    public bool collideClue1 = false;
+    private float distance;
+    private float someDistance = 3f;
+    private GameObject clue;
 
     public Character() : base() { }
 
@@ -30,13 +36,24 @@ public class Character : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider>();
         inventory = new Inventory();
         uiInventory.SetInventory(inventory);
+        clue = GameObject.Find("Clipboard");
     }
 
     private void Update()
     {
         state.HandleInput();
         textElement.text = message;
+        
+        distance = Vector3.Distance(transform.position, clue.transform.position);
+        if (distance < someDistance)
+        {
+            if (clue.CompareTag("Clue1"))
+            {
+                collideClue1 = true;
+            }
+        }
     }
+
 
     private void FixedUpdate()
     {
@@ -57,11 +74,13 @@ public class Character : MonoBehaviour
     public void TakeDamage(int value)
     {
         hp.ChangeValue(-value);
+        StartCoroutine(blood.TakeDamage());
     }
 
     public void Heal(int value)
     {
         hp.ChangeValue(value);
+        blood.Heal();
     }
 
     public void IncreaseHunger(int value)
@@ -79,17 +98,14 @@ public class Character : MonoBehaviour
         isGrounded = false;
     }
 
-    IEnumerator displayMessage(string new_message)
+    public void DisplayMessage(string new_message)
     {
         message = new_message;
-        yield return new WaitForSeconds(3);
-        message = "";
     }
 
     private void OnTriggerEnter(Collider collider)
     {
-
-        if (collider.CompareTag("House1"))
+            if (collider.CompareTag("House1"))
         {
             if (inventory.GetItemAmount(Item.ItemType.KeyHouse1) >= 3)
             {
@@ -100,12 +116,17 @@ public class Character : MonoBehaviour
                 HouseDoor houseDoor = collider.GetComponent<HouseDoor>();
                 if (houseDoor != null)
                 {
-                    houseDoor.openDoor();
+                    houseDoor.OpenDoor();
                 }
             }
             else { 
-                StartCoroutine(displayMessage("Door is locked..."));
+                DisplayMessage("Door is locked...");
             }
+        }
+
+        if (collider.CompareTag("Clue1"))
+        {
+            DisplayMessage("Press R.");
         }
 
         WorldItem worldItem = collider.GetComponent<WorldItem>();
@@ -124,11 +145,17 @@ public class Character : MonoBehaviour
     {
         if (collider.CompareTag("House1"))
         {
+            DisplayMessage("");
             HouseDoor houseDoor = collider.GetComponent<HouseDoor>();
             if (houseDoor != null)
             {
-                houseDoor.closeDoor();
+                houseDoor.CloseDoor();
             }
+        }
+        if (collider.CompareTag("Clue1"))
+        {
+            collideClue1 = false;
+            DisplayMessage("");
         }
     }
 }
