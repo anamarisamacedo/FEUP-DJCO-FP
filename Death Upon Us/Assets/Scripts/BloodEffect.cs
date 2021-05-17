@@ -5,7 +5,7 @@ using UnityEngine;
 public class BloodEffect : MonoBehaviour
 {
 
-    public IEnumerator takeDamage()
+    public IEnumerator TakeDamage()
     {
         var canvGroup = GetComponent<CanvasGroup>();
         canvGroup.alpha += (float)0.10;
@@ -13,13 +13,13 @@ public class BloodEffect : MonoBehaviour
         canvGroup.alpha -= (float)0.10;
     }
 
-    public void heal()
+    public void Heal()
     {
         var canvGroup = GetComponent<CanvasGroup>();
         canvGroup.alpha -= (float)0.10;
     }
 
-    public void heal100()
+    public void Heal100()
     {
         var canvGroup = GetComponent<CanvasGroup>();
         canvGroup.alpha = (float)0;

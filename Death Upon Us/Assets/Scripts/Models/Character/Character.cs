@@ -74,13 +74,13 @@ public class Character : MonoBehaviour
     public void TakeDamage(int value)
     {
         hp.ChangeValue(-value);
-        StartCoroutine(blood.takeDamage());
+        StartCoroutine(blood.TakeDamage());
     }
 
     public void Heal(int value)
     {
         hp.ChangeValue(value);
-        blood.heal();
+        blood.Heal();
     }
 
     public void IncreaseHunger(int value)
@@ -98,7 +98,7 @@ public class Character : MonoBehaviour
         isGrounded = false;
     }
 
-    public void displayMessage(string new_message)
+    public void DisplayMessage(string new_message)
     {
         message = new_message;
     }
@@ -120,13 +120,13 @@ public class Character : MonoBehaviour
                 }
             }
             else { 
-                displayMessage("Door is locked...");
+                DisplayMessage("Door is locked...");
             }
         }
 
         if (collider.CompareTag("Clue1"))
         {
-            displayMessage("Press R.");
+            DisplayMessage("Press R.");
         }
 
         WorldItem worldItem = collider.GetComponent<WorldItem>();
@@ -145,7 +145,7 @@ public class Character : MonoBehaviour
     {
         if (collider.CompareTag("House1"))
         {
-            displayMessage("");
+            DisplayMessage("");
             HouseDoor houseDoor = collider.GetComponent<HouseDoor>();
             if (houseDoor != null)
             {
@@ -155,7 +155,7 @@ public class Character : MonoBehaviour
         if (collider.CompareTag("Clue1"))
         {
             collideClue1 = false;
-            displayMessage("");
+            DisplayMessage("");
         }
     }
 }
