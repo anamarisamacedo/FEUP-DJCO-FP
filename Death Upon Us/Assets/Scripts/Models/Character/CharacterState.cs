@@ -54,7 +54,7 @@ public abstract class CharacterState
         {
             if(character.collideClue1 == true)
             {
-                character.displayMessage("This is a clue");
+                character.DisplayMessage("This is a clue");
             }
         }
         else if (Input.GetKeyDown(KeyCode.Space))

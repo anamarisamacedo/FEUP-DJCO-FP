@@ -116,7 +116,7 @@ public class Character : MonoBehaviour
                 HouseDoor houseDoor = collider.GetComponent<HouseDoor>();
                 if (houseDoor != null)
                 {
-                    houseDoor.openDoor();
+                    houseDoor.OpenDoor();
                 }
             }
             else { 
@@ -149,7 +149,7 @@ public class Character : MonoBehaviour
             HouseDoor houseDoor = collider.GetComponent<HouseDoor>();
             if (houseDoor != null)
             {
-                houseDoor.closeDoor();
+                houseDoor.CloseDoor();
             }
         }
         if (collider.CompareTag("Clue1"))
