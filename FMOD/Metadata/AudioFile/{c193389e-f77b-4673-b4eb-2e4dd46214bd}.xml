@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.01.00">
-	<object class="AudioFile" id="{6d19f1e5-6ddd-485b-9d4e-d0daa9879b04}">
+	<object class="AudioFile" id="{c193389e-f77b-4673-b4eb-2e4dd46214bd}">
 		<property name="assetPath">
-			<value>two.ogg</value>
+			<value>footsteps_dirt_3.wav</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>44.0999985</value>
+			<value>48</value>
 		</property>
 		<property name="channelCount">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<property name="length">
-			<value>0.60451247165532884</value>
+			<value>1.6333333333333333</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{2e228570-4344-4f51-8c4f-9209117258bb}</destination>
