@@ -51,7 +51,8 @@ public class Item
         {
             default:
             case ItemType.Knife: 
-            case ItemType.Arrows: 
+            case ItemType.Arrows:
+            case ItemType.KeyHouse1:
                 return false;
             case ItemType.Bow: 
             case ItemType.Medkit:
