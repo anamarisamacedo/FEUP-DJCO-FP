@@ -16,5 +16,9 @@ namespace utils
         /* Attack mechanics */
         public const float PlayerAttackRadius = 2f;
         public const float PlayerAttackRate = 2f;
+
+        /* Scenes */
+        public const int MenuScene = 0;
+        public const int GameScene = 1;
     }
 }
