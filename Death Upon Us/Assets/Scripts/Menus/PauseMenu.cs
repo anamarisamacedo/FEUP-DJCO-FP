@@ -18,7 +18,23 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (active)
+            SwitchVisibleStatus();
+        }
+    }
+    
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene(MenuScene);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(GameScene);
+    }
+
+    public void SwitchVisibleStatus()
+    {
+        if (active)
             {
                 gameObject.transform.localScale = new Vector3(0, 0, 0);
             }
@@ -27,6 +43,5 @@ public class PauseMenu : MonoBehaviour
                 gameObject.transform.localScale = new Vector3(1, 1, 1);
             }
             active = !active;
-        }
     }
 }
