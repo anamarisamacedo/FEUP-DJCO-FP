@@ -20,5 +20,8 @@ namespace utils
         /* Scenes */
         public const int MenuScene = 0;
         public const int GameScene = 1;
+
+        /* Sounds */
+        public const float DefaultVolume = 1f;
     }
 }

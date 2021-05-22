@@ -2092,7 +2092,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3221251027151524033}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SetVolume, Assembly-CSharp
         m_MethodName: SetLevel
         m_Mode: 0
@@ -2104,18 +2104,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3221251027151524033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3221251027151524034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85dac2ce31736224e8fab57fc842fc21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3221251027151524034
 GameObject:
   m_ObjectHideFlags: 0
@@ -2126,7 +2114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3221251027151524035}
   - component: {fileID: 3221251027151524032}
-  - component: {fileID: 3221251027151524033}
+  - component: {fileID: 3221251027151524036}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -2156,6 +2144,19 @@ RectTransform:
   m_AnchoredPosition: {x: 15, y: 40.713024}
   m_SizeDelta: {x: 297.1459, y: 92.0184}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3221251027151524036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3221251027151524034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a77cb3e937895548be11af488db3325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 3221251027151524032}
 --- !u!1 &3221251027854707177
 GameObject:
   m_ObjectHideFlags: 0
