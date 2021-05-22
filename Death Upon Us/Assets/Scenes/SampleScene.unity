@@ -2861,7 +2861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1170047752558029877, guid: ea3574ca1dabb244b91722907d085de2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000022888
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1170047752558029877, guid: ea3574ca1dabb244b91722907d085de2, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -6824,6 +6824,7 @@ GameObject:
   - component: {fileID: 5552807672167342893}
   - component: {fileID: 5552807672167342895}
   - component: {fileID: 5552807672167342894}
+  - component: {fileID: 5552807672167342896}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -6892,3 +6893,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5552807672167342892}
   m_CullTransparentMesh: 1
+--- !u!114 &5552807672167342896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5552807672167342892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71db07c8fa2c71d48b61a0e92ef62284, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
