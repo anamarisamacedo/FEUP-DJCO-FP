@@ -7,6 +7,12 @@ using static utils.Configs;
 public class Monster : MonoBehaviour
 {
     private Rigidbody rigidBody;
+    private int hp;
+
+    private void Start()
+    {
+        hp = 100;
+    }
 
     private void Update()
     {
@@ -46,5 +52,19 @@ public class Monster : MonoBehaviour
         {
             transform.position += transform.forward * Time.deltaTime * MonsterSpeed;
         }
+    }
+
+    public void TakeDamage(int value)
+    {
+        hp -= value;
+        if (hp <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }

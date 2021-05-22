@@ -11,7 +11,7 @@ public class Character : MonoBehaviour
     public CapsuleCollider capsuleCollider;
     public int rotateDirection;
     public bool isGrounded;
-    public LayerMask groundLayers;
+    public LayerMask groundLayers, monsterLayers;
 
     private CharacterState state;
     private Inventory inventory;
@@ -75,6 +75,14 @@ public class Character : MonoBehaviour
     {
         hp.ChangeValue(-value);
         StartCoroutine(blood.TakeDamage());
+    }
+
+    public void Attack() {
+        Collider[] hitMonsters = Physics.OverlapSphere(transform.position, PlayerAttackRadius, monsterLayers);
+        Debug.Log("Size " + hitMonsters.Length);
+        foreach(Collider monster in hitMonsters) {
+            monster.gameObject.GetComponent<Monster>().TakeDamage(35);
+        }
     }
 
     public void Heal(int value)

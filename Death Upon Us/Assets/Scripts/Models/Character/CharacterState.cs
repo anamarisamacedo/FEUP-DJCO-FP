@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public abstract class CharacterState
 {
     protected Character character;
+    float nextAttackTime = 0f;
+
 
     public CharacterState(Character character)
     {
@@ -16,19 +18,18 @@ public abstract class CharacterState
 
     public float jumpForce = 7f;
     public virtual void MoveForward() { }
-    public void Jump() 
-    { 
+    public void Jump()
+    {
         if (IsGrounded())
         {
             character.rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-
         }
     }
 
     private bool IsGrounded()
     {
         CapsuleCollider col = character.capsuleCollider;
-        return Physics.CheckCapsule(col.bounds.center, new Vector3(col.bounds.center.x, col.bounds.min.y, col.bounds.center.z), col.radius * 0.9f, 
+        return Physics.CheckCapsule(col.bounds.center, new Vector3(col.bounds.center.x, col.bounds.min.y, col.bounds.center.z), col.radius * 0.9f,
             character.groundLayers);
     }
 
@@ -115,5 +116,15 @@ public abstract class CharacterState
         {
             character.GetInventory().UseItem();
         }
+
+        if (Time.time >= nextAttackTime)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                nextAttackTime = Time.time + 1f / PlayerAttackRate;
+                character.Attack();
+            }
+        }
+
     }
 }
