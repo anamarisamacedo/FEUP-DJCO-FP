@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{c770cd1c-b581-4ff4-be5c-9008adf8adb0}">
+		<property name="assetPath">
+			<value>monster_idle/monster_idle_3.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>4.0666666666666664</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{2e228570-4344-4f51-8c4f-9209117258bb}</destination>
+		</relationship>
+	</object>
+</objects>
