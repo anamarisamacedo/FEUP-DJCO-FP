@@ -79,7 +79,6 @@ public class Character : MonoBehaviour
 
     public void Attack() {
         Collider[] hitMonsters = Physics.OverlapSphere(transform.position, PlayerAttackRadius, monsterLayers);
-        Debug.Log("Size " + hitMonsters.Length);
         foreach(Collider monster in hitMonsters) {
             monster.gameObject.GetComponent<Monster>().TakeDamage(35);
         }

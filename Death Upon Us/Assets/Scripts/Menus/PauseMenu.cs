@@ -21,27 +21,31 @@ public class PauseMenu : MonoBehaviour
             SwitchVisibleStatus();
         }
     }
-    
+
     public void GoToMainMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(MenuScene);
     }
 
     public void RestartGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(GameScene);
     }
 
     public void SwitchVisibleStatus()
     {
         if (active)
-            {
-                gameObject.transform.localScale = new Vector3(0, 0, 0);
-            }
-            else
-            {
-                gameObject.transform.localScale = new Vector3(1, 1, 1);
-            }
-            active = !active;
+        {
+            Time.timeScale = 1;
+            gameObject.transform.localScale = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            Time.timeScale = 0;
+            gameObject.transform.localScale = new Vector3(1, 1, 1);
+        }
+        active = !active;
     }
 }
