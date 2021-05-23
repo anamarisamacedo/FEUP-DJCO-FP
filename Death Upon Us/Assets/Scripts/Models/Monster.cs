@@ -24,13 +24,19 @@ public class Monster : MonoBehaviour
 
     public bool FollowPlayer()
     {
-        Transform character = GameObject.Find("GirlCharacter").transform;
+        GameObject character = GameObject.Find("GirlCharacter");
+        if (!character.GetComponent<Character>().enabled)
+        {
+            character = GameObject.Find("BoyCharacter");
+        }
 
-        float distanceFromPlayer = Vector3.Distance(transform.position, character.position);
+        Transform characterTransf = character.transform;
+
+        float distanceFromPlayer = Vector3.Distance(transform.position, characterTransf.position);
 
         if (distanceFromPlayer < MonsterFollowRadius)
         {
-            transform.LookAt(character);
+            transform.LookAt(characterTransf);
             transform.position += transform.forward * MonsterSpeed * Time.deltaTime;
             return true;
         }
