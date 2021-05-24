@@ -19,7 +19,7 @@ public class BloodEffect : MonoBehaviour
         canvGroup.alpha -= (float)0.10;
     }
 
-    public void Heal100()
+    public void RemoveBlood()
     {
         var canvGroup = GetComponent<CanvasGroup>();
         canvGroup.alpha = (float)0;
