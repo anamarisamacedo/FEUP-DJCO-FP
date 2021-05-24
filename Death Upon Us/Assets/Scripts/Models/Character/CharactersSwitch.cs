@@ -24,9 +24,11 @@ public class CharactersSwitch : MonoBehaviour
             if (currentCharacter == 0){
                 girl.GetComponent<Character>().enabled = false;
                 girl.GetComponentInChildren<Camera>().enabled = false;
+                girl.GetComponentInChildren<Canvas>().enabled = false;
                 girl.GetComponent<Character>().blood.RemoveBlood();
                 boy.GetComponent<Character>().enabled = true;
                 boy.GetComponentInChildren<Camera>().enabled = true;
+                boy.GetComponentInChildren<Canvas>().enabled = true;
 
                 // change camera
             }
@@ -34,9 +36,11 @@ public class CharactersSwitch : MonoBehaviour
             else{
                 boy.GetComponent<Character>().enabled = false;
                 boy.GetComponentInChildren<Camera>().enabled = false;
+                boy.GetComponentInChildren<Canvas>().enabled = false;
                 boy.GetComponent<Character>().blood.RemoveBlood();
                 girl.GetComponent<Character>().enabled = true;
                 girl.GetComponentInChildren<Camera>().enabled = true;
+                girl.GetComponentInChildren<Canvas>().enabled = true;
                 // change camera
             }
         }
