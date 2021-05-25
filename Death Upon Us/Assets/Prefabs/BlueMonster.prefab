@@ -1913,7 +1913,7 @@ GameObject:
   - component: {fileID: 8639511353875072852}
   - component: {fileID: 8639511353875072853}
   - component: {fileID: 8639511353875072851}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BlueMonster
   m_TagString: Untagged
   m_Icon: {fileID: 0}

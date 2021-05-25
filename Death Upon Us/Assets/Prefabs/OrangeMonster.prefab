@@ -1788,7 +1788,7 @@ GameObject:
   - component: {fileID: 8692349184168837940}
   - component: {fileID: 8692349184168837946}
   - component: {fileID: 8692349184168837941}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OrangeMonster
   m_TagString: Untagged
   m_Icon: {fileID: 0}

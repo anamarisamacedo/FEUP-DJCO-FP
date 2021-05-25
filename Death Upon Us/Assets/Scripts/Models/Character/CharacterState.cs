@@ -17,7 +17,9 @@ public abstract class CharacterState
     }
 
     public float jumpForce = 7f;
+
     public virtual void MoveForward() { }
+
     public void Jump()
     {
 
@@ -38,6 +40,7 @@ public abstract class CharacterState
 
         character.SetIsJumping(false);
     }
+    
     private bool IsGrounded()
     {
         CapsuleCollider col = character.capsuleCollider;
