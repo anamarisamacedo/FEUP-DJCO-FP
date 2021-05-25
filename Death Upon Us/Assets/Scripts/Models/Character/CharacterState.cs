@@ -20,12 +20,24 @@ public abstract class CharacterState
     public virtual void MoveForward() { }
     public void Jump()
     {
+
         if (IsGrounded())
         {
+            character.GetComponent<Animator>().SetBool("IsJumping", false);
+        } 
+        else 
+        {
+            return;
+        }
+
+        if (character.IsJumping() && character.GetComponent<Animator>().GetInteger("State") < 3)
+        {
+            character.GetComponent<Animator>().SetBool("IsJumping", true);
             character.rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
-    }
 
+        character.SetIsJumping(false);
+    }
     private bool IsGrounded()
     {
         CapsuleCollider col = character.capsuleCollider;
@@ -60,7 +72,7 @@ public abstract class CharacterState
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
-            Jump();
+            character.SetIsJumping(true);
         }
         else if (Input.GetKey(KeyCode.Alpha1))
         {
@@ -127,4 +139,7 @@ public abstract class CharacterState
         }
 
     }
+
+    public virtual void ChangeAnimation() { }
+
 }

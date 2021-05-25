@@ -13,7 +13,7 @@ public class WalkingState : CharacterState
     {
         base.HandleKeyboardInput();
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             character.ChangeState(new CrouchWalkingState(character));
         }
@@ -25,5 +25,10 @@ public class WalkingState : CharacterState
         {
             character.ChangeState(new RunningState(character));
         }
+    }
+    public override void ChangeAnimation()
+    {
+        base.ChangeAnimation();
+        character.GetComponent<Animator>().SetInteger("State", 1);
     }
 }

@@ -23,4 +23,10 @@ public class RunningState : CharacterState
             character.ChangeState(new WalkingState(character));
         }
     }
+
+    public override void ChangeAnimation()
+    {
+        base.ChangeAnimation();
+        character.GetComponent<Animator>().SetInteger("State", 2);
+    }
 }

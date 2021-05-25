@@ -8,7 +8,7 @@ public class IdleState : CharacterState
     {
         base.HandleKeyboardInput();
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             character.TakeDamage(10);
             character.ChangeState(new CrouchIdleState(character));
@@ -21,5 +21,11 @@ public class IdleState : CharacterState
         {
             character.ChangeState(new IdleState(character));
         }
+    }
+
+    public override void ChangeAnimation()
+    {
+        base.ChangeAnimation();
+        character.GetComponent<Animator>().SetInteger("State", 0);
     }
 }

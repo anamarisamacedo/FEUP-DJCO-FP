@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
     public CapsuleCollider capsuleCollider;
     public int rotateDirection;
     public bool isGrounded;
+    private bool isJumping;
     public LayerMask groundLayers, monsterLayers;
 
     private CharacterState state;
@@ -37,6 +38,7 @@ public class Character : MonoBehaviour
         inventory = new Inventory();
         uiInventory.SetInventory(inventory);
         clue = GameObject.Find("Clipboard");
+        isJumping = false;
     }
 
     private void Update()
@@ -58,12 +60,14 @@ public class Character : MonoBehaviour
     private void FixedUpdate()
     {
         state.MoveForward();
+        state.Jump();
         Rotate();
     }
 
     public void ChangeState(CharacterState state)
     {
         this.state = state;
+        this.state.ChangeAnimation();
     }
 
     private void Rotate()
@@ -164,5 +168,14 @@ public class Character : MonoBehaviour
             collideClue1 = false;
             DisplayMessage("");
         }
+    }
+    public bool IsJumping()
+    {
+        return isJumping;
+    }
+
+    public void SetIsJumping(bool isJumping)
+    {
+        this.isJumping = isJumping;
     }
 }
