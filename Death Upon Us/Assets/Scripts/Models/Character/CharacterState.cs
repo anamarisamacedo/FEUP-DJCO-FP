@@ -55,7 +55,6 @@ public abstract class CharacterState
     {
         if (Input.GetKey(KeyCode.A))
         {
-            character.TakeDamage(1); // Testing purposes
             character.rotateDirection = -1;
         }
         else if (Input.GetKey(KeyCode.D))
@@ -63,9 +62,12 @@ public abstract class CharacterState
             character.IncreaseHunger(1); // Testing purposes
             character.rotateDirection = 1;
         }
+        else if (Input.GetKey(KeyCode.T)) {
+            character.TakeDamage(1); // Testing purposes
+        }
         else if (Input.GetKey(KeyCode.R))
         {
-            if(character.collideClue1 == true)
+            if (character.collideClue1 == true)
             {
                 character.DisplayMessage("This is a clue");
             }
