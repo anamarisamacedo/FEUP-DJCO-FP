@@ -14,6 +14,7 @@ public class CharactersSwitch : MonoBehaviour
         boy = GameObject.Find("BoyCharacter");
 
         currentCharacter = 0;   
+        boy.GetComponentInChildren<Canvas>().enabled = false;
     }
 
     void Update () {

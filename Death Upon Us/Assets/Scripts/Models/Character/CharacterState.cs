@@ -17,15 +17,30 @@ public abstract class CharacterState
     }
 
     public float jumpForce = 7f;
+
     public virtual void MoveForward() { }
+
     public void Jump()
     {
+
         if (IsGrounded())
         {
+            character.GetComponent<Animator>().SetBool("IsJumping", false);
+        } 
+        else 
+        {
+            return;
+        }
+
+        if (character.IsJumping() && character.GetComponent<Animator>().GetInteger("State") < 3)
+        {
+            character.GetComponent<Animator>().SetBool("IsJumping", true);
             character.rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
-    }
 
+        character.SetIsJumping(false);
+    }
+    
     private bool IsGrounded()
     {
         CapsuleCollider col = character.capsuleCollider;
@@ -43,7 +58,6 @@ public abstract class CharacterState
     {
         if (Input.GetKey(KeyCode.A))
         {
-            character.TakeDamage(1); // Testing purposes
             character.rotateDirection = -1;
         }
         else if (Input.GetKey(KeyCode.D))
@@ -51,16 +65,19 @@ public abstract class CharacterState
             character.IncreaseHunger(1); // Testing purposes
             character.rotateDirection = 1;
         }
+        else if (Input.GetKey(KeyCode.T)) {
+            character.TakeDamage(1); // Testing purposes
+        }
         else if (Input.GetKey(KeyCode.R))
         {
-            if(character.collideClue1 == true)
+            if (character.collideClue1 == true)
             {
                 character.DisplayMessage("This is a clue");
             }
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
-            Jump();
+            character.SetIsJumping(true);
         }
         else if (Input.GetKey(KeyCode.Alpha1))
         {
@@ -127,4 +144,7 @@ public abstract class CharacterState
         }
 
     }
+
+    public virtual void ChangeAnimation() { }
+
 }
