@@ -72,7 +72,7 @@ public abstract class CharacterState
         {
             if (character.collideClue1 == true)
             {
-                character.DisplayMessage("This is a clue");
+                character.DisplayMessage("Dr. Jack Black, Member of the ACC (Association for Chilurian Control), 40.741895,-73.989308");
             }
         }
         else if (Input.GetKeyDown(KeyCode.Space))
