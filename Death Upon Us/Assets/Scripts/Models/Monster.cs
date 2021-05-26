@@ -37,7 +37,7 @@ public class Monster : MonoBehaviour
         if (distanceFromPlayer < MonsterFollowRadius)
         {
             transform.LookAt(characterTransf);
-            transform.position += transform.forward * MonsterSpeed * Time.deltaTime;
+            transform.position += transform.forward * MonsterSpeed * 3 * Time.deltaTime;
             return true;
         }
         else

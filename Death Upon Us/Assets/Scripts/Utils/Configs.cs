@@ -10,7 +10,7 @@ namespace utils
         public const float RotationSpeed = 6f;
         
         /* Monster mechanics */
-        public const float MonsterSpeed = 7f; 
+        public const float MonsterSpeed = 2f; 
         public const float MonsterFollowRadius = 15f; 
 
         /* Attack mechanics */
