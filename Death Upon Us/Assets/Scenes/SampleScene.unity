@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641252, b: 0.574817, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 131809742}
   - component: {fileID: 131809741}
   - component: {fileID: 131809740}
+  - component: {fileID: 131809739}
   m_Layer: 5
   m_Name: GameOverMenu
   m_TagString: Untagged
@@ -401,6 +402,29 @@ RectTransform:
   m_AnchoredPosition: {x: -4.999934, y: -36.1409}
   m_SizeDelta: {x: 951.5023, y: 604.3558}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &131809739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131809737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/MenuTheme
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!114 &131809740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1936,6 +1960,7 @@ GameObject:
   - component: {fileID: 396498012}
   - component: {fileID: 396498011}
   - component: {fileID: 396498010}
+  - component: {fileID: 396498015}
   m_Layer: 5
   m_Name: GameWinMenu
   m_TagString: Untagged
@@ -2041,6 +2066,29 @@ RectTransform:
   m_AnchoredPosition: {x: -4.999934, y: -36.1409}
   m_SizeDelta: {x: 951.5023, y: 604.3558}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &396498015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396498009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/MenuTheme
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &415016759
 GameObject:
   m_ObjectHideFlags: 0
@@ -11049,6 +11097,7 @@ GameObject:
   - component: {fileID: 5552807672167342894}
   - component: {fileID: 5552807672167342898}
   - component: {fileID: 5552807672167342897}
+  - component: {fileID: 5552807672167342896}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -11117,6 +11166,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5552807672167342892}
   m_CullTransparentMesh: 1
+--- !u!114 &5552807672167342896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5552807672167342892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/MenuTheme
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!114 &5552807672167342897
 MonoBehaviour:
   m_ObjectHideFlags: 0
