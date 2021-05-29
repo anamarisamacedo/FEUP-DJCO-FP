@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="AudioFile" id="{460114fb-dc1f-42bc-98da-5c0c92286d40}">
 		<property name="assetPath">
-			<value>BowAttack.ogg</value>
+			<value>player/BowAttack.ogg</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

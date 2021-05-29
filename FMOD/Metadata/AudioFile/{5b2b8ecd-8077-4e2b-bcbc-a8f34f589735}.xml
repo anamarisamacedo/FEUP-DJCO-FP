@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="AudioFile" id="{5b2b8ecd-8077-4e2b-bcbc-a8f34f589735}">
 		<property name="assetPath">
-			<value>KnifeAttack.ogg</value>
+			<value>player/KnifeAttack.ogg</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

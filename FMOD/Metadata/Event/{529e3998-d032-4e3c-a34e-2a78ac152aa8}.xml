@@ -8,7 +8,7 @@
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{ec6692fc-cc7c-4b92-9515-3fa0970552c6}</destination>
+			<destination>{ad1db41a-36c3-4ce9-8621-6eb73a020559}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{71b6f649-4b66-4b94-b5c1-293933eb757c}</destination>
@@ -127,7 +127,6 @@
 		</relationship>
 		<relationship name="audioFile">
 			<destination>{c38773f8-6667-4d98-a36d-0f0322d89203}</destination>
-			<destination>{e0810a94-1822-4629-b636-f020174daa72}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{823612a9-7c90-4221-9f27-8bc5c48040cf}" />
