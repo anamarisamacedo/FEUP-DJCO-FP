@@ -180,7 +180,7 @@
 			<value>pitch</value>
 		</property>
 		<property name="amount">
-			<value>6.25</value>
+			<value>2.08333349</value>
 		</property>
 	</object>
 	<object class="SingleSound" id="{85c932be-b9f1-4165-9fad-776f827aa6ac}">
@@ -218,7 +218,7 @@
 			<value>pitch</value>
 		</property>
 		<property name="amount">
-			<value>6.25</value>
+			<value>2.08333349</value>
 		</property>
 	</object>
 	<object class="SingleSound" id="{cb002fe0-7f17-428f-bba7-b4348fd5c901}">
@@ -261,7 +261,7 @@
 			<value>pitch</value>
 		</property>
 		<property name="amount">
-			<value>6.25</value>
+			<value>2.08333349</value>
 		</property>
 	</object>
 	<object class="SingleSound" id="{ee1ed65a-1d09-4cdc-9bc7-1a7e867cf3c3}">
