@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.01.00">
-	<object class="AudioFile" id="{17863550-e000-4845-81b6-e734d13807a2}">
+	<object class="AudioFile" id="{258f6044-6620-4662-9598-ca3579f08b0e}">
 		<property name="assetPath">
-			<value>monster/monster_idle/monster_idle_3.ogg</value>
+			<value>monster/running_footsteps/footsteps_dirt_6.ogg</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>4.0666666666666664</value>
+			<value>0.8666666666666667</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{2e228570-4344-4f51-8c4f-9209117258bb}</destination>
