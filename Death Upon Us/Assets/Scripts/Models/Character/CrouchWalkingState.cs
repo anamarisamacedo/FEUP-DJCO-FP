@@ -8,6 +8,7 @@ public class CrouchWalkingState : CharacterState
     public override void MoveForward()
     {
         character.transform.position += character.transform.forward * Time.deltaTime * CrouchSpeed;
+        character.IncreaseHunger(HungerOnWalk);
     }
 
     public override void HandleKeyboardInput()

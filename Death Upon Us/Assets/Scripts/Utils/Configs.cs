@@ -26,5 +26,9 @@ namespace utils
 
         /* Cut Scene */
         public const float CutSceneSpeed = 4; // degrees per second
+
+        /* Hunger */
+        public const int HungerOnWalk = 3;
+        public const int HungerOnRun = HungerOnWalk * 2;
     }
 }
