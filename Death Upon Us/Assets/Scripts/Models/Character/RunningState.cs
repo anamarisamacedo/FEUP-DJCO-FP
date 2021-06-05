@@ -9,6 +9,10 @@ public class RunningState : CharacterState
     {
         character.transform.position += character.transform.forward * Time.deltaTime * RunningSpeed;
         character.IncreaseHunger(HungerOnRun);
+        if (character.GetHungerValue() < MinHungerValToRun)
+        {
+            character.ChangeState(new WalkingState(character));
+        }
     }
 
     public override void HandleKeyboardInput()
