@@ -89,6 +89,10 @@ public class Character : MonoBehaviour
         hunger.ChangeValue(-value);
     }
 
+    public int GetHungerValue() {
+        return hunger.GetValue();
+    }
+
     public void Attack() {
         Collider[] hitMonsters = Physics.OverlapSphere(transform.position, PlayerAttackRadius, monsterLayers);
         foreach(Collider monster in hitMonsters) {
@@ -180,6 +184,8 @@ public class Character : MonoBehaviour
 
     public void SetIsJumping(bool isJumping)
     {
+        if(isJumping)
+            IncreaseHunger(HungerOnJump);
         this.isJumping = isJumping;
     }
 }
