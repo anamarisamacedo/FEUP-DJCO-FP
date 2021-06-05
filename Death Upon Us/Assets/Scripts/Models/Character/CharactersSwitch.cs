@@ -18,7 +18,7 @@ public class CharactersSwitch : MonoBehaviour
     }
 
     void Update () {
-        if (Input.GetKeyDown(KeyCode.C)){
+        if (Input.GetKeyDown(KeyCode.X)){
             currentCharacter = (currentCharacter + 1) % 2;
 
             //girl character
@@ -30,7 +30,8 @@ public class CharactersSwitch : MonoBehaviour
                 boy.GetComponent<Character>().enabled = true;
                 boy.GetComponentInChildren<Camera>().enabled = true;
                 boy.GetComponentInChildren<Canvas>().enabled = true;
-
+                SetCharacterActive(boy, true);
+                SetCharacterActive(girl, false);
                 // change camera
             }
             //boy character
@@ -42,8 +43,15 @@ public class CharactersSwitch : MonoBehaviour
                 girl.GetComponent<Character>().enabled = true;
                 girl.GetComponentInChildren<Camera>().enabled = true;
                 girl.GetComponentInChildren<Canvas>().enabled = true;
+                SetCharacterActive(boy, false);
+                SetCharacterActive(girl, true);
                 // change camera
             }
         }
   	}
+
+    private void SetCharacterActive(GameObject character, bool active) {
+        int scaleFactor = active? 1 : 0;
+        character.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
+    } 
 }
