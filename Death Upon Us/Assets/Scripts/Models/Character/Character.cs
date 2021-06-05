@@ -16,7 +16,7 @@ public class Character : MonoBehaviour
 
     private CharacterState state;
     private Inventory inventory;
-    [SerializeField] public UI_Inventory uiInventory; // TODO
+    [SerializeField] public UI_Inventory uiInventory;
     [SerializeField] public Health hp;
     [SerializeField] public Hunger hunger;
     [SerializeField] public BloodEffect blood;
