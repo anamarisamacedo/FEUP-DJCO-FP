@@ -23,5 +23,8 @@ namespace utils
 
         /* Sounds */
         public const float DefaultVolume = 1f;
+
+        /* Cut Scene */
+        public const float CutSceneSpeed = 2; // degrees per second
     }
 }
