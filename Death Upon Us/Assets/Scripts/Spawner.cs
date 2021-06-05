@@ -9,9 +9,9 @@ class Spawner : MonoBehaviour
     public GameObject[] objects;
     public float spawnTime = 6f;            // How long between each spawn.
     private Vector3 spawnPosition;
-    private int maxEnemiesRange = 20;
-    private float protectedRange = 10;
-    private float spawnRange = 50;
+    private int maxNoEnemies = 10;
+    private float protectedRange = 20;
+    private float spawnRange = 100;
     private float freeSpace = 2;
 
     // Use this for initialization
@@ -23,25 +23,24 @@ class Spawner : MonoBehaviour
     }
     void Spawn ()
     {
-        Vector3 playerPos = transform.position;
+        Vector3 playerPos = Camera.main.transform.position;
 
         Collider[] enemiesInRange = Physics.OverlapSphere(playerPos, spawnRange, LayerMask.GetMask("Monsters"));
 
-        int noEnemiesSpawn = maxEnemiesRange - enemiesInRange.Length;
+        int noEnemiesSpawn = maxNoEnemies - enemiesInRange.Length;
 
         Collider[] objectsInRange;
         while (noEnemiesSpawn > 0){
             do{
-            float range = UnityEngine.Random.Range(protectedRange, spawnRange);
-            float angle = (float)(Math.PI * 2 * UnityEngine.Random.Range(0, 360) / 360);
+                float range = UnityEngine.Random.Range(protectedRange, spawnRange);
+                float angle = (float)(Math.PI * 2 * UnityEngine.Random.Range(0, 360) / 360);
 
-            spawnPosition.x = range * (float)Math.Cos(angle);
-            spawnPosition.y = 0.5f;
-            spawnPosition.z = range * (float)Math.Sin(angle);
+                spawnPosition.x = playerPos.x + range * (float)Math.Cos(angle);
+                spawnPosition.y = 10;
+                spawnPosition.z = playerPos.z + range * (float)Math.Sin(angle);
 
-            objectsInRange = Physics.OverlapSphere(spawnPosition, freeSpace, LayerMask.GetMask("Objects"));
+                objectsInRange = Physics.OverlapSphere(spawnPosition, freeSpace, LayerMask.GetMask("Objects"));
             }while (objectsInRange.Length != 0);
-
             Instantiate(objects[UnityEngine.Random.Range(0, objects.Length - 1)], spawnPosition, Quaternion.identity);
 
             noEnemiesSpawn--;
