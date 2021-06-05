@@ -27,6 +27,11 @@ public abstract class Bar : MonoBehaviour
 		this.value = value;
 	}
 
+	public int GetValue()
+	{
+		return value;
+	}
+
 	public void ChangeValue(int deltaValue)
 	{
 		value += deltaValue;
