@@ -81,6 +81,14 @@ public class Character : MonoBehaviour
         StartCoroutine(blood.TakeDamage());
     }
 
+    public void TakeHunger(int value) {
+        hunger.ChangeValue(value);
+    }
+
+    public void IncreaseHunger(int value) {
+        hunger.ChangeValue(-value);
+    }
+
     public void Attack() {
         Collider[] hitMonsters = Physics.OverlapSphere(transform.position, PlayerAttackRadius, monsterLayers);
         foreach(Collider monster in hitMonsters) {
@@ -92,11 +100,6 @@ public class Character : MonoBehaviour
     {
         hp.ChangeValue(value);
         blood.Heal();
-    }
-
-    public void IncreaseHunger(int value)
-    {
-        hunger.ChangeValue(-value);
     }
 
     private void OnCollisionStay()

@@ -15,6 +15,7 @@ public class WalkingState : CharacterState
     public override void MoveForward()
     {
         character.transform.position += character.transform.forward * Time.deltaTime * WalkingSpeed;
+        character.IncreaseHunger(HungerOnWalk);
     }
 
     private void StopSound(){

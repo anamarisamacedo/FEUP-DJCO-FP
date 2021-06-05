@@ -8,6 +8,7 @@ public class RunningState : CharacterState
     public override void MoveForward()
     {
         character.transform.position += character.transform.forward * Time.deltaTime * RunningSpeed;
+        character.IncreaseHunger(HungerOnRun);
     }
 
     public override void HandleKeyboardInput()
