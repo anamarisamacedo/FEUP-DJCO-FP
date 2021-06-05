@@ -2687,6 +2687,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cutSceneCamera: {fileID: 1164243782}
+  boyCanvas: {fileID: 1450605591}
+  girlCanvas: {fileID: 470231395}
 --- !u!1 &533877567
 GameObject:
   m_ObjectHideFlags: 0
@@ -10479,6 +10481,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cutSceneCamera: {fileID: 1164243782}
+  boyCanvas: {fileID: 0}
+  girlCanvas: {fileID: 0}
 --- !u!135 &1974138277
 SphereCollider:
   m_ObjectHideFlags: 0
