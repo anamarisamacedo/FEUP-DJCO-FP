@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/StoreItem
+  Event: event:/Player/StoreItem
   PlayEvent: 2
   StopEvent: 0
   AllowFadeout: 1
