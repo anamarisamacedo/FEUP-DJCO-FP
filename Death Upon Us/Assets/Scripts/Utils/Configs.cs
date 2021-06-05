@@ -25,6 +25,6 @@ namespace utils
         public const float DefaultVolume = 1f;
 
         /* Cut Scene */
-        public const float CutSceneSpeed = 2; // degrees per second
+        public const float CutSceneSpeed = 4; // degrees per second
     }
 }
