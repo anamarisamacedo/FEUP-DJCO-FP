@@ -94,6 +94,7 @@ public class Character : MonoBehaviour
         foreach(Collider monster in hitMonsters) {
             monster.gameObject.GetComponent<Monster>().TakeDamage(35);
         }
+        IncreaseHunger(HungerOnMeleeAttack);
     }
 
     public void Heal(int value)

@@ -30,5 +30,7 @@ namespace utils
         /* Hunger */
         public const int HungerOnWalk = 3;
         public const int HungerOnRun = HungerOnWalk * 2;
+        public const int HungerOnMeleeAttack = 100;
+        public const int HungerOnBowAttack = 50;
     }
 }
