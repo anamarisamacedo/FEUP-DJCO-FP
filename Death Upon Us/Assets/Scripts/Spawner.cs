@@ -9,17 +9,30 @@ class Spawner : MonoBehaviour
     public GameObject[] objects;
     public float spawnTime = 6f;            // How long between each spawn.
     private Vector3 spawnPosition;
-    private int maxNoEnemies = 10;
-    private float protectedRange = 20;
-    private float spawnRange = 100;
-    private float freeSpace = 2;
+    public int maxNoEnemies;
+    public float protectedRange;
+    public float spawnRange ;
+    public float freeSpace;
+    private float maxHeight;
 
     // Use this for initialization
     void Start () 
     {
+        maxHeight = Terrain.activeTerrain.terrainData.size.y;
         // Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.
         InvokeRepeating ("Spawn", spawnTime, spawnTime);
-    
+    }
+    float SampleHeightWithRaycast(Vector3 pos)
+    {
+        RaycastHit hit;
+        float y = 10;
+        //Raycast down to terrain
+        if (Physics.Raycast(pos, -Vector3.up, out hit))
+        {
+            //Get y position
+            y = (float)(hit.point.y);
+        }
+        return y;
     }
     void Spawn ()
     {
@@ -36,8 +49,9 @@ class Spawner : MonoBehaviour
                 float angle = (float)(Math.PI * 2 * UnityEngine.Random.Range(0, 360) / 360);
 
                 spawnPosition.x = playerPos.x + range * (float)Math.Cos(angle);
-                spawnPosition.y = 10;
+                spawnPosition.y = maxHeight + 1;
                 spawnPosition.z = playerPos.z + range * (float)Math.Sin(angle);
+                spawnPosition.y = (float)(SampleHeightWithRaycast(spawnPosition) + 0.5);
 
                 objectsInRange = Physics.OverlapSphere(spawnPosition, freeSpace, LayerMask.GetMask("Objects"));
             }while (objectsInRange.Length != 0);
