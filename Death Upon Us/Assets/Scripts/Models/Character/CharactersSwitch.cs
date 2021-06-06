@@ -9,41 +9,46 @@ public class CharactersSwitch : MonoBehaviour
     GameObject boy;
     int currentCharacter;
     
-    void Start(){
+    void Start()
+    {
         girl = GameObject.Find("GirlCharacter");
         boy = GameObject.Find("BoyCharacter");
 
-        currentCharacter = 0;   
+        currentCharacter = 1;   
         boy.GetComponentInChildren<Canvas>().enabled = false;
+        SetCharacterActive(boy, false);
     }
 
-    void Update () {
-        if (Input.GetKeyDown(KeyCode.C)){
+    void Update () 
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
             currentCharacter = (currentCharacter + 1) % 2;
-
-            //girl character
-            if (currentCharacter == 0){
-                girl.GetComponent<Character>().enabled = false;
-                girl.GetComponentInChildren<Camera>().enabled = false;
-                girl.GetComponentInChildren<Canvas>().enabled = false;
+            bool isGirl = currentCharacter == 0;
+            
+            if (isGirl)
+            {
                 girl.GetComponent<Character>().blood.RemoveBlood();
-                boy.GetComponent<Character>().enabled = true;
-                boy.GetComponentInChildren<Camera>().enabled = true;
-                boy.GetComponentInChildren<Canvas>().enabled = true;
-
-                // change camera
             }
-            //boy character
-            else{
-                boy.GetComponent<Character>().enabled = false;
-                boy.GetComponentInChildren<Camera>().enabled = false;
-                boy.GetComponentInChildren<Canvas>().enabled = false;
+            else
+            {
                 boy.GetComponent<Character>().blood.RemoveBlood();
-                girl.GetComponent<Character>().enabled = true;
-                girl.GetComponentInChildren<Camera>().enabled = true;
-                girl.GetComponentInChildren<Canvas>().enabled = true;
-                // change camera
             }
+
+            girl.GetComponent<Character>().enabled = !isGirl;
+            girl.GetComponentInChildren<Camera>().enabled = !isGirl;
+            girl.GetComponentInChildren<Canvas>().enabled = !isGirl;
+            boy.GetComponent<Character>().enabled = isGirl;
+            boy.GetComponentInChildren<Camera>().enabled = isGirl;
+            boy.GetComponentInChildren<Canvas>().enabled = isGirl;
+            SetCharacterActive(boy, isGirl);
+            SetCharacterActive(girl, !isGirl);
         }
   	}
+
+    private void SetCharacterActive(GameObject character, bool active) 
+    {
+        int scaleFactor = active? 1 : 0;
+        character.transform.localScale = new Vector3(scaleFactor, 1, scaleFactor);
+    } 
 }

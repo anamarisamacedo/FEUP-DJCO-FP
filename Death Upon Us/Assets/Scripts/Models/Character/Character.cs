@@ -16,7 +16,7 @@ public class Character : MonoBehaviour
 
     private CharacterState state;
     private Inventory inventory;
-    [SerializeField] public UI_Inventory uiInventory; // TODO
+    [SerializeField] public UI_Inventory uiInventory;
     [SerializeField] public Health hp;
     [SerializeField] public Hunger hunger;
     [SerializeField] public BloodEffect blood;
@@ -81,22 +81,30 @@ public class Character : MonoBehaviour
         StartCoroutine(blood.TakeDamage());
     }
 
+    public void TakeHunger(int value) {
+        hunger.ChangeValue(value);
+    }
+
+    public void IncreaseHunger(int value) {
+        hunger.ChangeValue(-value);
+    }
+
+    public int GetHungerValue() {
+        return hunger.GetValue();
+    }
+
     public void Attack() {
         Collider[] hitMonsters = Physics.OverlapSphere(transform.position, PlayerAttackRadius, monsterLayers);
         foreach(Collider monster in hitMonsters) {
             monster.gameObject.GetComponent<Monster>().TakeDamage(35);
         }
+        IncreaseHunger(HungerOnMeleeAttack);
     }
 
     public void Heal(int value)
     {
         hp.ChangeValue(value);
         blood.Heal();
-    }
-
-    public void IncreaseHunger(int value)
-    {
-        hunger.ChangeValue(-value);
     }
 
     private void OnCollisionStay()
@@ -176,6 +184,8 @@ public class Character : MonoBehaviour
 
     public void SetIsJumping(bool isJumping)
     {
+        if(isJumping)
+            IncreaseHunger(HungerOnJump);
         this.isJumping = isJumping;
     }
 }

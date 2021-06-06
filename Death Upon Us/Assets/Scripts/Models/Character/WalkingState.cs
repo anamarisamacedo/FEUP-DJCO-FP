@@ -6,18 +6,21 @@ public class WalkingState : CharacterState
 {
     private FMOD.Studio.EventInstance instance;
 
-    public WalkingState(Character character) : base(character) {
+    public WalkingState(Character character) : base(character)
+    {
         instance = FMODUnity.RuntimeManager.CreateInstance("event:/Player/Walking");
-        instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(character.transform.parent.gameObject)); 
+        instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(character.transform.parent.gameObject));
         instance.start();
     }
 
     public override void MoveForward()
     {
         character.transform.position += character.transform.forward * Time.deltaTime * WalkingSpeed;
+        character.IncreaseHunger(HungerOnWalk);
     }
 
-    private void StopSound(){
+    private void StopSound()
+    {
         instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         instance.release();
     }
@@ -38,8 +41,11 @@ public class WalkingState : CharacterState
         }
         else if (Input.GetKey(KeyCode.LeftShift))
         {
-            character.ChangeState(new RunningState(character));
-            StopSound();
+            if (character.GetHungerValue() > MinHungerValToRun)
+            {
+                character.ChangeState(new RunningState(character));
+                StopSound();
+            }
         }
     }
     public override void ChangeAnimation()

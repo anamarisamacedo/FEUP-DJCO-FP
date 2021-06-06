@@ -22,7 +22,6 @@ public abstract class CharacterState
 
     public void Jump()
     {
-
         if (IsGrounded())
         {
             character.GetComponent<Animator>().SetBool("IsJumping", false);
@@ -62,7 +61,6 @@ public abstract class CharacterState
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            character.IncreaseHunger(1); // Testing purposes
             character.rotateDirection = 1;
         }
         else if (Input.GetKey(KeyCode.T)) {
