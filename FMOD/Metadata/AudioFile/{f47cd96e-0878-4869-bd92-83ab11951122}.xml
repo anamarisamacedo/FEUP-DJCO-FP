@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="AudioFile" id="{f47cd96e-0878-4869-bd92-83ab11951122}">
 		<property name="assetPath">
-			<value>monster/monster_idle/monster_idle_4.ogg</value>
+			<value>monster/idle/monster_idle_4.ogg</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
