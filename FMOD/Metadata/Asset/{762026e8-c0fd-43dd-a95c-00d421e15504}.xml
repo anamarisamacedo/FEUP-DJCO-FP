@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="EncodableAsset" id="{762026e8-c0fd-43dd-a95c-00d421e15504}">
+		<property name="assetPath">
+			<value>player/crouch_walking_footsteps/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{2e228570-4344-4f51-8c4f-9209117258bb}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{c4cab8bf-7ed4-40c6-9e5b-ae7e974bc151}">
+		<property name="assetPath">
+			<value>player/crouch_walking_footsteps/footsteps_wood_4.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.1399999999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{2e228570-4344-4f51-8c4f-9209117258bb}</destination>
+		</relationship>
+	</object>
+</objects>
