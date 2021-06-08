@@ -10192,7 +10192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1940525825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10226,7 +10226,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1958392280
 GameObject:
@@ -11694,6 +11694,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PurpleMonster
       objectReference: {fileID: 0}
+    - target: {fileID: 4496346017960809683, guid: 7b2a61f5931d8c04abde3bb344b6cf3b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b2a61f5931d8c04abde3bb344b6cf3b, type: 3}
 --- !u!1 &5552807672167342892
@@ -11897,6 +11901,10 @@ PrefabInstance:
     - target: {fileID: 8873459182022230548, guid: 5d181326e83fa6a459b021a74c26cf36, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873459182022230548, guid: 5d181326e83fa6a459b021a74c26cf36, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d181326e83fa6a459b021a74c26cf36, type: 3}
@@ -12130,6 +12138,10 @@ PrefabInstance:
     - target: {fileID: 8385707276856815455, guid: e90860bd488e8bd4a97aaf9d5a66e54a, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8385707276856815455, guid: e90860bd488e8bd4a97aaf9d5a66e54a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8561065258720983931, guid: e90860bd488e8bd4a97aaf9d5a66e54a, type: 3}
       propertyPath: m_Layer
