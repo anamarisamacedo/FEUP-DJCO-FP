@@ -81,6 +81,11 @@ public class Character : MonoBehaviour
         StartCoroutine(blood.TakeDamage());
     }
 
+    public void AddHealth(int value)
+    {
+        hp.ChangeValue(value);
+    }
+
     public void TakeHunger(int value) {
         hunger.ChangeValue(value);
     }
