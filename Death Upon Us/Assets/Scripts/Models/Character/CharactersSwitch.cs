@@ -8,24 +8,24 @@ public class CharactersSwitch : MonoBehaviour
     GameObject girl;
     GameObject boy;
     int currentCharacter;
-    
+
     void Start()
     {
         girl = GameObject.Find("GirlCharacter");
         boy = GameObject.Find("BoyCharacter");
 
-        currentCharacter = 1;   
+        currentCharacter = 1;
         boy.GetComponentInChildren<Canvas>().enabled = false;
         SetCharacterActive(boy, false);
     }
 
-    void Update () 
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.X))
         {
             currentCharacter = (currentCharacter + 1) % 2;
             bool isGirl = currentCharacter == 0;
-            
+
             if (isGirl)
             {
                 girl.GetComponent<Character>().blood.RemoveBlood();
@@ -41,14 +41,21 @@ public class CharactersSwitch : MonoBehaviour
             boy.GetComponent<Character>().enabled = isGirl;
             boy.GetComponentInChildren<Camera>().enabled = isGirl;
             boy.GetComponentInChildren<Canvas>().enabled = isGirl;
-            SetCharacterActive(boy, isGirl);
-            SetCharacterActive(girl, !isGirl);
+            SetCharacterActive(!isGirl);
         }
-  	}
-
-    private void SetCharacterActive(GameObject character, bool active) 
+    }
+    
+    private void SetCharacterActive(bool girl)
     {
-        float scaleFactor = active? (character.name == "GirlCharacter"? 2.5f : 1f) : 0f;
-        character.transform.localScale = new Vector3(scaleFactor, (character.name == "GirlCharacter"? 2.5f : 1f), scaleFactor);
-    } 
+        if (girl)
+        {
+            this.boy.transform.localScale = new Vector3(0f, 1f, 0f);
+            this.girl.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
+        }
+        else
+        {
+            this.boy.transform.localScale = new Vector3(1f, 1f, 1f);
+            this.girl.transform.localScale = new Vector3(0f, 2.5f, 0f);
+        }
+    }
 }
