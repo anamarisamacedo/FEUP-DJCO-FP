@@ -48,7 +48,7 @@ public class CharactersSwitch : MonoBehaviour
 
     private void SetCharacterActive(GameObject character, bool active) 
     {
-        int scaleFactor = active? 1 : 0;
-        character.transform.localScale = new Vector3(scaleFactor, 1, scaleFactor);
+        float scaleFactor = active? (character.name == "GirlCharacter"? 2.5f : 1f) : 0f;
+        character.transform.localScale = new Vector3(scaleFactor, (character.name == "GirlCharacter"? 2.5f : 1f), scaleFactor);
     } 
 }
