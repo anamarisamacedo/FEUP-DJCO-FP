@@ -7,15 +7,9 @@ using UnityEngine;
 public class Speaker : ScriptableObject
 {
     [SerializeField] private Sprite speakerSprite;
-    [SerializeField] private Camera camera;
 
     public Sprite GetSprite()
     {
         return speakerSprite;
-    }
-
-    public Camera GetCamera()
-    {
-        return camera;
     }
 }

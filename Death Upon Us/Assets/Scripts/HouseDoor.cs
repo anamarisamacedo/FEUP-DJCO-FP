@@ -71,7 +71,7 @@ public class HouseDoor : MonoBehaviour
                 }
                 else
                 {
-                    character.DisplayMessage("Not so easy... You need a code to open this vault. Try to switch the player.");
+                    character.DisplayMessage("Not so easy... You need a code to open this vault. Maybe the other player nows it.");
                 }
             }
         }

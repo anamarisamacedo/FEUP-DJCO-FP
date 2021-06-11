@@ -20,7 +20,6 @@ public class CharactersSwitch : MonoBehaviour
         currentCharacter = 1;
         isGirl = currentCharacter == 0;
         currentScene = SceneManager.GetActiveScene();
-        Debug.Log(currentScene.name);
         if (currentScene.name == "SampleScene")
         {
             boy.GetComponentInChildren<Canvas>().enabled = false;

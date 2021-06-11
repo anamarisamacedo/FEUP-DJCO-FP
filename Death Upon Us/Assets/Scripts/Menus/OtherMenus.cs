@@ -31,12 +31,6 @@ public class OtherMenus : MonoBehaviour
                 Pause();
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            gameWinMenuUI.SetActive(true);
-            Time.timeScale = 0;
-        }
     }
 
     public void OnHpHungerValueChanged(float newValue)

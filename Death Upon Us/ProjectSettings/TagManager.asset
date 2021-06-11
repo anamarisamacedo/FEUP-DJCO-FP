@@ -9,6 +9,7 @@ TagManager:
   - House2
   - House3
   - Cofre1
+  - House4
   layers:
   - Default
   - TransparentFX

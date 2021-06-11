@@ -64,12 +64,10 @@ public abstract class CharacterState
         {
             if (Input.GetKey(KeyCode.A))
             {
-                character.TakeDamage(2);
                 character.rotateDirection = -1;
             }
             else if (Input.GetKey(KeyCode.D))
             {
-                character.AddHealth(2);
                 character.rotateDirection = 1;
             }
             else if (Input.GetKey(KeyCode.T))
