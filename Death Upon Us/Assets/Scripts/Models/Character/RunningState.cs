@@ -1,9 +1,18 @@
 using UnityEngine;
 using static utils.Configs;
+using static utils.TerrainUtils;
 
 public class RunningState : CharacterState
 {
-    public RunningState(Character character) : base(character) { }
+    private FMOD.Studio.EventInstance instance;
+
+    public RunningState(Character character) : base(character)
+    {
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Player/Running");
+        instance.setParameterByName("Terrain", SelectFootstep(character.transform.position));
+        instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(character.transform.parent.gameObject));
+        instance.start();
+    }
 
     public override void MoveForward()
     {
@@ -13,6 +22,13 @@ public class RunningState : CharacterState
         {
             character.ChangeState(new WalkingState(character));
         }
+        instance.setParameterByName("Terrain", SelectFootstep(character.transform.position));
+    }
+
+    private void StopSound()
+    {
+        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        instance.release();
     }
 
     public override void HandleKeyboardInput()
@@ -22,10 +38,12 @@ public class RunningState : CharacterState
         if (!Input.GetKey(KeyCode.W))
         {
             character.ChangeState(new IdleState(character));
+            StopSound();
         }
         else if (!Input.GetKey(KeyCode.LeftShift))
         {
             character.ChangeState(new WalkingState(character));
+            StopSound();
         }
     }
 
