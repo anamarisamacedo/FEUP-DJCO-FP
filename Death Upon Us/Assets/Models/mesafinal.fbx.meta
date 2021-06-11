@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 67d5745f3b6e3c641880d5bc6570ff8f
+guid: cab4780ecf2ff9246bcbb1120dc0063c
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
@@ -11,7 +11,7 @@ ModelImporter:
     second: //RootNode
   - first:
       21: 2100000
-    second: chaminebase
+    second: mesa1
   - first:
       23: 2300000
     second: //RootNode
@@ -20,8 +20,16 @@ ModelImporter:
     second: //RootNode
   - first:
       43: 4300000
-    second: portaarmario2
-  externalObjects: {}
+    second: mesa
+  - first:
+      41386430: 2186277476908879412
+    second: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: mesa
+    second: {fileID: 2800000, guid: 915225198aac8c9439a9a2f397fcc15d, type: 3}
   materials:
     materialImportMode: 1
     materialName: 0

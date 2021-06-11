@@ -23,6 +23,7 @@ public class Character : MonoBehaviour
     public Text textElement;
     public string message;
     private bool hasKeysHouse1 = false;
+    private bool hasCodeVault1 = false;
     public bool collideClue1 = false;
     private float distance;
     private float someDistance = 3f;
@@ -173,5 +174,10 @@ public class Character : MonoBehaviour
     public bool GetHasKeysHouse1()
     {
         return this.hasKeysHouse1;
+    }
+
+    public bool GetHasCodeVault1()
+    {
+        return this.hasCodeVault1;
     }
 }

@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class HouseDoor : MonoBehaviour
 {
-    [SerializeField] private Animator door1 = null;
-    [SerializeField] private Animator door2 = null;
+    [SerializeField] private Animator door = null;
     [SerializeField] private GameObject? monsterOrange;
     [SerializeField] private GameObject? monsterPurple;
     [SerializeField] private GameObject? monsterBlue;
     bool hasKeysHouse1 = false;
+    bool hasCodeVault1 = false;
     private Inventory inventory;
 
     public void OpenDoor(Animator door)
@@ -30,11 +30,12 @@ public class HouseDoor : MonoBehaviour
         if (collider.CompareTag("Player"))
         {
             Character character = collider.GetComponent<Character>();
-            if (this.CompareTag("House1")){
+            if (this.CompareTag("House1"))
+            {
                 hasKeysHouse1 = character.GetHasKeysHouse1();
                 if (hasKeysHouse1 == true)
                 {
-                   OpenDoor(door1);
+                    OpenDoor(door);
                     inventory = character.GetInventory();
                     inventory.RemoveItemType(Item.ItemType.KeyHouse1);
                 }
@@ -48,11 +49,29 @@ public class HouseDoor : MonoBehaviour
             {
                 if (monsterOrange == null && monsterPurple == null && monsterBlue == null)
                 {
-                    OpenDoor(door2);
+                    OpenDoor(door);
                 }
                 else
                 {
                     character.DisplayMessage("You must kill all the three monsters.");
+                }
+            }
+
+            if (this.CompareTag("House3"))
+            {
+                OpenDoor(door);
+            }
+
+            if (this.CompareTag("Cofre1"))
+            {
+                hasCodeVault1 = character.GetHasCodeVault1();
+                if (hasCodeVault1 == true)
+                {
+                    OpenDoor(door);
+                }
+                else
+                {
+                    character.DisplayMessage("Not so easy... You need a code to open this vault. Try to switch the player.");
                 }
             }
         }
@@ -66,11 +85,11 @@ public class HouseDoor : MonoBehaviour
             Character character = collider.GetComponent<Character>();
             character.DisplayMessage("");
             if (this.CompareTag("House1")){
-               CloseDoor(door1);
+               CloseDoor(door);
             }
             if (this.CompareTag("House2"))
             {
-                CloseDoor(door2);
+                CloseDoor(door);
             }
         }
     }
