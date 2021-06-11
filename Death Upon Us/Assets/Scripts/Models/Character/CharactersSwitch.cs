@@ -20,7 +20,8 @@ public class CharactersSwitch : MonoBehaviour
         currentCharacter = 1;
         isGirl = currentCharacter == 0;
         currentScene = SceneManager.GetActiveScene();
-        if (currentScene.name == "GameScene")
+        Debug.Log(currentScene.name);
+        if (currentScene.name == "SampleScene")
         {
             boy.GetComponentInChildren<Canvas>().enabled = false;
         }
@@ -34,7 +35,7 @@ public class CharactersSwitch : MonoBehaviour
             currentCharacter = (currentCharacter + 1) % 2;
             isGirl = currentCharacter == 0;
 
-            if (isGirl && currentScene.name == "GameScene")
+            if (isGirl && currentScene.name == "SampleScene")
             {
                 girl.GetComponent<Character>().blood.RemoveBlood();
             }
@@ -45,7 +46,7 @@ public class CharactersSwitch : MonoBehaviour
 
             girl.GetComponent<Character>().enabled = !isGirl;
             girl.GetComponentInChildren<Camera>().enabled = !isGirl;
-            if (currentScene.name == "GameScene")
+            if (currentScene.name == "SampleScene")
             {
                 girl.GetComponentInChildren<Canvas>().enabled = !isGirl;
                 boy.GetComponentInChildren<Canvas>().enabled = isGirl;
