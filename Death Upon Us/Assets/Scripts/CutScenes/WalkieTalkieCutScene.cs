@@ -4,35 +4,47 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using static utils.Configs;
+using UnityEngine.SceneManagement;
 
 public class WalkieTalkieCutScene : MonoBehaviour
 {
 
     private CharacterState state;
-    public Text textElement;
-    public string message;
-    private string fullText = "Hello??.... Somebody there?....Hello?.....";
-    public float delay = 0.1f;
+    private string walkieMessage = ". . . . . . . .";
+    public Text textWalkie;
+    public string messageWalkie;
+    public float delayWalkie = 0.2f;
+    public Conversation convo;
 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-    static void OnAfterSceneLoadRuntimeMethod(MonoBehaviour handle)
+    private void Start()
     {
-        Debug.Log("CS");
-       //StartCoroutine(Dialogue());
+        StartCoroutine(Waking());
+        StartCoroutine(Walkie());
+        DialogueManager.StartConversation(convo);
     }
 
-    IEnumerator Dialogue()
+    private void Update()
     {
-         for (int i = 0; i < fullText.Length; i++)
-         {
-             DisplayMessage(fullText.Substring(0, i));
-             yield return new WaitForSeconds(delay);
-         }
-        
+        textWalkie.text = messageWalkie;
     }
 
-    public void DisplayMessage(string new_message)
+    IEnumerator Waking()
     {
-        message = new_message;
+        yield return new WaitForSeconds(1.0f);
+    }
+
+    IEnumerator Walkie()
+    {
+        for (int i = 0; i < walkieMessage.Length; i++)
+        {
+            messageWalkie = walkieMessage.Substring(0, i);
+            yield return new WaitForSeconds(delayWalkie);
+        }
+
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene(GameScene);
     }
 }

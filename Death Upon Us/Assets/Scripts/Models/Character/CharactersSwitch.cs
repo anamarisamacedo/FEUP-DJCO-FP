@@ -2,20 +2,26 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using static utils.Configs;
+using UnityEngine.SceneManagement;
 
 public class CharactersSwitch : MonoBehaviour
 {
     GameObject girl;
     GameObject boy;
     int currentCharacter;
+    Scene currentScene;
     
     void Start()
     {
         girl = GameObject.Find("GirlCharacter");
         boy = GameObject.Find("BoyCharacter");
 
-        currentCharacter = 1;   
-        boy.GetComponentInChildren<Canvas>().enabled = false;
+        currentCharacter = 1;
+        currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "GameScene")
+        {
+            boy.GetComponentInChildren<Canvas>().enabled = false;
+        }
         SetCharacterActive(boy, false);
     }
 
@@ -25,8 +31,8 @@ public class CharactersSwitch : MonoBehaviour
         {
             currentCharacter = (currentCharacter + 1) % 2;
             bool isGirl = currentCharacter == 0;
-            
-            if (isGirl)
+           
+            if (isGirl && currentScene.name == "GameScene")
             {
                 girl.GetComponent<Character>().blood.RemoveBlood();
             }
@@ -37,10 +43,14 @@ public class CharactersSwitch : MonoBehaviour
 
             girl.GetComponent<Character>().enabled = !isGirl;
             girl.GetComponentInChildren<Camera>().enabled = !isGirl;
-            girl.GetComponentInChildren<Canvas>().enabled = !isGirl;
-            boy.GetComponent<Character>().enabled = isGirl;
+            if (currentScene.name == "GameScene")
+            {
+                girl.GetComponentInChildren<Canvas>().enabled = !isGirl;
+                boy.GetComponentInChildren<Canvas>().enabled = isGirl;
+            }
+                boy.GetComponent<Character>().enabled = isGirl;
             boy.GetComponentInChildren<Camera>().enabled = isGirl;
-            boy.GetComponentInChildren<Canvas>().enabled = isGirl;
+           
             SetCharacterActive(boy, isGirl);
             SetCharacterActive(girl, !isGirl);
         }
