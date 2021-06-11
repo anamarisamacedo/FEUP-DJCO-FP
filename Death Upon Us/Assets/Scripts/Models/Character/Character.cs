@@ -61,7 +61,6 @@ public class Character : MonoBehaviour
         }
     }
 
-
     private void FixedUpdate()
     {
         state.MoveForward();
