@@ -2,12 +2,15 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using static utils.Configs;
+using UnityEngine.SceneManagement;
 
 public class CharactersSwitch : MonoBehaviour
 {
     GameObject girl;
     GameObject boy;
     int currentCharacter;
+    Scene currentScene;
+    bool isGirl;
 
     void Start()
     {
@@ -15,8 +18,14 @@ public class CharactersSwitch : MonoBehaviour
         boy = GameObject.Find("BoyCharacter");
 
         currentCharacter = 1;
-        boy.GetComponentInChildren<Canvas>().enabled = false;
-        SetCharacterActive(boy, false);
+        isGirl = currentCharacter == 0;
+        currentScene = SceneManager.GetActiveScene();
+        Debug.Log(currentScene.name);
+        if (currentScene.name == "SampleScene")
+        {
+            boy.GetComponentInChildren<Canvas>().enabled = false;
+        }
+        SetCharacterActive(isGirl);
     }
 
     void Update()
@@ -24,9 +33,9 @@ public class CharactersSwitch : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X))
         {
             currentCharacter = (currentCharacter + 1) % 2;
-            bool isGirl = currentCharacter == 0;
+            isGirl = currentCharacter == 0;
 
-            if (isGirl)
+            if (isGirl && currentScene.name == "SampleScene")
             {
                 girl.GetComponent<Character>().blood.RemoveBlood();
             }
@@ -37,14 +46,17 @@ public class CharactersSwitch : MonoBehaviour
 
             girl.GetComponent<Character>().enabled = !isGirl;
             girl.GetComponentInChildren<Camera>().enabled = !isGirl;
-            girl.GetComponentInChildren<Canvas>().enabled = !isGirl;
+            if (currentScene.name == "SampleScene")
+            {
+                girl.GetComponentInChildren<Canvas>().enabled = !isGirl;
+                boy.GetComponentInChildren<Canvas>().enabled = isGirl;
+            }
             boy.GetComponent<Character>().enabled = isGirl;
             boy.GetComponentInChildren<Camera>().enabled = isGirl;
-            boy.GetComponentInChildren<Canvas>().enabled = isGirl;
             SetCharacterActive(!isGirl);
         }
     }
-    
+
     private void SetCharacterActive(bool girl)
     {
         if (girl)

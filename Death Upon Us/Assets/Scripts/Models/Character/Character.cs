@@ -22,7 +22,7 @@ public class Character : MonoBehaviour
     [SerializeField] public BloodEffect blood;
     public Text textElement;
     public string message;
-    bool hasKeysHouse1 = false;
+    private bool hasKeysHouse1 = false;
     public bool collideClue1 = false;
     private float distance;
     private float someDistance = 3f;
@@ -54,8 +54,12 @@ public class Character : MonoBehaviour
                 collideClue1 = true;
             }
         }
-    }
 
+        if (inventory.GetItemAmount(Item.ItemType.KeyHouse1) >= 3)
+        {
+            hasKeysHouse1 = true;
+        }
+    }
 
     private void FixedUpdate()
     {
@@ -129,25 +133,6 @@ public class Character : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-            if (collider.CompareTag("House1"))
-        {
-            if (inventory.GetItemAmount(Item.ItemType.KeyHouse1) >= 3)
-            {
-                hasKeysHouse1 = true;
-                inventory.RemoveItemType(Item.ItemType.KeyHouse1);
-            }
-            if(hasKeysHouse1 == true) { 
-                HouseDoor houseDoor = collider.GetComponent<HouseDoor>();
-                if (houseDoor != null)
-                {
-                    houseDoor.OpenDoor();
-                }
-            }
-            else { 
-                DisplayMessage("Door is locked...");
-            }
-        }
-
         if (collider.CompareTag("Clue1"))
         {
             DisplayMessage("Press R.");
@@ -167,15 +152,6 @@ public class Character : MonoBehaviour
     }
     private void OnTriggerExit(Collider collider)
     {
-        if (collider.CompareTag("House1"))
-        {
-            DisplayMessage("");
-            HouseDoor houseDoor = collider.GetComponent<HouseDoor>();
-            if (houseDoor != null)
-            {
-                houseDoor.CloseDoor();
-            }
-        }
         if (collider.CompareTag("Clue1"))
         {
             collideClue1 = false;
@@ -192,5 +168,10 @@ public class Character : MonoBehaviour
         if(isJumping)
             IncreaseHunger(HungerOnJump);
         this.isJumping = isJumping;
+    }
+
+    public bool GetHasKeysHouse1()
+    {
+        return this.hasKeysHouse1;
     }
 }
