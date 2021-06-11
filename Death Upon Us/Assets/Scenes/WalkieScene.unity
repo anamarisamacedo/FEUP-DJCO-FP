@@ -449,8 +449,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.603882, y: -172.91531}
-  m_SizeDelta: {x: -116.1249, y: -157.0513}
+  m_AnchoredPosition: {x: -33.5585, y: -195.1095}
+  m_SizeDelta: {x: -578.5131, y: -440.0092}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &236066844
 MonoBehaviour:
@@ -466,6 +466,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: {fileID: 1383373118}
   speakerSprite: {fileID: 1707556253}
+  nextButton: {fileID: 1857347205}
+  playButton: {fileID: 426429382}
 --- !u!114 &236066845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2686,7 +2688,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2023281877}
         m_TargetAssemblyTypeName: WalkieTalkieCutScene, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
@@ -3091,7 +3093,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 209.8283, y: -45.6388}
+  m_AnchoredPosition: {x: 209.8283, y: -43}
   m_SizeDelta: {x: 319.6566, y: 79.2776}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1383373118
@@ -3177,7 +3179,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -338.2253, y: -47.506546, z: 185.46863, w: 49.60315}
+  m_margin: {x: -399.42578, y: -47.506546, z: 215.77608, w: 36.057182}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3288,8 +3290,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: -261.34943}
-  m_SizeDelta: {x: 1358.5, y: 463.1888}
+  m_AnchoredPosition: {x: -2.0836, y: -263.4477}
+  m_SizeDelta: {x: 1432.9592, y: 467.3854}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1479161905
 Animator:
@@ -3810,8 +3812,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: 286}
-  m_SizeDelta: {x: 1358.5, y: 639.01}
+  m_AnchoredPosition: {x: -2.0796, y: 287.87}
+  m_SizeDelta: {x: 1433, y: 635.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1681520963
 Animator:
@@ -3904,9 +3906,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 250.00525, y: 91.38652}
-  m_SizeDelta: {x: 57.4794, y: 57.5595}
-  m_Pivot: {x: 0.49999976, y: 1.8663936}
+  m_AnchoredPosition: {x: 195, y: -49.427}
+  m_SizeDelta: {x: 102.0929, y: 98.8533}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1707556253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4140,8 +4142,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 268.74, y: -38}
-  m_SizeDelta: {x: 20, y: 20}
+  m_AnchoredPosition: {x: 346, y: -43}
+  m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1857347205
 MonoBehaviour:
@@ -4450,11 +4452,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96

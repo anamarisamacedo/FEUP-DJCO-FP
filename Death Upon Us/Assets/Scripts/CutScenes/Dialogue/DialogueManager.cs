@@ -59,7 +59,7 @@ public class DialogueManager : MonoBehaviour
 
     public void ReadNext()
     {
-        if(currentIndex == 2)
+        if(currentIndex > 1)
         {
             Switch();
         }
