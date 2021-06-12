@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{b6adae78-efc4-4c60-8380-04460828e2f1}">
 		<property name="name">
-			<value>Ambience</value>
+			<value>Nature</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -54,7 +54,7 @@
 			<destination>{5084c12c-adc9-4dce-b35f-eeaa28330ffc}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{cb99194a-2290-4a11-911d-65e5e408a2a9}</destination>
+			<destination>{2231b8b7-5a0a-4742-a262-09ac23c644f2}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{001cf817-7f1d-4598-9d32-b55d61ac0a1b}" />
