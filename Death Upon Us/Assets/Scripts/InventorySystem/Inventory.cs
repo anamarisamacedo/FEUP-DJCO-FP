@@ -59,7 +59,7 @@ public class Inventory
     {
         return selectedItem;
     }
-    public void UseItem()
+    public void UseItem(Character character)
     {
         if (selectedItem == -1) return;
 
@@ -81,6 +81,8 @@ public class Inventory
                 if (!hasArrows) return;
             }
 
+            itemToUse.Use(character);
+
             if (itemToUse.amount == 1)
             {
                 itemList.Remove(itemToUse);
@@ -94,6 +96,7 @@ public class Inventory
             OnItemListChanged?.Invoke(this, EventArgs.Empty);
         }
     }
+
     public int GetItemAmount(Item.ItemType type)
     {
         foreach (Item inventoryItem in itemList)

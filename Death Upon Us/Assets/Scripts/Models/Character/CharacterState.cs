@@ -123,6 +123,10 @@ public abstract class CharacterState
             {
                 character.GetInventory().SelectItem(9);
             }
+            else if (Input.GetKeyDown(KeyCode.Return))
+            {
+                character.GetInventory().UseItem(character);
+            }
         }
     }
 
@@ -142,7 +146,7 @@ public abstract class CharacterState
 
             if (Input.GetButtonDown("Fire1"))
             {
-                character.GetInventory().UseItem();
+                character.GetInventory().UseItem(character);
             }
 
             if (Time.time >= nextAttackTime)
