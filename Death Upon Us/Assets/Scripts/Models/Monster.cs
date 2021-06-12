@@ -20,7 +20,7 @@ public class Monster : MonoBehaviour
         tu = new TerrainUtils();
         instance.setParameterByName("Terrain", tu.SelectFootstep(this.transform.position));
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(instance, this.transform, GetComponent<Rigidbody>());
-        instance.start();
+        //instance.start();
     }
 
     private void Update()
