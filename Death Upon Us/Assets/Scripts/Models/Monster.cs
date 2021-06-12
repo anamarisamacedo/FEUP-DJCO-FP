@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using static utils.Configs;
-using static utils.TerrainUtils;
+using utils;
+
 
 public class Monster : MonoBehaviour
 {
     private Rigidbody rigidBody;
     private int hp;
     private FMOD.Studio.EventInstance instance;
+    private TerrainUtils tu;
 
     private void Start()
     {
         hp = 100;
         instance = FMODUnity.RuntimeManager.CreateInstance("event:/Player/Running");
-        instance.setParameterByName("Terrain", SelectFootstep(this.transform.position));
+        tu = new TerrainUtils();
+        instance.setParameterByName("Terrain", tu.SelectFootstep(this.transform.position));
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(instance, this.transform, GetComponent<Rigidbody>());
         instance.start();
     }
@@ -26,6 +29,7 @@ public class Monster : MonoBehaviour
         {
             MoveRandomly();
         }
+        instance.setParameterByName("Terrain", tu.SelectFootstep(this.transform.position));
     }
 
     public bool FollowPlayer()
