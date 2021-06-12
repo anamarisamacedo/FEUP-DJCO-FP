@@ -6,6 +6,7 @@ TagManager:
   tags:
   - House1
   - Clue1
+  - House2
   layers:
   - Default
   - TransparentFX
