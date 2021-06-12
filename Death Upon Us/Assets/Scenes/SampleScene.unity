@@ -1000,15 +1000,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8101708206124652718, guid: 5d181326e83fa6a459b021a74c26cf36, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.38
+      value: 11.69
       objectReference: {fileID: 0}
     - target: {fileID: 8101708206124652718, guid: 5d181326e83fa6a459b021a74c26cf36, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.61
+      value: 2.42
       objectReference: {fileID: 0}
     - target: {fileID: 8101708206124652718, guid: 5d181326e83fa6a459b021a74c26cf36, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.5
+      value: 25.79
       objectReference: {fileID: 0}
     - target: {fileID: 8101708206124652718, guid: 5d181326e83fa6a459b021a74c26cf36, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3485,15 +3485,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9163652038528415205, guid: e90860bd488e8bd4a97aaf9d5a66e54a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.67
+      value: -4.4
       objectReference: {fileID: 0}
     - target: {fileID: 9163652038528415205, guid: e90860bd488e8bd4a97aaf9d5a66e54a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.9
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 9163652038528415205, guid: e90860bd488e8bd4a97aaf9d5a66e54a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.87
+      value: 16.8
       objectReference: {fileID: 0}
     - target: {fileID: 9163652038528415205, guid: e90860bd488e8bd4a97aaf9d5a66e54a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4975,7 +4975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94e74c727a5ed4541aa25b40398bb8e9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 758.7
+      value: 990.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94e74c727a5ed4541aa25b40398bb8e9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4983,7 +4983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94e74c727a5ed4541aa25b40398bb8e9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 326.4
+      value: 500.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 94e74c727a5ed4541aa25b40398bb8e9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5301,7 +5301,7 @@ GameObject:
   - component: {fileID: 637049180}
   m_Layer: 0
   m_Name: Border (4)
-  m_TagString: Untagged
+  m_TagString: BorderLevel1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9143,7 +9143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9052517047745841030, guid: 4b420aab40a5cae4dabeefbfd5274c57, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -742.8
+      value: -977.33
       objectReference: {fileID: 0}
     - target: {fileID: 9052517047745841030, guid: 4b420aab40a5cae4dabeefbfd5274c57, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9151,7 +9151,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9052517047745841030, guid: 4b420aab40a5cae4dabeefbfd5274c57, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 463.1
+      value: 498.81
       objectReference: {fileID: 0}
     - target: {fileID: 9052517047745841030, guid: 4b420aab40a5cae4dabeefbfd5274c57, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11129,7 +11129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3831976478312730217, guid: 7b2a61f5931d8c04abde3bb344b6cf3b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.78
+      value: 1.34
       objectReference: {fileID: 0}
     - target: {fileID: 3831976478312730217, guid: 7b2a61f5931d8c04abde3bb344b6cf3b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14175,7 +14175,7 @@ GameObject:
   - component: {fileID: 1864104397}
   m_Layer: 0
   m_Name: Border (5)
-  m_TagString: Untagged
+  m_TagString: BorderLevel1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

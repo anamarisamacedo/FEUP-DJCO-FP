@@ -11,6 +11,7 @@ TagManager:
   - Cofre1
   - House4
   - VaultKey
+  - BorderLevel1
   layers:
   - Default
   - TransparentFX

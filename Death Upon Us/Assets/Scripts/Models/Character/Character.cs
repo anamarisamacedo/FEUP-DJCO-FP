@@ -59,6 +59,15 @@ public class Character : MonoBehaviour
         {
             hasKeysHouse1 = true;
         }
+
+        /*if (inventory.GetItemAmount(Item.ItemType.FullMap) > 0)
+        {
+            GameObject[] borders = GameObject.FindGameObjectsWithTag("BorderLevel1");
+            foreach (GameObject border in borders)
+            {
+                Destroy(border);
+            }
+        }*/ //TODO
     }
 
     private void FixedUpdate()
