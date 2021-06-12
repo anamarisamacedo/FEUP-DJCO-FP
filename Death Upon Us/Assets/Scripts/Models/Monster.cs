@@ -73,10 +73,12 @@ public class Monster : MonoBehaviour
         {
             Die();
         }
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Monster/TakeDamage");
     }
 
     private void Die()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Monster/Die");
         Destroy(gameObject);
     }
 }
