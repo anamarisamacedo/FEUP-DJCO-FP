@@ -116,6 +116,10 @@ public class Character : MonoBehaviour
             monster.gameObject.GetComponent<Monster>().TakeDamage(35);
         }
         IncreaseHunger(HungerOnMeleeAttack);
+        if (true) //knife attack)
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/KnifeAttack");
+        else
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/BowAttack");
     }
 
     public void Heal(int value)
