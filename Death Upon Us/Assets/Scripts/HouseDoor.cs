@@ -16,6 +16,7 @@ public class HouseDoor : MonoBehaviour
     bool hasCodeVault1 = false;
     private Inventory inventory;
     private bool hasKeyVault = false;
+    private bool hasDecoded = false;
     Character character;
 
     private void Update()
@@ -23,6 +24,7 @@ public class HouseDoor : MonoBehaviour
         if (character != null)
         {
             bool codeAnswer = character.IsCodeCorrect();
+            bool hasDecoded = character.hasDecoded;
             if (codeAnswer)
             {
                 OpenDoor(door);
@@ -56,7 +58,7 @@ public class HouseDoor : MonoBehaviour
                 }
                 else
                 {
-                    character.DisplayMessage("This door is locked. To open you must find three keys. Challenges and enemies you must face to get them.");
+                    character.DisplayMessage("This door is locked. To open you must find two keys. Challenges and enemies you must face to get them.");
                 }
             }
 
@@ -86,6 +88,15 @@ public class HouseDoor : MonoBehaviour
 
             }
 
+            if (this.CompareTag("CodeNumberBox"))
+            {
+                if (this.hasDecoded == false)
+                {
+                    character.EnableInputField();
+                }
+
+            }
+
             if (this.CompareTag("House4"))
             {
                 OpenDoor(door);
@@ -101,15 +112,12 @@ public class HouseDoor : MonoBehaviour
         {
             Character character = collider.GetComponent<Character>();
             character.DisplayMessage("");
-            if (this.CompareTag("House1")){
+            if (this.CompareTag("House1") || this.CompareTag("House2") || this.CompareTag("House3") || this.CompareTag("House4"))
+            {
                CloseDoor(door);
             }
-            if (this.CompareTag("House2"))
-            {
-                CloseDoor(door);
-            }
 
-            if (this.CompareTag("Cofre1"))
+            if (this.CompareTag("Cofre1") || this.CompareTag("CodeNumberBox"))
             {
                 character.DisableInputField();
             }

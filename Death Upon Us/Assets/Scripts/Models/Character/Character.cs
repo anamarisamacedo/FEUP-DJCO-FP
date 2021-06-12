@@ -33,6 +33,8 @@ public class Character : MonoBehaviour
     public Conversation convoHaveVault;
     private bool isCodeCorrect;
     private string generatedCode;
+    private string generatedPIN;
+    public bool hasDecoded = false;
 
     [SerializeField] private Animator dialogue;
 
@@ -55,19 +57,29 @@ public class Character : MonoBehaviour
         state.HandleInput();
         textElement.text = message;
         
-        if (inventory.GetItemAmount(Item.ItemType.KeyHouse1) >= 3)
+        if (inventory.GetItemAmount(Item.ItemType.KeyHouse1) >= 2)
         {
             hasKeysHouse1 = true;
         }
 
+        //TODO: Quando o mapa na House1 estiver adicionado ao inventário, o jogador já pode passar a fronteira para chegar ao fim
         /*if (inventory.GetItemAmount(Item.ItemType.FullMap) > 0)
         {
-            GameObject[] borders = GameObject.FindGameObjectsWithTag("BorderLevel1");
+            GameObject[] borders = GameObject.FindGameObjectsWithTag("BorderLevel1Girl");
             foreach (GameObject border in borders)
             {
                 Destroy(border);
             }
-        }*/ //TODO
+        }*/
+
+        /*if(this.hasDecoded){
+         GameObject[] borders = GameObject.FindGameObjectsWithTag("BorderLevel1Boy");
+            foreach (GameObject border in borders)
+            {
+                Destroy(border);
+            }
+          }
+         */
     }
 
     private void FixedUpdate()
@@ -147,6 +159,11 @@ public class Character : MonoBehaviour
             DisplayMessage("The vault code is " + this.generatedCode);
         }
 
+        if (collider.CompareTag("Clue2"))
+        {
+            DisplayMessage("The PIN is " + this.generatedPIN);
+        }
+
         WorldItem worldItem = collider.GetComponent<WorldItem>();
         if (worldItem != null)
         {
@@ -215,21 +232,35 @@ public class Character : MonoBehaviour
         mainInputField.Show();
     }
 
-    public void EnterInputField()
+    public void EnterInputField(string typeCode)
     {
         mainInputField.Hide();
+
         string valueCode = mainInputField.inputField.text;
-        if (valueCode == this.generatedCode)
+        if (typeCode == "vaulCode")
         {
-            this.isCodeCorrect = true;
-            GameObject key = GameObject.FindGameObjectsWithTag("VaultKey")[0];
-            WorldItem worldItem = key.GetComponent<WorldItem>();
-            inventory.AddItem(worldItem.GetItem());
-            worldItem.DestroySelf();
+            if (valueCode == this.generatedCode)
+            {
+                this.isCodeCorrect = true;
+                GameObject key = GameObject.FindGameObjectsWithTag("VaultKey")[0];
+                WorldItem worldItem = key.GetComponent<WorldItem>();
+                inventory.AddItem(worldItem.GetItem());
+                worldItem.DestroySelf();
+            }
+            else
+            {
+                DisplayMessage("Code is not correct! Try again.");
+            }
         }
-        else
-        {
-            DisplayMessage("Code is not correct! Try again.");
+        else if(typeCode == "codeNumber") {
+            if (valueCode == this.generatedPIN)
+            {
+                this.hasDecoded = true;
+            }
+            else
+            {
+                DisplayMessage("Code is not correct! Try again.");
+            }
         }
     }
 
@@ -248,6 +279,9 @@ public class Character : MonoBehaviour
         this.generatedCode = code;
     }
 
-    
+    public void SetGeneratedPIN(string code)
+    {
+        this.generatedPIN = code;
+    }
 
 }

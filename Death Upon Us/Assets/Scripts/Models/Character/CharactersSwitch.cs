@@ -13,15 +13,19 @@ public class CharactersSwitch : MonoBehaviour
     Scene currentScene;
     bool isGirl;
     private string GeneratedCode;
+    private string GeneratedPIN;
 
     void Start()
     {
         girl = GameObject.Find("GirlCharacter");
         boy = GameObject.Find("BoyCharacter");
         GeneratedCode = GenerateRandomCode(4);
-        
+        GeneratedCode = GenerateRandomPIN(4);
+
         girl.GetComponent<Character>().SetGeneratedCode(GeneratedCode);
         boy.GetComponent<Character>().SetGeneratedCode(GeneratedCode);
+        girl.GetComponent<Character>().SetGeneratedPIN(GeneratedPIN);
+        boy.GetComponent<Character>().SetGeneratedPIN(GeneratedPIN);
         currentCharacter = 1;
         isGirl = currentCharacter == 0;
         currentScene = SceneManager.GetActiveScene();
@@ -81,6 +85,16 @@ public class CharactersSwitch : MonoBehaviour
         for (int i = 0; i < length; i++)
         {
             myString += Chars[Random.Range(0, Chars.Length)];
+        }
+        return myString;
+    }
+
+    public static string GenerateRandomPIN(int length)
+    {
+        string myString = "";
+        for (int i = 0; i < length; i++)
+        {
+            myString += Digits[Random.Range(0, Digits.Length)];
         }
         return myString;
     }

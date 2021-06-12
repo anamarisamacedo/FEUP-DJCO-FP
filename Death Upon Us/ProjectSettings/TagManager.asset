@@ -11,7 +11,10 @@ TagManager:
   - Cofre1
   - House4
   - VaultKey
-  - BorderLevel1
+  - CodeNumberBox
+  - Clue2
+  - BorderLevel1Girl
+  - BorderLevel1Boy
   layers:
   - Default
   - TransparentFX
