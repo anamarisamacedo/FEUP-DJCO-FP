@@ -10,6 +10,7 @@ public class OtherMenus : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject gameOverMenuUI;
     public GameObject gameWinMenuUI;
+    public GameObject backgroundMusic;
 
 
     private void Start()
@@ -35,6 +36,7 @@ public class OtherMenus : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.G))
         {
             gameWinMenuUI.SetActive(true);
+            backgroundMusic.SetActive(false);
             Time.timeScale = 0;
         }
     }
@@ -44,6 +46,7 @@ public class OtherMenus : MonoBehaviour
         if (newValue == 0)
         {
             gameOverMenuUI.SetActive(true);
+            backgroundMusic.SetActive(false);
             Time.timeScale = 0;
         }
     }
@@ -63,6 +66,7 @@ public class OtherMenus : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        backgroundMusic.SetActive(true);
         Time.timeScale = 1;
         GameIsPaused = false;
     }
@@ -70,6 +74,7 @@ public class OtherMenus : MonoBehaviour
     public void Pause()
     {
         pauseMenuUI.SetActive(true);
+        backgroundMusic.SetActive(false);
         Time.timeScale = 0;
         GameIsPaused = true;
     }
