@@ -99,6 +99,7 @@ public class Character : MonoBehaviour
 
     public void TakeHunger(int value) {
         hunger.ChangeValue(value);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Eat");
     }
 
     public void IncreaseHunger(int value) {
