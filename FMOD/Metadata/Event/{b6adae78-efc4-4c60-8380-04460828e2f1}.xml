@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{b6adae78-efc4-4c60-8380-04460828e2f1}">
 		<property name="name">
-			<value>Wind and Crickets</value>
+			<value>Ambience</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
