@@ -27,6 +27,7 @@ public class Character : MonoBehaviour
     private float distance;
     private float someDistance = 3f;
     private GameObject clue;
+    public bool isGirl = false;
 
     public Character() : base() { }
 
@@ -83,6 +84,12 @@ public class Character : MonoBehaviour
     {
         hp.ChangeValue(-value);
         StartCoroutine(blood.TakeDamage());
+        if (isGirl){
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/TakeDamage");
+        }
+        else{
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/TakeDamage");
+        }
     }
 
     public void AddHealth(int value)

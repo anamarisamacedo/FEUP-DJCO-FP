@@ -3,15 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using static utils.Configs;
+using static utils.TerrainUtils;
 
 public class Monster : MonoBehaviour
 {
     private Rigidbody rigidBody;
     private int hp;
+    private FMOD.Studio.EventInstance instance;
 
     private void Start()
     {
         hp = 100;
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Player/Running");
+        instance.setParameterByName("Terrain", SelectFootstep(this.transform.position));
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(instance, this.transform, GetComponent<Rigidbody>());
+        instance.start();
     }
 
     private void Update()
