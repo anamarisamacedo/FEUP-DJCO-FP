@@ -66,6 +66,11 @@ public class Monster : MonoBehaviour
         }
     }
 
+    public void Attack(){
+        //do attack character
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Monster/MeleeAttack");
+    }
+
     public void TakeDamage(int value)
     {
         hp -= value;
