@@ -3,17 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using static utils.Configs;
 
 public class HouseDoor : MonoBehaviour
 {
     [SerializeField] private Animator door = null;
     [SerializeField] private GameObject? monsterOrange;
     [SerializeField] private GameObject? monsterPurple;
+
     [SerializeField] private GameObject? monsterBlue;
     bool hasKeysHouse1 = false;
     bool hasCodeVault1 = false;
     private Inventory inventory;
+    private bool hasKeyVault = false;
+    Character character;
 
+    private void Update()
+    {
+        if (character != null)
+        {
+            bool codeAnswer = character.IsCodeCorrect();
+            if (codeAnswer)
+            {
+                OpenDoor(door);
+                this.hasKeyVault = true;
+            }
+        }
+    }
     public void OpenDoor(Animator door)
     {
         door.SetBool("isOpen", true);
@@ -26,17 +42,16 @@ public class HouseDoor : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-
         if (collider.CompareTag("Player"))
         {
-            Character character = collider.GetComponent<Character>();
+            character = collider.GetComponent<Character>();
+            inventory = character.GetInventory();
             if (this.CompareTag("House1"))
             {
                 hasKeysHouse1 = character.GetHasKeysHouse1();
                 if (hasKeysHouse1 == true)
                 {
                     OpenDoor(door);
-                    inventory = character.GetInventory();
                     inventory.RemoveItemType(Item.ItemType.KeyHouse1);
                 }
                 else
@@ -64,16 +79,18 @@ public class HouseDoor : MonoBehaviour
 
             if (this.CompareTag("Cofre1"))
             {
-                hasCodeVault1 = character.GetHasCodeVault1();
-                if (hasCodeVault1 == true)
+                if (this.hasKeyVault == false)
                 {
-                    OpenDoor(door);
+                    character.EnableInputField();
                 }
-                else
-                {
-                    character.DisplayMessage("Not so easy... You need a code to open this vault. Maybe the other player nows it.");
-                }
+
             }
+
+            if (this.CompareTag("House4"))
+            {
+                OpenDoor(door);
+            }
+
         }
 
     }
@@ -91,6 +108,13 @@ public class HouseDoor : MonoBehaviour
             {
                 CloseDoor(door);
             }
+
+            if (this.CompareTag("Cofre1"))
+            {
+                character.DisableInputField();
+            }
         }
     }
+
+   
 }

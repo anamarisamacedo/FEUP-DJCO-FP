@@ -34,5 +34,9 @@ namespace utils
         public const int HungerOnMeleeAttack = 100;
         public const int HungerOnBowAttack = 50;
         public const int MinHungerValToRun = 2500;
+
+        /* Vault Code */
+        public const string Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
     }
 }

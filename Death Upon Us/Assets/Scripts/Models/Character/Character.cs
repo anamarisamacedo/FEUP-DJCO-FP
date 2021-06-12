@@ -13,6 +13,8 @@ public class Character : MonoBehaviour
     public bool isGrounded;
     private bool isJumping;
     public LayerMask groundLayers, monsterLayers;
+    GameObject girl;
+    GameObject boy;
 
     private CharacterState state;
     private Inventory inventory;
@@ -20,19 +22,25 @@ public class Character : MonoBehaviour
     [SerializeField] public Health hp;
     [SerializeField] public Hunger hunger;
     [SerializeField] public BloodEffect blood;
+    [SerializeField] private UI_InputField mainInputField;
     public Text textElement;
     public string message;
     private bool hasKeysHouse1 = false;
     private bool hasCodeVault1 = false;
     public bool collideClue1 = false;
-    private float distance;
-    private float someDistance = 3f;
     private GameObject clue;
+    public Conversation convoNeedVault;
+    public Conversation convoHaveVault;
+    private bool isCodeCorrect;
+    private string generatedCode;
+
+    [SerializeField] private Animator dialogue;
 
     public Character() : base() { }
 
     private void Start()
     {
+        
         state = new IdleState(this);
         rigidBody = GetComponent<Rigidbody>();
         capsuleCollider = GetComponent<CapsuleCollider>();
@@ -47,15 +55,6 @@ public class Character : MonoBehaviour
         state.HandleInput();
         textElement.text = message;
         
-        distance = Vector3.Distance(transform.position, clue.transform.position);
-        if (distance < someDistance)
-        {
-            if (clue.CompareTag("Clue1"))
-            {
-                collideClue1 = true;
-            }
-        }
-
         if (inventory.GetItemAmount(Item.ItemType.KeyHouse1) >= 3)
         {
             hasKeysHouse1 = true;
@@ -136,7 +135,7 @@ public class Character : MonoBehaviour
     {
         if (collider.CompareTag("Clue1"))
         {
-            DisplayMessage("Press R.");
+            DisplayMessage("The vault code is " + this.generatedCode);
         }
 
         WorldItem worldItem = collider.GetComponent<WorldItem>();
@@ -151,14 +150,7 @@ public class Character : MonoBehaviour
     {
         return inventory;
     }
-    private void OnTriggerExit(Collider collider)
-    {
-        if (collider.CompareTag("Clue1"))
-        {
-            collideClue1 = false;
-            DisplayMessage("");
-        }
-    }
+
     public bool IsJumping()
     {
         return isJumping;
@@ -180,4 +172,73 @@ public class Character : MonoBehaviour
     {
         return this.hasCodeVault1;
     }
+
+    public void SetHasCodeVault1(bool hasCode)
+    {
+        this.hasCodeVault1 = hasCode;
+    }
+
+    public void StartDialogueVaultCode()
+    {
+        OpenDialogue();
+        
+        if (!hasCodeVault1)
+        {
+            DialogueManager.StartConversation(convoNeedVault);
+        }
+        else
+        {
+            DialogueManager.StartConversation(convoHaveVault);
+        }
+    }
+
+    public void OpenDialogue()
+    {
+        dialogue.SetBool("isDialogueOpen", true);
+    }
+
+    public void CloseDialogue() { 
+        dialogue.SetBool("isDialogueOpen", false);
+    }
+
+    public void EnableInputField()
+    {
+        mainInputField.Show();
+    }
+
+    public void EnterInputField()
+    {
+        mainInputField.Hide();
+        string valueCode = mainInputField.inputField.text;
+        if (valueCode == this.generatedCode)
+        {
+            this.isCodeCorrect = true;
+            GameObject key = GameObject.FindGameObjectsWithTag("VaultKey")[0];
+            WorldItem worldItem = key.GetComponent<WorldItem>();
+            inventory.AddItem(worldItem.GetItem());
+            worldItem.DestroySelf();
+        }
+        else
+        {
+            DisplayMessage("Code is not correct! Try again.");
+        }
+    }
+
+    public void DisableInputField()
+    {
+        mainInputField.Hide();
+    }
+
+    public bool IsCodeCorrect()
+    {
+        return this.isCodeCorrect;
+    }
+
+    public void SetGeneratedCode(string code)
+    {
+        this.generatedCode = code;
+    }
+
+    
+
 }

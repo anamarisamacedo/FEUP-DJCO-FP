@@ -10,6 +10,7 @@ TagManager:
   - House3
   - Cofre1
   - House4
+  - VaultKey
   layers:
   - Default
   - TransparentFX

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using static utils.Configs;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class CharactersSwitch : MonoBehaviour
 {
@@ -11,12 +12,16 @@ public class CharactersSwitch : MonoBehaviour
     int currentCharacter;
     Scene currentScene;
     bool isGirl;
+    private string GeneratedCode;
 
     void Start()
     {
         girl = GameObject.Find("GirlCharacter");
         boy = GameObject.Find("BoyCharacter");
-
+        GeneratedCode = GenerateRandomCode(4);
+        
+        girl.GetComponent<Character>().SetGeneratedCode(GeneratedCode);
+        boy.GetComponent<Character>().SetGeneratedCode(GeneratedCode);
         currentCharacter = 1;
         isGirl = currentCharacter == 0;
         currentScene = SceneManager.GetActiveScene();
@@ -69,4 +74,15 @@ public class CharactersSwitch : MonoBehaviour
             this.girl.transform.localScale = new Vector3(0f, 2.5f, 0f);
         }
     }
+
+    public static string GenerateRandomCode(int length)
+    {
+        string myString = "";
+        for (int i = 0; i < length; i++)
+        {
+            myString += Chars[Random.Range(0, Chars.Length)];
+        }
+        return myString;
+    }
+
 }
