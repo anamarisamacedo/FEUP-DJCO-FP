@@ -177,8 +177,11 @@ public class Character : MonoBehaviour
 
     public void SetIsJumping(bool isJumping)
     {
-        if(isJumping)
+        if(isJumping){
+            if (!this.isJumping)
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Jump");
             IncreaseHunger(HungerOnJump);
+        }
         this.isJumping = isJumping;
     }
 

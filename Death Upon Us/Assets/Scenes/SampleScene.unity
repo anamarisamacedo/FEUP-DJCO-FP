@@ -1056,6 +1056,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: casamadeira2
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1f07bfaf478f87a4c9fb1215b746a0db, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1f07bfaf478f87a4c9fb1215b746a0db, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -1373,7 +1377,7 @@ GameObject:
   - component: {fileID: 293412840}
   - component: {fileID: 293412842}
   - component: {fileID: 293412841}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2947,6 +2951,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: portafinal
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bcb00970cdeded14b96bf93bcc7b4b16, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bcb00970cdeded14b96bf93bcc7b4b16, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3380,6 +3388,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: bcb00970cdeded14b96bf93bcc7b4b16, type: 3}
       propertyPath: m_Name
       value: portafinal
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bcb00970cdeded14b96bf93bcc7b4b16, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bcb00970cdeded14b96bf93bcc7b4b16, type: 3}
       propertyPath: m_RootOrder
@@ -4175,6 +4187,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2064226531}
     m_Modifications:
     - target: {fileID: 1436944102497898, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1436944102497898, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
       propertyPath: m_TagString
       value: Clue1
       objectReference: {fileID: 0}
@@ -4183,8 +4199,16 @@ PrefabInstance:
       value: Clipboard
       objectReference: {fileID: 0}
     - target: {fileID: 1685343955664076, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685343955664076, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
       propertyPath: m_TagString
       value: Clue1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954106281014710, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1954106281014710, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
       propertyPath: m_TagString
@@ -9157,7 +9181,7 @@ GameObject:
   - component: {fileID: 1583252586}
   - component: {fileID: 1583252585}
   - component: {fileID: 1583252588}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Clue1
   m_Icon: {fileID: 0}
@@ -10022,7 +10046,7 @@ GameObject:
   - component: {fileID: 1713658270}
   - component: {fileID: 1713658269}
   - component: {fileID: 1713658268}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OpenTrigger2
   m_TagString: House2
   m_Icon: {fileID: 0}
@@ -12144,6 +12168,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: casamadeira
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1f07bfaf478f87a4c9fb1215b746a0db, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1f07bfaf478f87a4c9fb1215b746a0db, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -12206,7 +12234,7 @@ GameObject:
   - component: {fileID: 2074895928}
   - component: {fileID: 2074895930}
   - component: {fileID: 2074895929}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12631,7 +12659,7 @@ GameObject:
   - component: {fileID: 2107700051}
   - component: {fileID: 2107700050}
   - component: {fileID: 2107700049}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OpenTrigger1
   m_TagString: House1
   m_Icon: {fileID: 0}
