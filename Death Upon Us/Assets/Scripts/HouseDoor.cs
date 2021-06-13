@@ -13,14 +13,35 @@ public class HouseDoor : MonoBehaviour
     [SerializeField] private GameObject? monsterBlue;
     bool hasKeysHouse1 = false;
     private Inventory inventory;
+    public bool wood = true;
 
     public void OpenDoor(Animator door)
     {
+        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance("event:/Environment/DoorOpen");;
+        if (wood){
+            instance.setParameterByName("Material", 0);
+        }
+        else{
+            instance.setParameterByName("Material", 1);
+        }
+        instance.start();
+        instance.release();
+
         door.SetBool("isOpen", true);
     }
 
     public void CloseDoor(Animator door)
     {
+        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance("event:/Environment/DoorClose");;
+        if (wood){
+            instance.setParameterByName("Material", 0);
+        }
+        else{
+            instance.setParameterByName("Material", 1);
+        }
+        instance.start();
+        instance.release();
+
         door.SetBool("isOpen", false);
     }
 
