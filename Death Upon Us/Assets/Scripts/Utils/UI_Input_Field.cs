@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 
-public class UI_InputField : MonoBehaviour
+public class UI_Input_Field : MonoBehaviour
 {
     public InputField inputField;
     private void Awake()

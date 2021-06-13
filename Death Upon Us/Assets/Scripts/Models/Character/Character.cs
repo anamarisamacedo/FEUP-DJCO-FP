@@ -22,7 +22,8 @@ public class Character : MonoBehaviour
     [SerializeField] public Health hp;
     [SerializeField] public Hunger hunger;
     [SerializeField] public BloodEffect blood;
-    [SerializeField] private UI_InputField mainInputField;
+    [SerializeField] private UI_Input_Field mainInputField;
+    [SerializeField] private UI_Input_Button mainInputButton;
     public Text textElement;
     public string message;
     private bool hasKeysHouse1 = false;
@@ -33,7 +34,6 @@ public class Character : MonoBehaviour
     public Conversation convoHaveVault;
     private bool isCodeCorrect;
     private string generatedCode;
-    private string generatedPIN;
     public bool hasDecoded = false;
 
     [SerializeField] private Animator dialogue;
@@ -159,11 +159,6 @@ public class Character : MonoBehaviour
             DisplayMessage("The vault code is " + this.generatedCode);
         }
 
-        if (collider.CompareTag("Clue2"))
-        {
-            DisplayMessage("The PIN is " + this.generatedPIN);
-        }
-
         WorldItem worldItem = collider.GetComponent<WorldItem>();
         if (worldItem != null)
         {
@@ -232,13 +227,11 @@ public class Character : MonoBehaviour
         mainInputField.Show();
     }
 
-    public void EnterInputField(string typeCode)
+    public void EnterInputField()
     {
         mainInputField.Hide();
 
         string valueCode = mainInputField.inputField.text;
-        if (typeCode == "vaulCode")
-        {
             if (valueCode == this.generatedCode)
             {
                 this.isCodeCorrect = true;
@@ -251,22 +244,30 @@ public class Character : MonoBehaviour
             {
                 DisplayMessage("Code is not correct! Try again.");
             }
-        }
-        else if(typeCode == "codeNumber") {
-            if (valueCode == this.generatedPIN)
-            {
-                this.hasDecoded = true;
-            }
-            else
-            {
-                DisplayMessage("Code is not correct! Try again.");
-            }
-        }
     }
 
     public void DisableInputField()
     {
         mainInputField.Hide();
+    }
+
+    public void EnableInputButton()
+    {
+        mainInputButton.Show();
+    }
+
+    public void EnterInputButton()
+    {
+        mainInputButton.Hide();
+
+        this.hasDecoded = true;
+        DisplayMessage("Code is not correct! Try again.");
+
+    }
+
+    public void DisableInputButton()
+    {
+        mainInputButton.Hide();
     }
 
     public bool IsCodeCorrect()
@@ -278,10 +279,4 @@ public class Character : MonoBehaviour
     {
         this.generatedCode = code;
     }
-
-    public void SetGeneratedPIN(string code)
-    {
-        this.generatedPIN = code;
-    }
-
 }

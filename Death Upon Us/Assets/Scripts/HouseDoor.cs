@@ -92,7 +92,7 @@ public class HouseDoor : MonoBehaviour
             {
                 if (this.hasDecoded == false)
                 {
-                    character.EnableInputField();
+                    character.EnableInputButton();
                 }
 
             }
@@ -117,9 +117,14 @@ public class HouseDoor : MonoBehaviour
                CloseDoor(door);
             }
 
-            if (this.CompareTag("Cofre1") || this.CompareTag("CodeNumberBox"))
+            if (this.CompareTag("Cofre1"))
             {
                 character.DisableInputField();
+            }
+
+            if (this.CompareTag("CodeNumberBox"))
+            {
+                character.DisableInputButton();
             }
         }
     }
