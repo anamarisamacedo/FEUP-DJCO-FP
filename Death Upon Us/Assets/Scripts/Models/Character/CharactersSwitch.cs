@@ -35,30 +35,34 @@ public class CharactersSwitch : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (currentScene.name == "SampleScene")
         {
-            currentCharacter = (currentCharacter + 1) % 2;
-            isGirl = currentCharacter == 0;
+            if (girl.GetComponent<Character>().inputEnabled && boy.GetComponent<Character>().inputEnabled)
+                if (Input.GetKeyDown(KeyCode.X))
+                {
+                    currentCharacter = (currentCharacter + 1) % 2;
+                    isGirl = currentCharacter == 0;
 
-            if (isGirl && currentScene.name == "SampleScene")
-            {
-                girl.GetComponent<Character>().blood.RemoveBlood();
-            }
-            else
-            {
-                boy.GetComponent<Character>().blood.RemoveBlood();
-            }
+                    if (isGirl && currentScene.name == "SampleScene")
+                    {
+                        girl.GetComponent<Character>().blood.RemoveBlood();
+                    }
+                    else
+                    {
+                        boy.GetComponent<Character>().blood.RemoveBlood();
+                    }
 
-            girl.GetComponent<Character>().enabled = !isGirl;
-            girl.GetComponentInChildren<Camera>().enabled = !isGirl;
-            if (currentScene.name == "SampleScene")
-            {
-                girl.GetComponentInChildren<Canvas>().enabled = !isGirl;
-                boy.GetComponentInChildren<Canvas>().enabled = isGirl;
-            }
-            boy.GetComponent<Character>().enabled = isGirl;
-            boy.GetComponentInChildren<Camera>().enabled = isGirl;
-            SetCharacterActive(!isGirl);
+                    girl.GetComponent<Character>().enabled = !isGirl;
+                    girl.GetComponentInChildren<Camera>().enabled = !isGirl;
+                    if (currentScene.name == "SampleScene")
+                    {
+                        girl.GetComponentInChildren<Canvas>().enabled = !isGirl;
+                        boy.GetComponentInChildren<Canvas>().enabled = isGirl;
+                    }
+                    boy.GetComponent<Character>().enabled = isGirl;
+                    boy.GetComponentInChildren<Camera>().enabled = isGirl;
+                    SetCharacterActive(!isGirl);
+                }
         }
     }
 
@@ -85,5 +89,4 @@ public class CharactersSwitch : MonoBehaviour
         }
         return myString;
     }
-
 }

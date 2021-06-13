@@ -28,13 +28,14 @@ public class Character : MonoBehaviour
     public string message;
     private bool hasKeysHouse1 = false;
     private bool hasCodeVault1 = false;
-    public bool collideClue1 = false;
     private GameObject clue;
     public Conversation convoNeedVault;
     public Conversation convoHaveVault;
     private bool isCodeCorrect;
     private string generatedCode;
+    private string generatedPIN = "134";
     public bool hasDecoded = false;
+    public bool inputEnabled = true;
 
     [SerializeField] private Animator dialogue;
 
@@ -159,6 +160,11 @@ public class Character : MonoBehaviour
             DisplayMessage("The vault code is " + this.generatedCode);
         }
 
+        if (collider.CompareTag("Clue2"))
+        {
+            DisplayMessage("The buttons order is " + this.generatedPIN);
+        }
+
         WorldItem worldItem = collider.GetComponent<WorldItem>();
         if (worldItem != null)
         {
@@ -225,6 +231,7 @@ public class Character : MonoBehaviour
     public void EnableInputField()
     {
         mainInputField.Show();
+        this.inputEnabled = false;
     }
 
     public void EnterInputField()
@@ -249,25 +256,27 @@ public class Character : MonoBehaviour
     public void DisableInputField()
     {
         mainInputField.Hide();
+        this.inputEnabled = true;
     }
 
     public void EnableInputButton()
     {
         mainInputButton.Show();
+        this.inputEnabled = false;
     }
 
     public void EnterInputButton()
     {
         mainInputButton.Hide();
-
+        bool[] sequence = mainInputButton.GetSequence();
         this.hasDecoded = true;
-        DisplayMessage("Code is not correct! Try again.");
-
+        DisplayMessage("You deciphered the code!");
     }
 
     public void DisableInputButton()
     {
         mainInputButton.Hide();
+        this.inputEnabled = true;
     }
 
     public bool IsCodeCorrect()

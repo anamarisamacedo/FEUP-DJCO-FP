@@ -37,6 +37,5 @@ namespace utils
 
         /* Codes */
         public const string Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        public const string Digits = "0123456789";
     }
 }

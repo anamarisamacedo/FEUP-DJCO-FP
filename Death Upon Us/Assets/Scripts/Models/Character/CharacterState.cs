@@ -60,7 +60,7 @@ public abstract class CharacterState
 
     public virtual void HandleKeyboardInput()
     {
-        if (Time.timeScale == 1)
+        if (Time.timeScale == 1 && character.inputEnabled)
         {
             if (Input.GetKey(KeyCode.A))
             {
@@ -73,13 +73,6 @@ public abstract class CharacterState
             else if (Input.GetKey(KeyCode.T))
             {
                 character.TakeDamage(1); // Testing purposes
-            }
-            else if (Input.GetKey(KeyCode.R))
-            {
-                if (character.collideClue1 == true)
-                {
-                    character.DisplayMessage("40.741895 -73.989308");
-                }
             }
             else if (Input.GetKeyDown(KeyCode.Space))
             {
