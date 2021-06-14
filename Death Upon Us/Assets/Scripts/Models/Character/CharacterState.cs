@@ -147,16 +147,8 @@ public abstract class CharacterState
             if (Input.GetButtonDown("Fire1"))
             {
                 character.GetInventory().UseItem(character);
+                character.gameObject.GetComponent<Shoot>().ShootArrow();
             }
-
-            /*if (Time.time >= nextAttackTime)
-            {
-                if (Input.GetMouseButtonDown(0))
-                {
-                    nextAttackTime = Time.time + 1f / PlayerAttackRate;
-                    character.Attack();
-                }
-            }*/
         }
     }
 
