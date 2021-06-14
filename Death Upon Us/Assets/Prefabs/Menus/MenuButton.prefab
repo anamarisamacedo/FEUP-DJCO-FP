@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 1170047752558029864}
   - component: {fileID: 1170047752558029867}
   - component: {fileID: 1170047752558029866}
-  - component: {fileID: 3907148895938617765}
-  - component: {fileID: 6438881478622743420}
+  - component: {fileID: -6315746237506387470}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -135,7 +134,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3907148895938617765
+--- !u!114 &-6315746237506387470
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,43 +143,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1170047752558029876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Script: {fileID: 11500000, guid: 3bc1e97e47da99efeac5d015ce3a1f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/UI/MenuHover
-  PlayEvent: 13
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
---- !u!114 &6438881478622743420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1170047752558029876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/UI/MenuSelect
-  PlayEvent: 15
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
 --- !u!1 &1170047752960521350
 GameObject:
   m_ObjectHideFlags: 0
