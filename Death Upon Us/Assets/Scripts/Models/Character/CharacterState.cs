@@ -149,14 +149,14 @@ public abstract class CharacterState
                 character.GetInventory().UseItem(character);
             }
 
-            if (Time.time >= nextAttackTime)
+            /*if (Time.time >= nextAttackTime)
             {
                 if (Input.GetMouseButtonDown(0))
                 {
                     nextAttackTime = Time.time + 1f / PlayerAttackRate;
                     character.Attack();
                 }
-            }
+            }*/
         }
     }
 
