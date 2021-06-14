@@ -9,12 +9,10 @@ using UnityEngine.EventSystems;
 public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
 {
     public void OnPointerEnter(PointerEventData eventData){
-        Debug.Log("hello");
         FMODUnity.RuntimeManager.PlayOneShot("event:/UI/MenuHover");
     }
 
     public void OnPointerClick(PointerEventData eventData){
-        Debug.Log("hello2");
         FMODUnity.RuntimeManager.PlayOneShot("event:/UI/MenuSelect");
     }
 }
