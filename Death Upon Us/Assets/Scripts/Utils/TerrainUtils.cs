@@ -85,7 +85,7 @@ namespace utils
             return maxIndex;
         }
 
-        private bool insideHouse(Vector3 pos){
+        public bool insideHouse(Vector3 pos){
             Collider[] housesInRange = Physics.OverlapSphere(pos, 50, LayerMask.GetMask("Houses"));
             foreach (Collider house in housesInRange){
                 if (house.bounds.Contains(pos))
@@ -96,16 +96,10 @@ namespace utils
 
         public int SelectFootstep(Vector3 pos)
         {     
-            FMOD.Studio.EventInstance snapshot;
             if (insideHouse(pos)){
-                //update snapshot for indoors
-                snapshot = FMODUnity.RuntimeManager.CreateInstance("snapshot:/Indoors");
-                snapshot.start();
                 //wood
                 return 2;
             }
-            snapshot = FMODUnity.RuntimeManager.CreateInstance("snapshot:/Outdoors");
-            snapshot.start();
 
             int texture = GetMainTexture(pos);
             switch (texture)

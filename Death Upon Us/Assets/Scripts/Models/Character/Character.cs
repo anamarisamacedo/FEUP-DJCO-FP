@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using static utils.Configs;
 using UnityEngine.UI;
+using utils;
 
 public class Character : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class Character : MonoBehaviour
     private float someDistance = 3f;
     private GameObject clue;
     public bool isGirl = false;
+    public TerrainUtils tu;
+    FMOD.Studio.EventInstance snapshot;
+    private bool inside = false;
 
     public Character() : base() { }
 
@@ -40,6 +44,7 @@ public class Character : MonoBehaviour
         uiInventory.SetInventory(inventory);
         clue = GameObject.Find("Clipboard");
         isJumping = false;
+        tu = new TerrainUtils();
     }
 
     private void Update()
@@ -59,6 +64,18 @@ public class Character : MonoBehaviour
         if (inventory.GetItemAmount(Item.ItemType.KeyHouse1) >= 3)
         {
             hasKeysHouse1 = true;
+        }
+        if (inside != tu.insideHouse(this.transform.position)){
+            inside = !inside;
+            if (inside){
+                //update snapshot for indoors
+                snapshot = FMODUnity.RuntimeManager.CreateInstance("snapshot:/Indoors");
+                snapshot.start();
+            }
+            else{
+                snapshot = FMODUnity.RuntimeManager.CreateInstance("snapshot:/Outdoors");
+                snapshot.start();
+            }
         }
     }
 

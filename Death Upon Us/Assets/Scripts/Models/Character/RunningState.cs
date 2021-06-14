@@ -5,13 +5,11 @@ using utils;
 public class RunningState : CharacterState
 {
     private FMOD.Studio.EventInstance instance;
-    private TerrainUtils tu;
 
     public RunningState(Character character) : base(character)
     {
         instance = FMODUnity.RuntimeManager.CreateInstance("event:/Player/Running");
-        tu = new TerrainUtils();
-        instance.setParameterByName("Terrain", tu.SelectFootstep(character.transform.position));
+        instance.setParameterByName("Terrain", character.tu.SelectFootstep(character.transform.position));
         instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(character.transform.parent.gameObject));
         instance.start();
     }
@@ -24,7 +22,7 @@ public class RunningState : CharacterState
         {
             character.ChangeState(new WalkingState(character));
         }
-        instance.setParameterByName("Terrain", tu.SelectFootstep(character.transform.position));
+        instance.setParameterByName("Terrain", character.tu.SelectFootstep(character.transform.position));
     }
 
     private void StopSound()
