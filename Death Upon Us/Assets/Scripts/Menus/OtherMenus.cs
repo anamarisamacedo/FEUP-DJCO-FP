@@ -54,12 +54,14 @@ public class OtherMenus : MonoBehaviour
     public void GoToMainMenu()
     {
         Time.timeScale = 1;
+        backgroundMusic.SetActive(false);
         SceneManager.LoadScene(MenuScene);
     }
 
     public void RestartGame()
     {
         Time.timeScale = 1;
+        backgroundMusic.SetActive(false);
         SceneManager.LoadScene(GameScene);
     }
 
