@@ -101,12 +101,17 @@ public class Character : MonoBehaviour
     {
         hp.ChangeValue(-value);
         StartCoroutine(blood.TakeDamage());
+
+        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance("event:/Player/TakeDamage");
+    
         if (isGirl){
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/TakeDamage");
+            instance.setParameterByName("Character", 1);
         }
         else{
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/TakeDamage");
+            instance.setParameterByName("Character", 0);
         }
+        instance.start();
+        instance.release();
     }
 
     public void AddHealth(int value)
