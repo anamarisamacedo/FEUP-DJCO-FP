@@ -16,11 +16,11 @@ public class Monster : MonoBehaviour
     private void Start()
     {
         hp = 100;
-        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Player/Running");
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Monster/Walking");
         tu = new TerrainUtils();
         instance.setParameterByName("Terrain", tu.SelectFootstep(this.transform.position));
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(instance, this.transform, GetComponent<Rigidbody>());
-        //instance.start();
+        instance.start();
     }
 
     private void Update()
