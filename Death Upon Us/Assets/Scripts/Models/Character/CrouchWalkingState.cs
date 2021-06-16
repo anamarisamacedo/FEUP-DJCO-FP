@@ -8,7 +8,7 @@ public class CrouchWalkingState : CharacterState
 
     public CrouchWalkingState(Character character) : base(character)
     {
-        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Player/Walking");
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Player/CrouchWalking");
         instance.setParameterByName("Terrain", character.tu.SelectFootstep(character.transform.position));
         instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(character.transform.parent.gameObject));
         instance.start();
