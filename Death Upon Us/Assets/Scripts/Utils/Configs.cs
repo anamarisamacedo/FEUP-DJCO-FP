@@ -7,7 +7,7 @@ namespace utils
         public const float WalkingSpeed = 8f;
         public const float RunningSpeed = 15f;
         public const float JumpForce = 7f;
-        public const float RotationSpeed = 6f;
+        public const float RotationSpeed = 4f;
         
         /* Monster mechanics */
         public const float MonsterSpeed = 2f; 

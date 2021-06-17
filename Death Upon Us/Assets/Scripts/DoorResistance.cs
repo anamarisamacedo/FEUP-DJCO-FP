@@ -19,7 +19,6 @@ public class DoorResistance : MonoBehaviour
         if (collider.CompareTag("Player"))
         {
             character = collider.GetComponent<Character>();
-            Debug.Log("S");
             OpenDoor(doorLeft);
             OpenDoor(doorRight);
         }

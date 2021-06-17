@@ -13,7 +13,6 @@ public class CutSceneTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        Debug.Log(collider.name);
         if (collider.CompareTag("Player") && (collider.name == "GirlCharacter"))
         {
             cutSceneCamera.SetActive(true);

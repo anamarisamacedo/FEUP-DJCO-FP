@@ -19,7 +19,7 @@ public class HouseDoor : MonoBehaviour
     private bool hasDecoded = false;
     Character character;
     public bool wood = true;
-
+    private bool vaultIsOpened = false;
     private void Update()
     {
         if (character != null)
@@ -28,8 +28,12 @@ public class HouseDoor : MonoBehaviour
             bool hasDecoded = character.hasDecoded;
             if (codeAnswer)
             {
-                OpenDoor(door);
                 this.hasKeyVault = true;
+                this.vaultIsOpened = true;
+            }
+            if(this.vaultIsOpened == true){
+                OpenDoor(door);
+                this.vaultIsOpened = false;
             }
         }
     }
