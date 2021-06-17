@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public abstract class CharacterState
 {
     protected Character character;
-    float nextAttackTime = 0f;
 
 
     public CharacterState(Character character)
@@ -147,7 +146,6 @@ public abstract class CharacterState
             if (Input.GetButtonDown("Fire1"))
             {
                 character.GetInventory().UseItem(character);
-                character.gameObject.GetComponent<Shoot>().ShootArrow();
             }
         }
     }

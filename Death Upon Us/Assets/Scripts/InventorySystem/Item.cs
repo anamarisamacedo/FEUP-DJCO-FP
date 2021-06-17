@@ -10,6 +10,7 @@ public class Item
     public int purpleFoodValue = 1000;
     public int medKitValue = 1000;
     float nextAttackTime = 0f;
+    float nextArrowTime = 0f;
 
 
 
@@ -91,6 +92,13 @@ public class Item
                 {
                     nextAttackTime = Time.time + 1f / PlayerAttackRate;
                     character.Attack();
+                }
+                return;
+            case ItemType.Arrows:
+                if (Time.time >= nextArrowTime)
+                {
+                    nextArrowTime = Time.time + 1f / PlayerAttackRate;
+                    character.gameObject.GetComponent<Shoot>().ShootArrow();
                 }
                 return;
             default:

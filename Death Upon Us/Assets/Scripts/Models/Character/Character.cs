@@ -120,6 +120,8 @@ public class Character : MonoBehaviour
         GetComponent<Animator>().SetBool("MeleeAttack", false);
     }
 
+    
+
     public void Heal(int value)
     {
         hp.ChangeValue(value);
