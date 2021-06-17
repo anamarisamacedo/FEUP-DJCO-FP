@@ -34,21 +34,23 @@ public class Character : MonoBehaviour
     public Conversation convoHaveVault;
     private bool isCodeCorrect;
     private string generatedCode;
-    private string generatedPIN = "134";
+    private string generatedPIN = "124";
     public bool hasDecoded = false;
     public bool inputEnabled = true;
     [SerializeField] private Animator dialogue;
-    public bool isGirl = false;
+    public bool isGirl = true;
     public TerrainUtils tu;
     FMOD.Studio.EventInstance snapshot;
     private bool inside = false;
     private bool mapFound = false;
 
+    private int currentHP = 100;
+
     public Character() : base() { }
 
     private void Start()
     {
-        
+
         state = new IdleState(this);
         rigidBody = GetComponent<Rigidbody>();
         capsuleCollider = GetComponent<CapsuleCollider>();
@@ -63,8 +65,8 @@ public class Character : MonoBehaviour
     {
         state.HandleInput();
         textElement.text = message;
-        
-        if (inventory.GetItemAmount(Item.ItemType.KeyHouse1) >= 0)
+
+        if (inventory.GetItemAmount(Item.ItemType.KeyHouse1) >= 2)
         {
             hasKeysHouse1 = true;
         }
@@ -77,24 +79,17 @@ public class Character : MonoBehaviour
                 Destroy(border);
             }
         }
-
-        /*if(this.hasDecoded){
-         GameObject[] borders = GameObject.FindGameObjectsWithTag("BorderLevel1Boy");
-            foreach (GameObject border in borders)
-            {
-                Destroy(border);
-            }
-          }
-         */
-
-        if (inside != tu.insideHouse(this.transform.position)){
+        if (inside != tu.insideHouse(this.transform.position))
+        {
             inside = !inside;
-            if (inside){
+            if (inside)
+            {
                 //update snapshot for indoors
                 snapshot = FMODUnity.RuntimeManager.CreateInstance("snapshot:/Indoors");
                 snapshot.start();
             }
-            else{
+            else
+            {
                 snapshot = FMODUnity.RuntimeManager.CreateInstance("snapshot:/Outdoors");
                 snapshot.start();
             }
@@ -122,15 +117,34 @@ public class Character : MonoBehaviour
     public void TakeDamage(int value)
     {
         hp.ChangeValue(-value);
+        this.currentHP -= value;
+        if (currentHP <= 0)
+        {
+            FMOD.Studio.EventInstance instance1 = FMODUnity.RuntimeManager.CreateInstance("event:/Player/Die");
+
+            if (isGirl)
+            {
+                instance1.setParameterByName("Character", 1);
+            }
+            else
+            {
+                instance1.setParameterByName("Character", 0);
+            }
+            instance1.start();
+            instance1.release();
+        }
+
         StartCoroutine(blood.TakeDamage());
 
         FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance("event:/Player/TakeDamage");
-    
-        if (isGirl){
-            instance.setParameterByName("Character", 1);
-        }
-        else{
+
+        if (isGirl)
+        {
             instance.setParameterByName("Character", 0);
+        }
+        else
+        {
+            instance.setParameterByName("Character", 1);
         }
         instance.start();
         instance.release();
@@ -141,23 +155,28 @@ public class Character : MonoBehaviour
         hp.ChangeValue(value);
     }
 
-    public void TakeHunger(int value) {
+    public void TakeHunger(int value)
+    {
         hunger.ChangeValue(value);
         FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Eat");
     }
 
-    public void IncreaseHunger(int value) {
+    public void IncreaseHunger(int value)
+    {
         hunger.ChangeValue(-value);
     }
 
-    public int GetHungerValue() {
+    public int GetHungerValue()
+    {
         return hunger.GetValue();
     }
 
-    public void Attack() {
+    public void Attack()
+    {
         StartCoroutine(PlayMeleeAnimation());
         Collider[] hitMonsters = Physics.OverlapSphere(transform.position, PlayerAttackRadius, monsterLayers);
-        foreach(Collider monster in hitMonsters) {
+        foreach (Collider monster in hitMonsters)
+        {
             monster.gameObject.GetComponent<Monster>().TakeDamage(35);
         }
         IncreaseHunger(HungerOnMeleeAttack);
@@ -227,7 +246,7 @@ public class Character : MonoBehaviour
             Destroy(collider.gameObject);
         }
     }
-    
+
     public Inventory GetInventory()
     {
         return inventory;
@@ -240,7 +259,8 @@ public class Character : MonoBehaviour
 
     public void SetIsJumping(bool isJumping)
     {
-        if(isJumping){
+        if (isJumping)
+        {
             if (!this.isJumping)
                 FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Jump");
             IncreaseHunger(HungerOnJump);
@@ -266,7 +286,7 @@ public class Character : MonoBehaviour
     public void StartDialogueVaultCode()
     {
         OpenDialogue();
-        
+
         if (!hasCodeVault1)
         {
             DialogueManager.StartConversation(convoNeedVault);
@@ -282,7 +302,8 @@ public class Character : MonoBehaviour
         dialogue.SetBool("isDialogueOpen", true);
     }
 
-    public void CloseDialogue() { 
+    public void CloseDialogue()
+    {
         dialogue.SetBool("isDialogueOpen", false);
     }
 
@@ -297,18 +318,18 @@ public class Character : MonoBehaviour
         mainInputField.Hide();
 
         string valueCode = mainInputField.inputField.text;
-            if (valueCode == this.generatedCode)
-            {
-                this.isCodeCorrect = true;
-                GameObject key = GameObject.FindGameObjectsWithTag("VaultKey")[0];
-                WorldItem worldItem = key.GetComponent<WorldItem>();
-                inventory.AddItem(worldItem.GetItem());
-                worldItem.DestroySelf();
-            }
-            else
-            {
-                DisplayMessage("Code is not correct! Try again.");
-            }
+        if (valueCode == this.generatedCode)
+        {
+            this.isCodeCorrect = true;
+            GameObject key = GameObject.FindGameObjectsWithTag("VaultKey")[0];
+            WorldItem worldItem = key.GetComponent<WorldItem>();
+            inventory.AddItem(worldItem.GetItem());
+            worldItem.DestroySelf();
+        }
+        else
+        {
+            DisplayMessage("Code is not correct! Try again.");
+        }
     }
 
     public void DisableInputField()
@@ -346,4 +367,10 @@ public class Character : MonoBehaviour
     {
         this.generatedCode = code;
     }
+
+    public void SetIsGirl(bool girl)
+    {
+        this.isGirl = girl;
+    }
+
 }

@@ -18,6 +18,8 @@ namespace utils
         public const float PlayerAttackRate = 2f;
         public const int ArrowDamage = 20;
 
+        public const int MonsterDamage = 10;
+
         /* Scenes */
         public const int MenuScene = 0;
         public const int GameScene = 1;

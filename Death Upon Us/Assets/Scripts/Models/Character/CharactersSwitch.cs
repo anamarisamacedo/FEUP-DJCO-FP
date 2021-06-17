@@ -60,6 +60,8 @@ public class CharactersSwitch : MonoBehaviour
                     boy.GetComponent<Character>().enabled = !isGirl;
                     boy.GetComponentInChildren<Camera>().enabled = !isGirl;
                     
+                    girl.GetComponent<Character>().SetIsGirl(isGirl);
+                    boy.GetComponent<Character>().SetIsGirl(isGirl);
                     SetCharacterActive(isGirl);
                 }
         }
