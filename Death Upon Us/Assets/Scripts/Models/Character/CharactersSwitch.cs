@@ -21,7 +21,7 @@ public class CharactersSwitch : MonoBehaviour
         GeneratedCode = GenerateRandomCode(4);
 
         currentCharacter = 1;
-        isGirl = currentCharacter == 0;
+        isGirl = currentCharacter == 1;
 
         currentScene = SceneManager.GetActiveScene();
         if (currentScene.name == "SampleScene")
@@ -41,9 +41,9 @@ public class CharactersSwitch : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.X))
                 {
                     currentCharacter = (currentCharacter + 1) % 2;
-                    isGirl = currentCharacter == 0;
+                    isGirl = currentCharacter == 1;
 
-                    if (isGirl)
+                    if (!isGirl)
                     {
                         girl.GetComponent<Character>().blood.RemoveBlood();
                     }
@@ -52,15 +52,15 @@ public class CharactersSwitch : MonoBehaviour
                         boy.GetComponent<Character>().blood.RemoveBlood();
                     }
 
-                    girl.GetComponent<Character>().enabled = !isGirl;
-                    girl.GetComponentInChildren<Camera>().enabled = !isGirl;
+                    girl.GetComponent<Character>().enabled = isGirl;
+                    girl.GetComponentInChildren<Camera>().enabled = isGirl;
+                    girl.GetComponentInChildren<Canvas>().enabled = isGirl;
 
-                    girl.GetComponentInChildren<Canvas>().enabled = !isGirl;
-                    boy.GetComponentInChildren<Canvas>().enabled = isGirl;
-
-                    boy.GetComponent<Character>().enabled = isGirl;
-                    boy.GetComponentInChildren<Camera>().enabled = isGirl;
-                    SetCharacterActive(!isGirl);
+                    boy.GetComponentInChildren<Canvas>().enabled = !isGirl;
+                    boy.GetComponent<Character>().enabled = !isGirl;
+                    boy.GetComponentInChildren<Camera>().enabled = !isGirl;
+                    
+                    SetCharacterActive(isGirl);
                 }
         }
     }

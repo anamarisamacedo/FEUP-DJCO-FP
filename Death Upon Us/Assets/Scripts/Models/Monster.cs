@@ -58,19 +58,23 @@ public class Monster : MonoBehaviour
 
     private void MoveRandomly()
     {
-        System.Random rand = new System.Random();
-        int randomAngle = rand.Next(-22500, 22500);
-        if (Math.Abs(randomAngle) < 90)
+        if (gameObject.name != "GuardMonster")
         {
-            transform.Rotate(0, randomAngle, 0);
-        }
-        else
-        {
-            transform.position += transform.forward * Time.deltaTime * MonsterSpeed;
+            System.Random rand = new System.Random();
+            int randomAngle = rand.Next(-22500, 22500);
+            if (Math.Abs(randomAngle) < 90)
+            {
+                transform.Rotate(0, randomAngle, 0);
+            }
+            else
+            {
+                transform.position += transform.forward * Time.deltaTime * MonsterSpeed;
+            }
         }
     }
 
-    public void Attack(){
+    public void Attack()
+    {
         //do attack character
         FMODUnity.RuntimeManager.PlayOneShot("event:/Monster/MeleeAttack");
     }
