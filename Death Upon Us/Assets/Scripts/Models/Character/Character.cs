@@ -222,7 +222,7 @@ public class Character : MonoBehaviour
         {
             DisplayMessage("Congrats! You've found a new map with new information! Check it out.");
             this.mapFound = true;
-            Sprite mapSprite = collider.transform.GetComponent<Image>().sprite;
+            Sprite mapSprite = collider.gameObject.GetComponent<SpriteRenderer>().sprite;
             transform.Find("Canvas/Map").GetComponent<Image>().sprite = mapSprite;
             Destroy(collider.gameObject);
         }
