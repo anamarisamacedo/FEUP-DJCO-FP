@@ -3,15 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using static utils.Configs;
+using utils;
+
 
 public class Monster : MonoBehaviour
 {
     private Rigidbody rigidBody;
     private int hp;
+    private FMOD.Studio.EventInstance instance;
+    private TerrainUtils tu;
 
     private void Start()
     {
         hp = 100;
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Monster/Walking");
+        tu = new TerrainUtils();
+        instance.setParameterByName("Terrain", tu.SelectFootstep(this.transform.position));
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(instance, this.transform, GetComponent<Rigidbody>());
+        instance.start();
     }
 
     private void Update()
@@ -20,6 +29,7 @@ public class Monster : MonoBehaviour
         {
             MoveRandomly();
         }
+        instance.setParameterByName("Terrain", tu.SelectFootstep(this.transform.position));
     }
 
     public bool FollowPlayer()
@@ -60,6 +70,11 @@ public class Monster : MonoBehaviour
         }
     }
 
+    public void Attack(){
+        //do attack character
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Monster/MeleeAttack");
+    }
+
     public void TakeDamage(int value)
     {
         hp -= value;
@@ -67,10 +82,12 @@ public class Monster : MonoBehaviour
         {
             Die();
         }
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Monster/TakeDamage");
     }
 
     private void Die()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Monster/Die");
         Destroy(gameObject);
     }
 }

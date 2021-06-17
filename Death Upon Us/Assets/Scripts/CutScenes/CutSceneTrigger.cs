@@ -9,6 +9,7 @@ public class CutSceneTrigger : MonoBehaviour
     public GameObject cutSceneCamera;
     public GameObject gameWinMenuUI;
     public Canvas boyCanvas, girlCanvas;
+    public GameObject backgroundMusic;
 
     private void OnTriggerEnter(Collider collider)
     {
@@ -31,7 +32,7 @@ public class CutSceneTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(10f);
         gameWinMenuUI.SetActive(true);
-
+        backgroundMusic.SetActive(false);
     }
 }
 

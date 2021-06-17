@@ -173,6 +173,7 @@ MonoBehaviour:
   monsterOrange: {fileID: 0}
   monsterPurple: {fileID: 0}
   monsterBlue: {fileID: 0}
+  wood: 1
 --- !u!65 &26797348
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -296,7 +297,7 @@ MonoBehaviour:
   - {fileID: 1012079829}
   - {fileID: 2074800007}
   - {fileID: 699352798}
-  - {fileID: 57611719}
+  - {fileID: 0}
   - {fileID: 2092030116}
   okButton: {fileID: 1106063682}
 --- !u!114 &29016577
@@ -379,7 +380,6 @@ GameObject:
   - component: {fileID: 57611718}
   - component: {fileID: 57611721}
   - component: {fileID: 57611720}
-  - component: {fileID: 57611719}
   m_Layer: 3
   m_Name: Button4
   m_TagString: Untagged
@@ -406,50 +406,6 @@ RectTransform:
   m_AnchoredPosition: {x: 111, y: -32}
   m_SizeDelta: {x: 91.52, y: 78.915}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &57611719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57611717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 0.735849, g: 0.733535, b: 0.733535, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.38346133, g: 0.5471698, b: 0.29251212, a: 1}
-    m_SelectedColor: {r: 0.38431376, g: 0.54901963, b: 0.29411766, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 57611720}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &57611720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1077,7 +1033,7 @@ Transform:
   m_Children:
   - {fileID: 704353540}
   m_Father: {fileID: 1249765899}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 53.946667, z: 0}
 --- !u!95 &118344400
 Animator:
@@ -1122,13 +1078,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1249765899}
     m_Modifications:
+    - target: {fileID: 100000, guid: 1f07bfaf478f87a4c9fb1215b746a0db, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 1f07bfaf478f87a4c9fb1215b746a0db, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: c297544c4748e7149a793b29d7426dc3, type: 3}
       propertyPath: m_Name
       value: Chair
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: c297544c4748e7149a793b29d7426dc3, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c297544c4748e7149a793b29d7426dc3, type: 3}
       propertyPath: m_LocalScale.x
@@ -2415,12 +2375,12 @@ GameObject:
   - component: {fileID: 293412842}
   - component: {fileID: 293412841}
   m_Layer: 0
-  m_Name: Door2
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &293412840
 Transform:
   m_ObjectHideFlags: 0
@@ -4991,8 +4951,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 44.88, y: -8.32, z: -12.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2053713496}
+  m_Children: []
   m_Father: {fileID: 574152504}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5074,6 +5033,7 @@ MonoBehaviour:
   gameWinMenuUI: {fileID: 396498009}
   boyCanvas: {fileID: 1450605591}
   girlCanvas: {fileID: 470231395}
+  backgroundMusic: {fileID: 1619257460}
 --- !u!1 &533877567
 GameObject:
   m_ObjectHideFlags: 0
@@ -5221,6 +5181,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: bcb00970cdeded14b96bf93bcc7b4b16, type: 3}
       propertyPath: m_Name
       value: portafinal
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bcb00970cdeded14b96bf93bcc7b4b16, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bcb00970cdeded14b96bf93bcc7b4b16, type: 3}
       propertyPath: m_RootOrder
@@ -5670,6 +5634,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: bcb00970cdeded14b96bf93bcc7b4b16, type: 3}
       propertyPath: m_Name
       value: portafinal
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bcb00970cdeded14b96bf93bcc7b4b16, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bcb00970cdeded14b96bf93bcc7b4b16, type: 3}
       propertyPath: m_RootOrder
@@ -6609,6 +6577,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1026101476}
     m_Modifications:
     - target: {fileID: 1436944102497898, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1436944102497898, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
       propertyPath: m_TagString
       value: Clue1
       objectReference: {fileID: 0}
@@ -6617,8 +6589,16 @@ PrefabInstance:
       value: Clipboard
       objectReference: {fileID: 0}
     - target: {fileID: 1685343955664076, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685343955664076, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
       propertyPath: m_TagString
       value: Clue1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954106281014710, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1954106281014710, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
       propertyPath: m_TagString
@@ -7315,6 +7295,7 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 5552807672167342892}
   gameOverMenuUI: {fileID: 131809737}
   gameWinMenuUI: {fileID: 396498009}
+  backgroundMusic: {fileID: 1619257460}
 --- !u!1001 &739769057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8712,6 +8693,7 @@ MonoBehaviour:
   monsterOrange: {fileID: 0}
   monsterPurple: {fileID: 0}
   monsterBlue: {fileID: 0}
+  wood: 1
 --- !u!65 &898300011
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9389,6 +9371,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 3
   m_Name: GirlCamera
   m_TagString: MainCamera
@@ -9461,6 +9444,20 @@ Transform:
   m_Father: {fileID: 1340569350}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 7.475, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!1 &976243691 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8873459182022230548, guid: 5d181326e83fa6a459b021a74c26cf36, type: 3}
@@ -10442,6 +10439,7 @@ MonoBehaviour:
   monsterOrange: {fileID: 0}
   monsterPurple: {fileID: 0}
   monsterBlue: {fileID: 0}
+  wood: 1
 --- !u!65 &1076438795
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11279,7 +11277,7 @@ Transform:
   m_LocalScale: {x: 4.0212517, y: 1.5064371, z: 1.6726}
   m_Children: []
   m_Father: {fileID: 1249765899}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1154545869
 MonoBehaviour:
@@ -11297,6 +11295,7 @@ MonoBehaviour:
   monsterOrange: {fileID: 0}
   monsterPurple: {fileID: 0}
   monsterBlue: {fileID: 0}
+  wood: 1
 --- !u!65 &1154545870
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11569,6 +11568,7 @@ MonoBehaviour:
   monsterOrange: {fileID: 0}
   monsterPurple: {fileID: 0}
   monsterBlue: {fileID: 0}
+  wood: 1
 --- !u!1001 &1167591508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13406,6 +13406,7 @@ GameObject:
   - component: {fileID: 1332821759}
   - component: {fileID: 1332821761}
   - component: {fileID: 1332821760}
+  - component: {fileID: 1332821762}
   m_Layer: 0
   m_Name: BoyCamera
   m_TagString: MainCamera
@@ -13478,6 +13479,20 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1332821762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332821758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!1 &1340569348 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 94e74c727a5ed4541aa25b40398bb8e9, type: 3}
@@ -13556,6 +13571,7 @@ MonoBehaviour:
   hasDecoded: 0
   inputEnabled: 1
   dialogue: {fileID: 0}
+  isGirl: 0
 --- !u!54 &1340569353
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14623,6 +14639,7 @@ MonoBehaviour:
   monsterOrange: {fileID: 0}
   monsterPurple: {fileID: 0}
   monsterBlue: {fileID: 0}
+  wood: 1
 --- !u!64 &1581893333
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14650,7 +14667,7 @@ GameObject:
   - component: {fileID: 1583252586}
   - component: {fileID: 1583252585}
   - component: {fileID: 1583252588}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Clue1
   m_Icon: {fileID: 0}
@@ -14909,6 +14926,84 @@ Transform:
   m_Father: {fileID: 1382158693}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1619257460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1619257462}
+  - component: {fileID: 1619257461}
+  - component: {fileID: 1619257463}
+  m_Layer: 0
+  m_Name: BackgroundMusic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1619257461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619257460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Music/Ambient
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!4 &1619257462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619257460}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1619257463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619257460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Environment/Nature
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &1625258673
 GameObject:
   m_ObjectHideFlags: 0
@@ -15766,7 +15861,7 @@ GameObject:
   - component: {fileID: 1713658270}
   - component: {fileID: 1713658269}
   - component: {fileID: 1713658268}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OpenTrigger2
   m_TagString: House2
   m_Icon: {fileID: 0}
@@ -15803,6 +15898,7 @@ MonoBehaviour:
   monsterOrange: {fileID: 1496183931}
   monsterPurple: {fileID: 757559503}
   monsterBlue: {fileID: 976243691}
+  wood: 1
 --- !u!65 &1713658269
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18591,118 +18687,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2053713495
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2053713496}
-  - component: {fileID: 2053713500}
-  - component: {fileID: 2053713499}
-  - component: {fileID: 2053713498}
-  - component: {fileID: 2053713497}
-  m_Layer: 0
-  m_Name: Trigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2053713496
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2053713495}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0059776306, y: -0.01099968, z: 0.0021028519}
-  m_LocalScale: {x: 0.1, y: 0.03746, z: 0.04374591}
-  m_Children: []
-  m_Father: {fileID: 527340216}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2053713497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2053713495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 570eb00186cdcb24fb2bdd69072455f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cutSceneCamera: {fileID: 1164243782}
-  gameWinMenuUI: {fileID: 396498009}
-  boyCanvas: {fileID: 1450605591}
-  girlCanvas: {fileID: 470231395}
---- !u!135 &2053713498
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2053713495}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &2053713499
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2053713495}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &2053713500
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2053713495}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2060080687
 GameObject:
   m_ObjectHideFlags: 0
@@ -18758,6 +18742,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 1f07bfaf478f87a4c9fb1215b746a0db, type: 3}
       propertyPath: m_Name
       value: House1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1f07bfaf478f87a4c9fb1215b746a0db, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 1f07bfaf478f87a4c9fb1215b746a0db, type: 3}
       propertyPath: m_TagString
@@ -18945,7 +18933,7 @@ GameObject:
   - component: {fileID: 2074895928}
   - component: {fileID: 2074895930}
   - component: {fileID: 2074895929}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19409,7 +19397,7 @@ GameObject:
   - component: {fileID: 2107700051}
   - component: {fileID: 2107700050}
   - component: {fileID: 2107700049}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: OpenTrigger1
   m_TagString: House1
   m_Icon: {fileID: 0}
@@ -19446,6 +19434,7 @@ MonoBehaviour:
   monsterOrange: {fileID: 0}
   monsterPurple: {fileID: 0}
   monsterBlue: {fileID: 0}
+  wood: 1
 --- !u!65 &2107700050
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19943,8 +19932,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollisionTag: 
   Event: event:/Music/MenuTheme
-  PlayEvent: 1
-  StopEvent: 2
+  PlayEvent: 11
+  StopEvent: 12
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0

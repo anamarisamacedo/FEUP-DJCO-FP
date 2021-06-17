@@ -37,6 +37,7 @@ public class WalkieTalkieCutScene : MonoBehaviour
     {
         for (int i = 0; i < walkieMessage.Length; i++)
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Misc/Walkie-talkie");
             messageWalkie = walkieMessage.Substring(0, i);
             yield return new WaitForSeconds(delayWalkie);
         }

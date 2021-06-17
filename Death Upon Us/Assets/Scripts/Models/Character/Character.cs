@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using static utils.Configs;
 using UnityEngine.UI;
+using utils;
 
 public class Character : MonoBehaviour
 {
@@ -36,8 +37,11 @@ public class Character : MonoBehaviour
     private string generatedPIN = "134";
     public bool hasDecoded = false;
     public bool inputEnabled = true;
-
     [SerializeField] private Animator dialogue;
+    public bool isGirl = false;
+    public TerrainUtils tu;
+    FMOD.Studio.EventInstance snapshot;
+    private bool inside = false;
 
     public Character() : base() { }
 
@@ -51,6 +55,7 @@ public class Character : MonoBehaviour
         uiInventory.SetInventory(inventory);
         clue = GameObject.Find("Clipboard");
         isJumping = false;
+        tu = new TerrainUtils();
     }
 
     private void Update()
@@ -81,6 +86,19 @@ public class Character : MonoBehaviour
             }
           }
          */
+
+        if (inside != tu.insideHouse(this.transform.position)){
+            inside = !inside;
+            if (inside){
+                //update snapshot for indoors
+                snapshot = FMODUnity.RuntimeManager.CreateInstance("snapshot:/Indoors");
+                snapshot.start();
+            }
+            else{
+                snapshot = FMODUnity.RuntimeManager.CreateInstance("snapshot:/Outdoors");
+                snapshot.start();
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -105,6 +123,17 @@ public class Character : MonoBehaviour
     {
         hp.ChangeValue(-value);
         StartCoroutine(blood.TakeDamage());
+
+        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance("event:/Player/TakeDamage");
+    
+        if (isGirl){
+            instance.setParameterByName("Character", 1);
+        }
+        else{
+            instance.setParameterByName("Character", 0);
+        }
+        instance.start();
+        instance.release();
     }
 
     public void AddHealth(int value)
@@ -114,6 +143,7 @@ public class Character : MonoBehaviour
 
     public void TakeHunger(int value) {
         hunger.ChangeValue(value);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Eat");
     }
 
     public void IncreaseHunger(int value) {
@@ -130,6 +160,10 @@ public class Character : MonoBehaviour
             monster.gameObject.GetComponent<Monster>().TakeDamage(35);
         }
         IncreaseHunger(HungerOnMeleeAttack);
+        if (true) //knife attack)
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/KnifeAttack");
+        else
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/BowAttack");
     }
 
     public void Heal(int value)
@@ -185,8 +219,11 @@ public class Character : MonoBehaviour
 
     public void SetIsJumping(bool isJumping)
     {
-        if(isJumping)
+        if(isJumping){
+            if (!this.isJumping)
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Jump");
             IncreaseHunger(HungerOnJump);
+        }
         this.isJumping = isJumping;
     }
 
