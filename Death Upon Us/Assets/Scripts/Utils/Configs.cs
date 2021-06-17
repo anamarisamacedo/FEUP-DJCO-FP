@@ -7,7 +7,7 @@ namespace utils
         public const float WalkingSpeed = 8f;
         public const float RunningSpeed = 15f;
         public const float JumpForce = 7f;
-        public const float RotationSpeed = 4f;
+        public const float RotationSpeed = 3f;
         
         /* Monster mechanics */
         public const float MonsterSpeed = 2f; 
@@ -16,6 +16,7 @@ namespace utils
         /* Attack mechanics */
         public const float PlayerAttackRadius = 2f;
         public const float PlayerAttackRate = 2f;
+        public const int ArrowDamage = 20;
 
         /* Scenes */
         public const int MenuScene = 0;

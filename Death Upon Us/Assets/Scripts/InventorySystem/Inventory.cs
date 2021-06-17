@@ -8,19 +8,16 @@ public class Inventory
 
     public event EventHandler OnItemListChanged;
     private List<Item> itemList;
-    private int selectedItem = -1;
+    private int selectedItem;
 
     public Inventory()
     {
         itemList = new List<Item>();
-
+        selectedItem = -1;
         AddItem(new Item { itemType = Item.ItemType.Medkit, amount = 2});
-        AddItem(new Item { itemType = Item.ItemType.Arrows, amount = 20});
-        AddItem(new Item { itemType = Item.ItemType.BlueMonsterDrop, amount = 2});
-        AddItem(new Item { itemType = Item.ItemType.OrangeMonsterDrop, amount = 3});
-        AddItem(new Item { itemType = Item.ItemType.PurpleMonsterDrop, amount = 10});
-        AddItem(new Item { itemType = Item.ItemType.Bow, amount = 1});
-        AddItem(new Item { itemType = Item.ItemType.Knife, amount = 1});
+        AddItem(new Item { itemType = Item.ItemType.BlueMonsterDrop, amount = 1});
+        AddItem(new Item { itemType = Item.ItemType.OrangeMonsterDrop, amount = 1});
+        AddItem(new Item { itemType = Item.ItemType.PurpleMonsterDrop, amount = 1});
     }
 
     public void AddItem(Item item)
@@ -83,14 +80,17 @@ public class Inventory
 
             itemToUse.Use(character);
 
-            if (itemToUse.amount == 1)
+            if (itemToUse.itemType != Item.ItemType.Knife)
             {
-                itemList.Remove(itemToUse);
-                selectedItem = -1;
-            }
-            else
-            {
-                itemToUse.amount -= 1;
+                if (itemToUse.amount == 1)
+                {
+                    itemList.Remove(itemToUse);
+                    selectedItem = -1;
+                }
+                else
+                {
+                    itemToUse.amount -= 1;
+                }
             }
 
             OnItemListChanged?.Invoke(this, EventArgs.Empty);

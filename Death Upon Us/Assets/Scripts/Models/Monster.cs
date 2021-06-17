@@ -78,6 +78,13 @@ public class Monster : MonoBehaviour
         //do attack character
         FMODUnity.RuntimeManager.PlayOneShot("event:/Monster/MeleeAttack");
     }
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Arrow"))
+        {
+            TakeDamage(ArrowDamage);
+        }
+    }
 
     public void TakeDamage(int value)
     {

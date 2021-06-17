@@ -17,6 +17,9 @@ TagManager:
   - BorderLevel1Boy
   - Muralha
   - Muralha2
+  - GirlMelee
+  - Arrow
+  - Map
   layers:
   - Default
   - TransparentFX
@@ -26,7 +29,7 @@ TagManager:
   - UI
   - Monsters
   - Houses
-  - 
+  - Arrow
   - 
   - 
   - 

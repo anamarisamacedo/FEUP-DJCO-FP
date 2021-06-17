@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static utils.Configs;
 
 public class Item
 {
@@ -8,6 +9,8 @@ public class Item
     public int orangeFoodValue = 750;
     public int purpleFoodValue = 1000;
     public int medKitValue = 1000;
+    float nextAttackTime = 0f;
+    float nextArrowTime = 0f;
 
 
 
@@ -56,10 +59,10 @@ public class Item
         switch (itemType)
         {
             default:
-            case ItemType.Knife: 
             case ItemType.Arrows:
             case ItemType.KeyHouse1:
                 return false;
+            case ItemType.Knife: 
             case ItemType.Bow: 
             case ItemType.Medkit:
             case ItemType.BlueMonsterDrop: 
@@ -83,6 +86,20 @@ public class Item
                 return;
             case ItemType.Medkit: 
                 character.Heal(medKitValue);
+                return;
+            case ItemType.Knife:
+                if (Time.time >= nextAttackTime)
+                {
+                    nextAttackTime = Time.time + 1f / PlayerAttackRate;
+                    character.Attack();
+                }
+                return;
+            case ItemType.Arrows:
+                if (Time.time >= nextArrowTime)
+                {
+                    nextArrowTime = Time.time + 1f / PlayerAttackRate;
+                    character.gameObject.GetComponent<Shoot>().ShootArrow();
+                }
                 return;
             default:
                 return;

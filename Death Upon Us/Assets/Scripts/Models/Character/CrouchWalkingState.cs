@@ -47,6 +47,6 @@ public class CrouchWalkingState : CharacterState
     public override void ChangeAnimation()
     {
         base.ChangeAnimation();
-        character.GetComponent<Animator>().SetInteger("State", 3);
+        character.GetComponent<Animator>().SetInteger("State", 4);
     }
 }

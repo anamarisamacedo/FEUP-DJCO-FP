@@ -42,6 +42,7 @@ public class Character : MonoBehaviour
     public TerrainUtils tu;
     FMOD.Studio.EventInstance snapshot;
     private bool inside = false;
+    private bool mapFound = false;
 
     public Character() : base() { }
 
@@ -68,15 +69,14 @@ public class Character : MonoBehaviour
             hasKeysHouse1 = true;
         }
 
-        //TODO: Quando o mapa na House1 estiver adicionado ao inventário, o jogador já pode passar a fronteira para chegar ao fim
-        /*if (inventory.GetItemAmount(Item.ItemType.FullMap) > 0)
+        if (this.mapFound == true)
         {
             GameObject[] borders = GameObject.FindGameObjectsWithTag("BorderLevel1Girl");
             foreach (GameObject border in borders)
             {
                 Destroy(border);
             }
-        }*/
+        }
 
         /*if(this.hasDecoded){
          GameObject[] borders = GameObject.FindGameObjectsWithTag("BorderLevel1Boy");
@@ -155,6 +155,7 @@ public class Character : MonoBehaviour
     }
 
     public void Attack() {
+        StartCoroutine(PlayMeleeAnimation());
         Collider[] hitMonsters = Physics.OverlapSphere(transform.position, PlayerAttackRadius, monsterLayers);
         foreach(Collider monster in hitMonsters) {
             monster.gameObject.GetComponent<Monster>().TakeDamage(35);
@@ -165,6 +166,17 @@ public class Character : MonoBehaviour
         else
             FMODUnity.RuntimeManager.PlayOneShot("event:/Player/BowAttack");
     }
+
+    private IEnumerator PlayMeleeAnimation()
+    {
+        gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
+        GetComponent<Animator>().SetBool("MeleeAttack", true);
+        yield return new WaitForSeconds(1.2f);
+        gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+        GetComponent<Animator>().SetBool("MeleeAttack", false);
+    }
+
+
 
     public void Heal(int value)
     {
@@ -204,6 +216,13 @@ public class Character : MonoBehaviour
         {
             inventory.AddItem(worldItem.GetItem());
             worldItem.DestroySelf();
+        }
+
+        if (collider.CompareTag("Map"))
+        {
+            DisplayMessage("Congrats! You've found a new map with new information! Check it out.");
+            this.mapFound = true;
+            //Destroy(collider.gameObject);
         }
     }
     
