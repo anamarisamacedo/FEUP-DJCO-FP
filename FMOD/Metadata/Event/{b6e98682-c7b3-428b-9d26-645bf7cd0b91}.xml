@@ -5,7 +5,7 @@
 			<value>TakeDamage</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{ad1db41a-36c3-4ce9-8621-6eb73a020559}</destination>
@@ -147,7 +147,6 @@
 	<object class="MixerBusEffectChain" id="{1129065a-12f0-4333-bd16-81c7ad6e8610}">
 		<relationship name="effects">
 			<destination>{224e1e6c-aad2-43a7-80ae-6f51d248cb10}</destination>
-			<destination>{11a1e34a-b534-4c53-885d-22b1e9929da4}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d33817ac-8671-42f1-8be7-ed64b1606ecc}" />
@@ -199,6 +198,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{7339d325-a21b-4edc-9207-b26029df7b4c}" />
 	<object class="MixerBusFader" id="{224e1e6c-aad2-43a7-80ae-6f51d248cb10}" />
-	<object class="SpatialiserEffect" id="{11a1e34a-b534-4c53-885d-22b1e9929da4}" />
 	<object class="MixerBusFader" id="{55676a48-fb21-456c-bc69-4f3268071346}" />
 </objects>

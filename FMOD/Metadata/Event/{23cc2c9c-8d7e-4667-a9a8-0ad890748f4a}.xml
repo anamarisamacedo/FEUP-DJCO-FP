@@ -5,7 +5,7 @@
 			<value>CrouchWalking</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{ad1db41a-36c3-4ce9-8621-6eb73a020559}</destination>
@@ -156,7 +156,6 @@
 	<object class="MixerBusEffectChain" id="{69cde657-de97-45a6-8db3-0d91b1e6df10}">
 		<relationship name="effects">
 			<destination>{928b15df-2203-476d-8ebf-47c25347606b}</destination>
-			<destination>{ebe67256-0fc2-4639-a746-e3446dea8b28}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d17c8065-5ad2-4e8a-a962-1f95c396577d}" />
@@ -173,6 +172,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{14ee5002-6f01-48d6-afce-26568df921b3}" />
 	<object class="MixerBusFader" id="{928b15df-2203-476d-8ebf-47c25347606b}" />
-	<object class="SpatialiserEffect" id="{ebe67256-0fc2-4639-a746-e3446dea8b28}" />
 	<object class="MixerBusFader" id="{96b3c5de-22dc-42ce-873f-4baf64673c5d}" />
 </objects>
