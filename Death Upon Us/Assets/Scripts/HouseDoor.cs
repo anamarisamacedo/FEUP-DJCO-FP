@@ -112,9 +112,25 @@ public class HouseDoor : MonoBehaviour
         {
             Character character = collider.GetComponent<Character>();
             character.DisplayMessage("");
-            if (this.CompareTag("House1") || this.CompareTag("House2") || this.CompareTag("House3") || this.CompareTag("House4"))
+            if (this.CompareTag("House1"))
             {
-               CloseDoor(door);
+                if (hasKeysHouse1 == true)
+                {
+                    CloseDoor(door);
+                }
+            }
+
+            if(this.CompareTag("House2"))
+            {
+                if (monsterOrange == null && monsterPurple == null && monsterBlue == null)
+                {
+                    CloseDoor(door);
+                }
+            }
+
+            if(this.CompareTag("House3") || this.CompareTag("House4"))
+            {
+                CloseDoor(door);
             }
 
             if (this.CompareTag("Cofre1"))
