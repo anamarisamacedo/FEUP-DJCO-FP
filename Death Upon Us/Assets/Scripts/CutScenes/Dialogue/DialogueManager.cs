@@ -71,14 +71,6 @@ public class DialogueManager : MonoBehaviour
     {
         Character character = girl.GetComponent<Character>();
 
-        if (currentScene.name != "SampleScene")
-        {
-            if (currentIndex > 1)
-            {
-                Switch();
-            }
-        }
-
         if (currentIndex > currentConvo.GetLength())
         {
             if (currentScene.name == "SampleScene")
