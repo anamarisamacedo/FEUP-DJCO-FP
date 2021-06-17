@@ -281,8 +281,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104826809}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.119, z: 0.47900397}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.058, y: 0.782, z: 0.219}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1689505409}
@@ -7715,7 +7715,7 @@ MonoBehaviour:
   camera: {fileID: 963194227}
   arrowPrefab: {fileID: 1226362029837609278, guid: 0df1ac6ccffbb304b8832aba6bcc318f, type: 3}
   arrowSpawn: {fileID: 1826253085}
-  shootForce: 20
+  shootForce: 40
 --- !u!1 &1428405343
 GameObject:
   m_ObjectHideFlags: 0
@@ -8967,7 +8967,7 @@ MonoBehaviour:
   camera: {fileID: 1332821761}
   arrowPrefab: {fileID: 1226362029837609278, guid: 0df1ac6ccffbb304b8832aba6bcc318f, type: 3}
   arrowSpawn: {fileID: 104826810}
-  shootForce: 20
+  shootForce: 40
 --- !u!114 &1689505413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9719,7 +9719,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1826253084}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.058, y: 0.752, z: 0.207}
+  m_LocalPosition: {x: 0.058, y: 0.782, z: 0.219}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1340569350}
