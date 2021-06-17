@@ -71,16 +71,17 @@ public abstract class CharacterState
                 character.AddHealth(2);
                 character.rotateDirection = 1;
             }
-            else if (Input.GetKey(KeyCode.T))
-            {
-                character.TakeDamage(1); // Testing purposes
-            }
             else if (Input.GetKey(KeyCode.R))
             {
                 if (character.collideClue1 == true)
                 {
                     character.DisplayMessage("40.741895 -73.989308");
                 }
+            }
+            else if (Input.GetKeyDown(KeyCode.M))
+            {
+                Image img = character.transform.Find("Canvas/Map").GetComponent<Image>();
+                img.enabled = !img.enabled;
             }
             else if (Input.GetKeyDown(KeyCode.Space))
             {

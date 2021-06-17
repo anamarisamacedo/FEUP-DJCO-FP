@@ -65,8 +65,6 @@ public class Inventory
 
         Item itemToUse = itemList[selectedItem-1];
 
-        Debug.Log(itemToUse.GetType());
-
         if (itemToUse.IsUsable())
         {
             if (itemToUse.itemType == Item.ItemType.Bow)
