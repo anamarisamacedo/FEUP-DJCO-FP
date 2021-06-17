@@ -7,6 +7,8 @@ TagManager:
   - House1
   - Clue1
   - House2
+  - GirlMelee
+  - Arrow
   layers:
   - Default
   - TransparentFX
@@ -15,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Monsters
-  - 
+  - Arrow
   - 
   - 
   - 

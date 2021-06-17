@@ -60,6 +60,14 @@ public class Monster : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Arrow"))
+        {
+            TakeDamage(ArrowDamage);
+        }
+    }
+
     public void TakeDamage(int value)
     {
         hp -= value;

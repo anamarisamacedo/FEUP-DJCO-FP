@@ -103,12 +103,24 @@ public class Character : MonoBehaviour
     }
 
     public void Attack() {
+        StartCoroutine(PlayMeleeAnimation());
         Collider[] hitMonsters = Physics.OverlapSphere(transform.position, PlayerAttackRadius, monsterLayers);
         foreach(Collider monster in hitMonsters) {
             monster.gameObject.GetComponent<Monster>().TakeDamage(35);
         }
         IncreaseHunger(HungerOnMeleeAttack);
     }
+
+    private IEnumerator PlayMeleeAnimation()
+    {
+        gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
+        GetComponent<Animator>().SetBool("MeleeAttack", true);
+        yield return new WaitForSeconds(1.2f);
+        gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+        GetComponent<Animator>().SetBool("MeleeAttack", false);
+    }
+
+
 
     public void Heal(int value)
     {

@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public abstract class CharacterState
 {
     protected Character character;
-    float nextAttackTime = 0f;
 
 
     public CharacterState(Character character)
@@ -72,16 +71,17 @@ public abstract class CharacterState
                 character.AddHealth(2);
                 character.rotateDirection = 1;
             }
-            else if (Input.GetKey(KeyCode.T))
-            {
-                character.TakeDamage(1); // Testing purposes
-            }
             else if (Input.GetKey(KeyCode.R))
             {
                 if (character.collideClue1 == true)
                 {
                     character.DisplayMessage("40.741895 -73.989308");
                 }
+            }
+            else if (Input.GetKeyDown(KeyCode.M))
+            {
+                Image img = character.transform.Find("Canvas/Map").GetComponent<Image>();
+                img.enabled = !img.enabled;
             }
             else if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -147,15 +147,6 @@ public abstract class CharacterState
             if (Input.GetButtonDown("Fire1"))
             {
                 character.GetInventory().UseItem(character);
-            }
-
-            if (Time.time >= nextAttackTime)
-            {
-                if (Input.GetMouseButtonDown(0))
-                {
-                    nextAttackTime = Time.time + 1f / PlayerAttackRate;
-                    character.Attack();
-                }
             }
         }
     }
