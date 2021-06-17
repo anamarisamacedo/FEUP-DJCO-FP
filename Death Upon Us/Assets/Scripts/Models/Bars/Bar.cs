@@ -37,7 +37,7 @@ public abstract class Bar : MonoBehaviour
 
     public void ChangeValue(int deltaValue)
     {
-        value += deltaValue;
+        value = Math.Min(deltaValue + value, slider.maxValue);
         UpdateUI();
     }
 
