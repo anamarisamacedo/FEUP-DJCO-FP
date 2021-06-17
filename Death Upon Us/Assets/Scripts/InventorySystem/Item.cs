@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Item
 {
+    public int blueFoodValue = 500;
+    public int orangeFoodValue = 750;
+    public int purpleFoodValue = 1000;
+    public int medKitValue = 1000;
+
+
 
     public enum ItemType
     {
@@ -60,6 +66,26 @@ public class Item
             case ItemType.OrangeMonsterDrop: 
             case ItemType.PurpleMonsterDrop: 
                 return true;
+        }
+    }
+
+    public void Use(Character character){
+        switch (itemType)
+        {
+            case ItemType.BlueMonsterDrop: 
+                character.TakeHunger(blueFoodValue);
+                return;
+            case ItemType.OrangeMonsterDrop:
+                character.TakeHunger(orangeFoodValue);
+                return; 
+            case ItemType.PurpleMonsterDrop:
+                character.TakeHunger(purpleFoodValue);
+                return;
+            case ItemType.Medkit: 
+                character.Heal(medKitValue);
+                return;
+            default:
+                return;
         }
     }
     public int getAmount()
