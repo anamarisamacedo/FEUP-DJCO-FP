@@ -113,14 +113,14 @@ public class Character : MonoBehaviour
 
     private IEnumerator PlayMeleeAnimation()
     {
-        GameObject.Find("faca").GetComponent<MeshRenderer>().enabled = true;
+        gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
         GetComponent<Animator>().SetBool("MeleeAttack", true);
         yield return new WaitForSeconds(1.2f);
-        GameObject.Find("faca").GetComponent<MeshRenderer>().enabled = false;
+        gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
         GetComponent<Animator>().SetBool("MeleeAttack", false);
     }
 
-    
+
 
     public void Heal(int value)
     {
