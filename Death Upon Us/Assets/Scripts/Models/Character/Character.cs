@@ -34,7 +34,7 @@ public class Character : MonoBehaviour
     public Conversation convoHaveVault;
     private bool isCodeCorrect;
     private string generatedCode;
-    private string generatedPIN = "134";
+    private string generatedPIN = "124";
     public bool hasDecoded = false;
     public bool inputEnabled = true;
     [SerializeField] private Animator dialogue;
@@ -64,7 +64,7 @@ public class Character : MonoBehaviour
         state.HandleInput();
         textElement.text = message;
         
-        if (inventory.GetItemAmount(Item.ItemType.KeyHouse1) >= 0)
+        if (inventory.GetItemAmount(Item.ItemType.KeyHouse1) >= 2)
         {
             hasKeysHouse1 = true;
         }
@@ -77,16 +77,6 @@ public class Character : MonoBehaviour
                 Destroy(border);
             }
         }
-
-        /*if(this.hasDecoded){
-         GameObject[] borders = GameObject.FindGameObjectsWithTag("BorderLevel1Boy");
-            foreach (GameObject border in borders)
-            {
-                Destroy(border);
-            }
-          }
-         */
-
         if (inside != tu.insideHouse(this.transform.position)){
             inside = !inside;
             if (inside){

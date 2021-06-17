@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641258, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1259,6 +1259,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160582251}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &205971897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2977025860943574107, guid: 409544b4aa3d3f244b9025189a3da77a, type: 3}
+  m_PrefabInstance: {fileID: 2977025860828682538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &205971898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205971897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!1001 &208533426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4609,8 +4628,8 @@ Transform:
   m_Father: {fileID: 2053013155}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
---- !u!64 &637049180
-MeshCollider:
+--- !u!65 &637049180
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4619,10 +4638,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0.0000009536743, y: 0, z: 0}
 --- !u!23 &637049181
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4642,7 +4660,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10651, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10758, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11515,6 +11533,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.676548, y: 1.3215095, z: 0.74887955}
   m_Center: {x: -0.0000001937151, y: 0, z: 0}
+--- !u!1 &1848589329 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1451435500819676576, guid: 0d21f41dfc21c0c4fa1c332629ff991f, type: 3}
+  m_PrefabInstance: {fileID: 1451435499998561118}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1848589330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848589329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!1 &1852990966 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8c7113713d84b25489c74b98e16b372b, type: 3}
@@ -12528,7 +12565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1940525825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12546,7 +12583,7 @@ MonoBehaviour:
   - {fileID: 1496183931}
   - {fileID: 757559503}
   spawnTime: 6
-  maxNoEnemies: 10
+  maxNoEnemies: 13
   protectedRange: 20
   spawnRange: 100
   freeSpace: 2
@@ -14282,7 +14319,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 1778716df4035744291c952e306dbfe6, type: 3}
     - target: {fileID: 1451435499504782294, guid: 0d21f41dfc21c0c4fa1c332629ff991f, type: 3}
       propertyPath: m_Type
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1451435499557144225, guid: 0d21f41dfc21c0c4fa1c332629ff991f, type: 3}
       propertyPath: m_AnchorMax.y
@@ -14339,7 +14376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3376077124875529491, guid: 409544b4aa3d3f244b9025189a3da77a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 984.2
+      value: 988
       objectReference: {fileID: 0}
     - target: {fileID: 3376077124875529491, guid: 409544b4aa3d3f244b9025189a3da77a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14347,7 +14384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3376077124875529491, guid: 409544b4aa3d3f244b9025189a3da77a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 501.36
+      value: 500.9
       objectReference: {fileID: 0}
     - target: {fileID: 3376077124875529491, guid: 409544b4aa3d3f244b9025189a3da77a, type: 3}
       propertyPath: m_LocalRotation.w
