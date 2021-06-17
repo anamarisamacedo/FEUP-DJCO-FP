@@ -64,7 +64,7 @@ public class Character : MonoBehaviour
         state.HandleInput();
         textElement.text = message;
         
-        if (inventory.GetItemAmount(Item.ItemType.KeyHouse1) >= 2)
+        if (inventory.GetItemAmount(Item.ItemType.KeyHouse1) >= 0)
         {
             hasKeysHouse1 = true;
         }
@@ -222,7 +222,9 @@ public class Character : MonoBehaviour
         {
             DisplayMessage("Congrats! You've found a new map with new information! Check it out.");
             this.mapFound = true;
-            //Destroy(collider.gameObject);
+            Sprite mapSprite = collider.transform.GetComponent<Image>().sprite;
+            transform.Find("Canvas/Map").GetComponent<Image>().sprite = mapSprite;
+            Destroy(collider.gameObject);
         }
     }
     
