@@ -20,6 +20,7 @@ public class RunningState : CharacterState
         character.IncreaseHunger(HungerOnRun);
         if (character.GetHungerValue() < MinHungerValToRun)
         {
+            StopSound();
             character.ChangeState(new WalkingState(character));
         }
         instance.setParameterByName("Terrain", character.tu.SelectFootstep(character.transform.position));
