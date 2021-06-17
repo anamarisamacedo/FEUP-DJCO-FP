@@ -17,6 +17,7 @@ namespace utils
         public const float PlayerAttackRadius = 2f;
         public const float PlayerAttackRate = 2f;
         public const int ArrowDamage = 20;
+        public const int KnifeDamage = 35;
 
         public const int MonsterDamage = 10;
 

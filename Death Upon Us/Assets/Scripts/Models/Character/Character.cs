@@ -177,7 +177,7 @@ public class Character : MonoBehaviour
         Collider[] hitMonsters = Physics.OverlapSphere(transform.position, PlayerAttackRadius, monsterLayers);
         foreach (Collider monster in hitMonsters)
         {
-            monster.gameObject.GetComponent<Monster>().TakeDamage(35);
+            monster.gameObject.GetComponent<Monster>().TakeDamage(KnifeDamage);
         }
         IncreaseHunger(HungerOnMeleeAttack);
         if (true) //knife attack)
