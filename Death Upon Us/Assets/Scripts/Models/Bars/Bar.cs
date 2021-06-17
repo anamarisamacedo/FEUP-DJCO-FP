@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public abstract class Bar : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public abstract class Bar : MonoBehaviour
 
     public void ChangeValue(int deltaValue)
     {
-        value = Math.Min(deltaValue + value, slider.maxValue);
+        value = Convert.ToInt32(Math.Min(deltaValue + value, slider.maxValue));
         UpdateUI();
     }
 
