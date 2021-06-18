@@ -1010,7 +1010,7 @@ MonoBehaviour:
   hp: {fileID: 2977025860339404744}
   hunger: {fileID: 2977025861186176925}
   blood: {fileID: 2977025861081153640}
-  mainInputField: {fileID: 0}
+  mainInputField: {fileID: 7484981976047468660}
   mainInputButton: {fileID: 0}
   textElement: {fileID: 2977025861234103080}
   message: 
@@ -4465,7 +4465,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2977025859694571042}
+        m_TargetAssemblyTypeName: Character, Assembly-CSharp
+        m_MethodName: EnterInputField
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

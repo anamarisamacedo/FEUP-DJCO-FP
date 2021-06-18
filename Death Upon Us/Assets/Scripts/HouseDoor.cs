@@ -20,26 +20,25 @@ public class HouseDoor : MonoBehaviour
     Character character;
     public bool wood = true;
     private bool vaultIsOpened = false;
+
+    private bool isCodeCorrect = false;
+    [SerializeField] private UI_Input_Field mainInputField;
     private void Update()
     {
         if (character != null)
         {
-            bool codeAnswer = character.IsCodeCorrect();
             bool hasDecoded = character.hasDecoded;
-            if (codeAnswer)
+            if (isCodeCorrect)
             {
                 this.hasKeyVault = true;
-                this.vaultIsOpened = true;
-            }
-            if(this.vaultIsOpened == true){
                 OpenDoor(door);
-                this.vaultIsOpened = false;
+                isCodeCorrect = false;
             }
         }
     }
     public void OpenDoor(Animator door)
     {
-        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance("event:/Environment/DoorOpen");;
+        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance("event:/Environment/DoorOpen");
         if (wood){
             instance.setParameterByName("Material", 0);
         }
@@ -108,7 +107,7 @@ public class HouseDoor : MonoBehaviour
             {
                 if (this.hasKeyVault == false)
                 {
-                    character.EnableInputField();
+                    EnableInputField();
                 }
 
             }
@@ -160,7 +159,7 @@ public class HouseDoor : MonoBehaviour
 
             if (this.CompareTag("Cofre1"))
             {
-                character.DisableInputField();
+                DisableInputField();
             }
 
             if (this.CompareTag("CodeNumberBox"))
@@ -170,5 +169,36 @@ public class HouseDoor : MonoBehaviour
         }
     }
 
+    public void EnterInputField()
+    {
+        DisableInputField();
+        string valueCode = mainInputField.inputField.text;
+        if (valueCode == character.generatedCode)
+        {
+            isCodeCorrect = true;
+            GameObject key = GameObject.FindGameObjectsWithTag("VaultKey")[0];
+            WorldItem worldItem = key.GetComponent<WorldItem>();
+            inventory.AddItem(worldItem.GetItem());
+            worldItem.DestroySelf();
+        }
+        else
+        {
+            character.DisplayMessage("Code is not correct! Try again.");
+        }
+
+        
+    }
+
+    public void EnableInputField()
+    {
+        mainInputField.Show();
+        character.inputEnabled = false;
+    }
+
+    public void DisableInputField()
+    {
+        mainInputField.Hide();
+        character.inputEnabled = true;
+    }
    
 }

@@ -23,7 +23,6 @@ public class Character : MonoBehaviour
     [SerializeField] public Health hp;
     [SerializeField] public Hunger hunger;
     [SerializeField] public BloodEffect blood;
-    [SerializeField] private UI_Input_Field mainInputField;
     [SerializeField] private UI_Input_Button mainInputButton;
     public Text textElement;
     public string message;
@@ -32,8 +31,7 @@ public class Character : MonoBehaviour
     private GameObject clue;
     public Conversation convoNeedVault;
     public Conversation convoHaveVault;
-    private bool isCodeCorrect;
-    private string generatedCode;
+    public string generatedCode;
     private string generatedPIN = "124";
     public bool hasDecoded = false;
     public bool inputEnabled = true;
@@ -175,15 +173,14 @@ public class Character : MonoBehaviour
     {
         StartCoroutine(PlayMeleeAnimation());
         Collider[] hitMonsters = Physics.OverlapSphere(transform.position, PlayerAttackRadius, monsterLayers);
+        Debug.Log(hitMonsters);
         foreach (Collider monster in hitMonsters)
         {
+            Debug.Log(monster);
             monster.gameObject.GetComponent<Monster>().TakeDamage(KnifeDamage);
         }
         IncreaseHunger(HungerOnMeleeAttack);
-        if (true) //knife attack)
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/KnifeAttack");
-        else
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/BowAttack");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Player/KnifeAttack");
     }
 
     private IEnumerator PlayMeleeAnimation()
@@ -307,36 +304,7 @@ public class Character : MonoBehaviour
         dialogue.SetBool("isDialogueOpen", false);
     }
 
-    public void EnableInputField()
-    {
-        mainInputField.Show();
-        this.inputEnabled = false;
-    }
 
-    public void EnterInputField()
-    {
-        mainInputField.Hide();
-
-        string valueCode = mainInputField.inputField.text;
-        if (valueCode == this.generatedCode)
-        {
-            this.isCodeCorrect = true;
-            GameObject key = GameObject.FindGameObjectsWithTag("VaultKey")[0];
-            WorldItem worldItem = key.GetComponent<WorldItem>();
-            inventory.AddItem(worldItem.GetItem());
-            worldItem.DestroySelf();
-        }
-        else
-        {
-            DisplayMessage("Code is not correct! Try again.");
-        }
-    }
-
-    public void DisableInputField()
-    {
-        mainInputField.Hide();
-        this.inputEnabled = true;
-    }
 
     public void EnableInputButton()
     {
@@ -356,11 +324,6 @@ public class Character : MonoBehaviour
     {
         mainInputButton.Hide();
         this.inputEnabled = true;
-    }
-
-    public bool IsCodeCorrect()
-    {
-        return this.isCodeCorrect;
     }
 
     public void SetGeneratedCode(string code)

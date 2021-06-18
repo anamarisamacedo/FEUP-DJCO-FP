@@ -380,14 +380,21 @@ MonoBehaviour:
     m_Bits: 1
   monsterLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   uiInventory: {fileID: 1451435501207240052}
   hp: {fileID: 1451435500877732980}
   hunger: {fileID: 1451435500877632861}
   blood: {fileID: 1451435499676105317}
+  mainInputButton: {fileID: 0}
   textElement: {fileID: 1451435499804064233}
   message: 
-  collideClue1: 0
+  convoNeedVault: {fileID: 0}
+  convoHaveVault: {fileID: 0}
+  generatedCode: 
+  hasDecoded: 0
+  inputEnabled: 1
+  dialogue: {fileID: 0}
+  isGirl: 1
 --- !u!1 &1451435499258834962
 GameObject:
   m_ObjectHideFlags: 0
