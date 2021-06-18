@@ -7,8 +7,20 @@ TagManager:
   - House1
   - Clue1
   - House2
+  - House3
+  - Cofre1
+  - House4
+  - VaultKey
+  - CodeNumberBox
+  - Clue2
+  - BorderLevel1Girl
+  - BorderLevel1Boy
+  - Muralha
+  - Muralha2
   - GirlMelee
   - Arrow
+  - Map
+  - Monster
   layers:
   - Default
   - TransparentFX
@@ -17,8 +29,8 @@ TagManager:
   - Water
   - UI
   - Monsters
+  - Houses
   - Arrow
-  - 
   - 
   - 
   - 

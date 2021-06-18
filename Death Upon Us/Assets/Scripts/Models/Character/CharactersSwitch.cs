@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using static utils.Configs;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class CharactersSwitch : MonoBehaviour
 {
@@ -11,18 +12,22 @@ public class CharactersSwitch : MonoBehaviour
     int currentCharacter;
     Scene currentScene;
     bool isGirl;
+    private string GeneratedCode;
 
     void Start()
     {
         girl = GameObject.Find("GirlCharacter");
         boy = GameObject.Find("BoyCharacter");
+        GeneratedCode = GenerateRandomCode(4);
 
         currentCharacter = 1;
-        isGirl = currentCharacter == 0;
+        isGirl = currentCharacter == 1;
+
         currentScene = SceneManager.GetActiveScene();
-        Debug.Log(currentScene.name);
         if (currentScene.name == "SampleScene")
         {
+            girl.GetComponent<Character>().SetGeneratedCode(GeneratedCode);
+            boy.GetComponent<Character>().SetGeneratedCode(GeneratedCode);
             boy.GetComponentInChildren<Canvas>().enabled = false;
         }
         SetCharacterActive(isGirl);
@@ -30,30 +35,35 @@ public class CharactersSwitch : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (currentScene.name == "SampleScene")
         {
-            currentCharacter = (currentCharacter + 1) % 2;
-            isGirl = currentCharacter == 0;
+            if (girl.GetComponent<Character>().inputEnabled && boy.GetComponent<Character>().inputEnabled)
+                if (Input.GetKeyDown(KeyCode.X))
+                {
+                    currentCharacter = (currentCharacter + 1) % 2;
+                    isGirl = currentCharacter == 1;
 
-            if (isGirl && currentScene.name == "SampleScene")
-            {
-                girl.GetComponent<Character>().blood.RemoveBlood();
-            }
-            else
-            {
-                boy.GetComponent<Character>().blood.RemoveBlood();
-            }
+                    if (!isGirl)
+                    {
+                        girl.GetComponent<Character>().blood.RemoveBlood();
+                    }
+                    else
+                    {
+                        boy.GetComponent<Character>().blood.RemoveBlood();
+                    }
 
-            girl.GetComponent<Character>().enabled = !isGirl;
-            girl.GetComponentInChildren<Camera>().enabled = !isGirl;
-            if (currentScene.name == "SampleScene")
-            {
-                girl.GetComponentInChildren<Canvas>().enabled = !isGirl;
-                boy.GetComponentInChildren<Canvas>().enabled = isGirl;
-            }
-            boy.GetComponent<Character>().enabled = isGirl;
-            boy.GetComponentInChildren<Camera>().enabled = isGirl;
-            SetCharacterActive(!isGirl);
+                    girl.GetComponent<Character>().enabled = isGirl;
+                    girl.GetComponentInChildren<Camera>().enabled = isGirl;
+                    girl.GetComponentInChildren<Canvas>().enabled = isGirl;
+
+                    boy.GetComponentInChildren<Canvas>().enabled = !isGirl;
+                    boy.GetComponent<Character>().enabled = !isGirl;
+                    boy.GetComponentInChildren<Camera>().enabled = !isGirl;
+                    
+                    girl.GetComponent<Character>().SetIsGirl(isGirl);
+                    boy.GetComponent<Character>().SetIsGirl(!isGirl);
+                    SetCharacterActive(isGirl);
+                }
         }
     }
 
@@ -71,8 +81,13 @@ public class CharactersSwitch : MonoBehaviour
         }
     }
 
-    public bool IsGirl()
+    public static string GenerateRandomCode(int length)
     {
-        return isGirl;
+        string myString = "";
+        for (int i = 0; i < length; i++)
+        {
+            myString += Chars[Random.Range(0, Chars.Length)];
+        }
+        return myString;
     }
 }

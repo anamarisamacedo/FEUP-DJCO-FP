@@ -8,30 +8,38 @@ public class CutSceneTrigger : MonoBehaviour
 {
     public GameObject cutSceneCamera;
     public GameObject gameWinMenuUI;
-    public Canvas boyCanvas, girlCanvas;
+    public GameObject backgroundMusic;
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.CompareTag("Player"))
+        if (collider.CompareTag("Player") && (collider.name == "GirlCharacter"))
         {
             cutSceneCamera.SetActive(true);
-            StartCoroutine(DisableCharacters());
+            StartCoroutine(DisableCharacters(collider));
             StartCoroutine(ShowGameWinScreen());
+            DespawnAllMonsters();
         }
     }
 
-    public IEnumerator DisableCharacters()
+    public void DespawnAllMonsters()
+    {
+        GameObject[] monsters = GameObject.FindGameObjectsWithTag("Monster");
+
+        for (var i = 0; i < monsters.Length; i++)
+            Destroy(monsters[i]);
+    }
+
+    public IEnumerator DisableCharacters(Collider collider)
     {
         yield return new WaitForSeconds(0.1f);
-        boyCanvas.enabled = false;
-        girlCanvas.enabled = false;
+        collider.GetComponent<Character>().GetComponentInChildren<Canvas>().enabled = false;
     }
 
     public IEnumerator ShowGameWinScreen()
     {
         yield return new WaitForSeconds(10f);
         gameWinMenuUI.SetActive(true);
-
+        backgroundMusic.SetActive(false);
     }
 }
 

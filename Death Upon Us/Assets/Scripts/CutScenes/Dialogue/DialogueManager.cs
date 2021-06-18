@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     private int currentIndex;
     private Conversation currentConvo;
     private static DialogueManager instance;
+    Scene currentScene;
 
     private void Awake()
     {
@@ -42,10 +43,18 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if(currentIndex > currentConvo.GetLength())
+        currentScene = SceneManager.GetActiveScene();
+
+        if (currentConvo != null)
         {
-            Destroy(nextButton);
-            playButton.text = "Play";
+            if (currentIndex > currentConvo.GetLength())
+            {
+                if (currentScene.name != "SampleScene")
+                {
+                    nextButton.transform.localScale = new Vector3(0f, 0f, 0f);
+                    playButton.text = "Play";
+                }
+            }
         }
     }
 
@@ -60,24 +69,26 @@ public class DialogueManager : MonoBehaviour
 
     public void ReadNext()
     {
-        if(currentIndex > 1)
-        {
-            Switch();
-        }
+        Character character = girl.GetComponent<Character>();
 
-        if(typing == null)
+        if (currentIndex <= currentConvo.GetLength())
         {
-            typing = instance.StartCoroutine(TypeText(currentConvo.GetLineByIndex(currentIndex).dialogue));
+
+            if (typing == null)
+            {
+                typing = instance.StartCoroutine(TypeText(currentConvo.GetLineByIndex(currentIndex).dialogue));
+            }
+            else
+            {
+                instance.StopCoroutine(typing);
+                typing = null;
+                typing = instance.StartCoroutine(TypeText(currentConvo.GetLineByIndex(currentIndex).dialogue));
+            }
+
+            speakerSprite.sprite = currentConvo.GetLineByIndex(currentIndex).speaker.GetSprite();
+
+            currentIndex++;
         }
-        else
-        {
-            instance.StopCoroutine(typing);
-            typing = null;
-            typing = instance.StartCoroutine(TypeText(currentConvo.GetLineByIndex(currentIndex).dialogue));
-        }
-        
-        speakerSprite.sprite = currentConvo.GetLineByIndex(currentIndex).speaker.GetSprite();
-        currentIndex++;
     }
 
     void Switch()

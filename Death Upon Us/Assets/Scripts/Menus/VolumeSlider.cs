@@ -7,23 +7,22 @@ using static utils.Configs;
 
 public class VolumeSlider : MonoBehaviour
 {
-    //FMOD.Studio.EventInstance menu_theme;
-    //float MusicVolume = 0.5f;
+    FMOD.Studio.Bus masterBus;
 
     public Slider slider;
 
     void Start()
     {
         slider.value = PlayerPrefs.GetFloat("sliderValue", DefaultVolume);
+        masterBus = FMODUnity.RuntimeManager.GetBus("Bus:/");
+    }
+
+    void Update(){
+        masterBus.setVolume(slider.value);
     }
     public void SetLevel(float sliderValue)
     {
         float volume = Mathf.Log10(sliderValue) * 20;
         PlayerPrefs.SetFloat("sliderValue", sliderValue);
     }
-
-   /* public void volumeChange(float newVolume)
-    {
-
-    }*/
 }

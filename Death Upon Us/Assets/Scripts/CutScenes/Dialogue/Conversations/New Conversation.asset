@@ -24,9 +24,9 @@ MonoBehaviour:
     dialogue: I.... I don't know...
   - speaker: {fileID: 11400000, guid: 78af790f2ed5ca24f9426296133902c8, type: 2}
     dialogue: Ok, I know there's a resistance with some survivors. We need to get
-      there. But first, you need to find a house. Do you have a map?
+      there. Do you have a map?
   - speaker: {fileID: 11400000, guid: 61c984e9868a3d941a70e511ef9202c6, type: 2}
-    dialogue: Hmmm... Yes!!
+    dialogue: Hmmm... Yes!! But it's not completed...
   - speaker: {fileID: 11400000, guid: 78af790f2ed5ca24f9426296133902c8, type: 2}
-    dialogue: Ok, I'm going to send you the coordinates. Open the map and go to the
-      house. Be careful with the Chilurians...
+    dialogue: Hmm, ok. You need to find the rest of the map. Be careful with the
+      Chilurians...

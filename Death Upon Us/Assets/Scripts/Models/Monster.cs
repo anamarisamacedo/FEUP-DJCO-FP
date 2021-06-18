@@ -3,15 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using static utils.Configs;
+using utils;
+
 
 public class Monster : MonoBehaviour
 {
     private Rigidbody rigidBody;
     private int hp;
+    private FMOD.Studio.EventInstance instance;
+    private TerrainUtils tu;
 
     private void Start()
     {
         hp = 100;
+        instance = FMODUnity.RuntimeManager.CreateInstance("event:/Monster/Walking");
+        tu = new TerrainUtils();
+        instance.setParameterByName("Terrain", tu.SelectFootstep(this.transform.position));
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(instance, this.transform, GetComponent<Rigidbody>());
+        instance.start();
     }
 
     private void Update()
@@ -20,6 +29,7 @@ public class Monster : MonoBehaviour
         {
             MoveRandomly();
         }
+        instance.setParameterByName("Terrain", tu.SelectFootstep(this.transform.position));
     }
 
     public bool FollowPlayer()
@@ -48,23 +58,37 @@ public class Monster : MonoBehaviour
 
     private void MoveRandomly()
     {
-        System.Random rand = new System.Random();
-        int randomAngle = rand.Next(-22500, 22500);
-        if (Math.Abs(randomAngle) < 90)
+        if (gameObject.name != "GuardMonster")
         {
-            transform.Rotate(0, randomAngle, 0);
-        }
-        else
-        {
-            transform.position += transform.forward * Time.deltaTime * MonsterSpeed;
+            System.Random rand = new System.Random();
+            int randomAngle = rand.Next(-22500, 22500);
+            if (Math.Abs(randomAngle) < 90)
+            {
+                transform.Rotate(0, randomAngle, 0);
+            }
+            else
+            {
+                transform.position += transform.forward * Time.deltaTime * MonsterSpeed;
+            }
         }
     }
 
+    public void Attack()
+    {
+        //do attack character
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Monster/MeleeAttack");
+    }
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Arrow"))
         {
             TakeDamage(ArrowDamage);
+        }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Character character = collision.collider.GetComponent<Character>();
+            character.TakeDamage(MonsterDamage);
         }
     }
 
@@ -75,10 +99,12 @@ public class Monster : MonoBehaviour
         {
             Die();
         }
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Monster/TakeDamage");
     }
 
     private void Die()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Monster/Die");
         Destroy(gameObject);
     }
 }

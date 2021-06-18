@@ -1790,7 +1790,7 @@ GameObject:
   - component: {fileID: 8692349184168837941}
   m_Layer: 6
   m_Name: OrangeMonster
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

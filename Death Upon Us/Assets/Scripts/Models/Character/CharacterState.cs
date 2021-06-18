@@ -59,24 +59,15 @@ public abstract class CharacterState
 
     public virtual void HandleKeyboardInput()
     {
-        if (Time.timeScale == 1)
+        if (Time.timeScale == 1 && character.inputEnabled)
         {
             if (Input.GetKey(KeyCode.A))
             {
-                character.TakeDamage(2);
                 character.rotateDirection = -1;
             }
             else if (Input.GetKey(KeyCode.D))
             {
-                character.AddHealth(2);
                 character.rotateDirection = 1;
-            }
-            else if (Input.GetKey(KeyCode.R))
-            {
-                if (character.collideClue1 == true)
-                {
-                    character.DisplayMessage("40.741895 -73.989308");
-                }
             }
             else if (Input.GetKeyDown(KeyCode.M))
             {

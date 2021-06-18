@@ -5,9 +5,9 @@ using static utils.Configs;
 
 public class Item
 {
-    public int blueFoodValue = 500;
-    public int orangeFoodValue = 750;
-    public int purpleFoodValue = 1000;
+    public int blueFoodValue = 500*2;
+    public int orangeFoodValue = 750*2;
+    public int purpleFoodValue = 1000*2;
     public int medKitValue = 1000;
     float nextAttackTime = 0f;
     float nextArrowTime = 0f;

@@ -7,7 +7,7 @@ namespace utils
         public const float WalkingSpeed = 8f;
         public const float RunningSpeed = 15f;
         public const float JumpForce = 7f;
-        public const float RotationSpeed = 6f;
+        public const float RotationSpeed = 3f;
         
         /* Monster mechanics */
         public const float MonsterSpeed = 2f; 
@@ -17,6 +17,9 @@ namespace utils
         public const float PlayerAttackRadius = 2f;
         public const float PlayerAttackRate = 2f;
         public const int ArrowDamage = 20;
+        public const int KnifeDamage = 35;
+
+        public const int MonsterDamage = 10;
 
         /* Scenes */
         public const int MenuScene = 0;
@@ -35,5 +38,8 @@ namespace utils
         public const int HungerOnMeleeAttack = 100;
         public const int HungerOnBowAttack = 50;
         public const int MinHungerValToRun = 2500;
+
+        /* Codes */
+        public const string Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     }
 }

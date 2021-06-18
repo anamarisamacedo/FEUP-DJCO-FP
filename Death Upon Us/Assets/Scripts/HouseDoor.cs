@@ -3,44 +3,86 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using static utils.Configs;
 
 public class HouseDoor : MonoBehaviour
 {
-    [SerializeField] private Animator door1 = null;
-    [SerializeField] private Animator door2 = null;
+    [SerializeField] private Animator door = null;
     [SerializeField] private GameObject? monsterOrange;
     [SerializeField] private GameObject? monsterPurple;
+
     [SerializeField] private GameObject? monsterBlue;
     bool hasKeysHouse1 = false;
+    bool hasCodeVault1 = false;
     private Inventory inventory;
+    private bool hasKeyVault = false;
+    private bool hasDecoded = false;
+    Character character;
+    public bool wood = true;
+    private bool vaultIsOpened = false;
 
+    private bool isCodeCorrect = false;
+    [SerializeField] private UI_Input_Field mainInputField;
+    private void Update()
+    {
+        if (character != null)
+        {
+            bool hasDecoded = character.hasDecoded;
+            if (isCodeCorrect)
+            {
+                this.hasKeyVault = true;
+                OpenDoor(door);
+                isCodeCorrect = false;
+            }
+        }
+    }
     public void OpenDoor(Animator door)
     {
+        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance("event:/Environment/DoorOpen");
+        if (wood){
+            instance.setParameterByName("Material", 0);
+        }
+        else{
+            instance.setParameterByName("Material", 1);
+        }
+        instance.start();
+        instance.release();
+
         door.SetBool("isOpen", true);
     }
 
     public void CloseDoor(Animator door)
     {
+        FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance("event:/Environment/DoorClose");;
+        if (wood){
+            instance.setParameterByName("Material", 0);
+        }
+        else{
+            instance.setParameterByName("Material", 1);
+        }
+        instance.start();
+        instance.release();
+
         door.SetBool("isOpen", false);
     }
 
     private void OnTriggerEnter(Collider collider)
     {
-
         if (collider.CompareTag("Player"))
         {
-            Character character = collider.GetComponent<Character>();
-            if (this.CompareTag("House1")){
+            character = collider.GetComponent<Character>();
+            inventory = character.GetInventory();
+            if (this.CompareTag("House1"))
+            {
                 hasKeysHouse1 = character.GetHasKeysHouse1();
                 if (hasKeysHouse1 == true)
                 {
-                   OpenDoor(door1);
-                    inventory = character.GetInventory();
+                    OpenDoor(door);
                     inventory.RemoveItemType(Item.ItemType.KeyHouse1);
                 }
                 else
                 {
-                    character.DisplayMessage("This door is locked. To open you must find three keys. Challenges and enemies you must face to get them.");
+                    character.DisplayMessage("This door is locked. To open you must find two keys. Challenges and enemies you must face to get them.");
                 }
             }
 
@@ -48,13 +90,42 @@ public class HouseDoor : MonoBehaviour
             {
                 if (monsterOrange == null && monsterPurple == null && monsterBlue == null)
                 {
-                    OpenDoor(door2);
+                    OpenDoor(door);
                 }
                 else
                 {
                     character.DisplayMessage("You must kill all the three monsters.");
                 }
             }
+
+            if (this.CompareTag("House3"))
+            {
+                OpenDoor(door);
+            }
+
+            if (this.CompareTag("Cofre1"))
+            {
+                if (this.hasKeyVault == false)
+                {
+                    EnableInputField();
+                }
+
+            }
+
+            if (this.CompareTag("CodeNumberBox"))
+            {
+                if (this.hasDecoded == false)
+                {
+                    character.EnableInputButton();
+                }
+
+            }
+
+            if (this.CompareTag("House4"))
+            {
+                OpenDoor(door);
+            }
+
         }
 
     }
@@ -65,13 +136,69 @@ public class HouseDoor : MonoBehaviour
         {
             Character character = collider.GetComponent<Character>();
             character.DisplayMessage("");
-            if (this.CompareTag("House1")){
-               CloseDoor(door1);
-            }
-            if (this.CompareTag("House2"))
+            if (this.CompareTag("House1"))
             {
-                CloseDoor(door2);
+                if (hasKeysHouse1 == true)
+                {
+                    CloseDoor(door);
+                }
+            }
+
+            if(this.CompareTag("House2"))
+            {
+                if (monsterOrange == null && monsterPurple == null && monsterBlue == null)
+                {
+                    CloseDoor(door);
+                }
+            }
+
+            if(this.CompareTag("House3") || this.CompareTag("House4"))
+            {
+                CloseDoor(door);
+            }
+
+            if (this.CompareTag("Cofre1"))
+            {
+                DisableInputField();
+            }
+
+            if (this.CompareTag("CodeNumberBox"))
+            {
+                character.DisableInputButton();
             }
         }
     }
+
+    public void EnterInputField()
+    {
+        DisableInputField();
+        string valueCode = mainInputField.inputField.text;
+        if (valueCode == character.generatedCode)
+        {
+            isCodeCorrect = true;
+            GameObject key = GameObject.FindGameObjectsWithTag("VaultKey")[0];
+            WorldItem worldItem = key.GetComponent<WorldItem>();
+            inventory.AddItem(worldItem.GetItem());
+            worldItem.DestroySelf();
+        }
+        else
+        {
+            character.DisplayMessage("Code is not correct! Try again.");
+        }
+
+        
+    }
+
+    public void EnableInputField()
+    {
+        mainInputField.Show();
+        character.inputEnabled = false;
+    }
+
+    public void DisableInputField()
+    {
+        mainInputField.Hide();
+        character.inputEnabled = true;
+    }
+   
 }
