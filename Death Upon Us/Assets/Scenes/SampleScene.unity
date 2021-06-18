@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3669,8 +3669,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cutSceneCamera: {fileID: 1164243782}
   gameWinMenuUI: {fileID: 396498009}
-  boyCanvas: {fileID: 0}
-  girlCanvas: {fileID: 0}
+  boyCanvas: {fileID: 820421806}
+  girlCanvas: {fileID: 1318607812}
   backgroundMusic: {fileID: 1619257460}
 --- !u!65 &478655069
 BoxCollider:
@@ -3991,7 +3991,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1451435499258473520, guid: a72a7f80c0a6e9b449cf1f3c72491d00, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.083725
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 1451435499258473520, guid: a72a7f80c0a6e9b449cf1f3c72491d00, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5397,6 +5397,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bd9ac3af1f3e414fb282058393801f4, type: 3}
+--- !u!223 &820421806 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 1451435501238632265, guid: 0d21f41dfc21c0c4fa1c332629ff991f, type: 3}
+  m_PrefabInstance: {fileID: 1451435499998561118}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &824773641
 GameObject:
   m_ObjectHideFlags: 0
@@ -6067,7 +6072,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1451435499258473520, guid: a72a7f80c0a6e9b449cf1f3c72491d00, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1451435499258473520, guid: a72a7f80c0a6e9b449cf1f3c72491d00, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6075,7 +6080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1451435499258473520, guid: a72a7f80c0a6e9b449cf1f3c72491d00, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.083725
+      value: -2.95
       objectReference: {fileID: 0}
     - target: {fileID: 1451435499258473520, guid: a72a7f80c0a6e9b449cf1f3c72491d00, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7561,7 +7566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1451435499258473520, guid: a72a7f80c0a6e9b449cf1f3c72491d00, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.083725
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 1451435499258473520, guid: a72a7f80c0a6e9b449cf1f3c72491d00, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8734,6 +8739,11 @@ Transform:
   m_Father: {fileID: 1249765899}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!223 &1318607812 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 2977025860493602889, guid: 409544b4aa3d3f244b9025189a3da77a, type: 3}
+  m_PrefabInstance: {fileID: 2977025860828682538}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1319024114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10678,8 +10688,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cutSceneCamera: {fileID: 1164243782}
   gameWinMenuUI: {fileID: 396498009}
-  boyCanvas: {fileID: 0}
-  girlCanvas: {fileID: 0}
+  boyCanvas: {fileID: 820421806}
+  girlCanvas: {fileID: 1318607812}
   backgroundMusic: {fileID: 1619257460}
 --- !u!65 &1719956405
 BoxCollider:
@@ -14647,7 +14657,7 @@ PrefabInstance:
       objectReference: {fileID: 738820307}
     - target: {fileID: 2977025861264698288, guid: 409544b4aa3d3f244b9025189a3da77a, type: 3}
       propertyPath: m_Type
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2977025861264698288, guid: 409544b4aa3d3f244b9025189a3da77a, type: 3}
       propertyPath: m_Range
@@ -14675,7 +14685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3376077124875529491, guid: 409544b4aa3d3f244b9025189a3da77a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 973.98
+      value: 10.1
       objectReference: {fileID: 0}
     - target: {fileID: 3376077124875529491, guid: 409544b4aa3d3f244b9025189a3da77a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14683,7 +14693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3376077124875529491, guid: 409544b4aa3d3f244b9025189a3da77a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 501.17
+      value: 523.2
       objectReference: {fileID: 0}
     - target: {fileID: 3376077124875529491, guid: 409544b4aa3d3f244b9025189a3da77a, type: 3}
       propertyPath: m_LocalRotation.w

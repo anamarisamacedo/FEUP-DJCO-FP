@@ -173,7 +173,7 @@ public class Character : MonoBehaviour
     {
         StartCoroutine(PlayMeleeAnimation());
         Collider[] hitMonsters = Physics.OverlapSphere(transform.position, PlayerAttackRadius, monsterLayers);
-        Debug.Log(hitMonsters);
+
         foreach (Collider monster in hitMonsters)
         {
             Debug.Log(monster);

@@ -20,6 +20,7 @@ TagManager:
   - GirlMelee
   - Arrow
   - Map
+  - Monster
   layers:
   - Default
   - TransparentFX
