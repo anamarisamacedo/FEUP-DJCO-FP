@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1192,7 +1192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160582251}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: -7.2, z: -0.9}
+  m_LocalPosition: {x: 1, y: -18.5, z: -0.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 574152504}
@@ -3635,7 +3635,7 @@ GameObject:
   - component: {fileID: 478655069}
   - component: {fileID: 478655068}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3669,8 +3669,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cutSceneCamera: {fileID: 1164243782}
   gameWinMenuUI: {fileID: 396498009}
-  boyCanvas: {fileID: 820421806}
-  girlCanvas: {fileID: 1318607812}
   backgroundMusic: {fileID: 1619257460}
 --- !u!65 &478655069
 BoxCollider:
@@ -5397,11 +5395,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bd9ac3af1f3e414fb282058393801f4, type: 3}
---- !u!223 &820421806 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 1451435501238632265, guid: 0d21f41dfc21c0c4fa1c332629ff991f, type: 3}
-  m_PrefabInstance: {fileID: 1451435499998561118}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &824773641
 GameObject:
   m_ObjectHideFlags: 0
@@ -7911,7 +7904,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164243782}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 31.21, y: 14.64, z: -3.8}
+  m_LocalPosition: {x: 12.6, y: 14.64, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 574152504}
@@ -8739,11 +8732,6 @@ Transform:
   m_Father: {fileID: 1249765899}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!223 &1318607812 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 2977025860493602889, guid: 409544b4aa3d3f244b9025189a3da77a, type: 3}
-  m_PrefabInstance: {fileID: 2977025860828682538}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1319024114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10653,7 +10641,7 @@ GameObject:
   - component: {fileID: 1719956405}
   - component: {fileID: 1719956404}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10688,8 +10676,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cutSceneCamera: {fileID: 1164243782}
   gameWinMenuUI: {fileID: 396498009}
-  boyCanvas: {fileID: 820421806}
-  girlCanvas: {fileID: 1318607812}
   backgroundMusic: {fileID: 1619257460}
 --- !u!65 &1719956405
 BoxCollider:
@@ -12757,7 +12743,7 @@ MonoBehaviour:
   - {fileID: 1496183931}
   - {fileID: 757559503}
   spawnTime: 6
-  maxNoEnemies: 10
+  maxNoEnemies: 6
   protectedRange: 20
   spawnRange: 100
   freeSpace: 2
@@ -14657,7 +14643,7 @@ PrefabInstance:
       objectReference: {fileID: 738820307}
     - target: {fileID: 2977025861264698288, guid: 409544b4aa3d3f244b9025189a3da77a, type: 3}
       propertyPath: m_Type
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2977025861264698288, guid: 409544b4aa3d3f244b9025189a3da77a, type: 3}
       propertyPath: m_Range
@@ -14685,7 +14671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3376077124875529491, guid: 409544b4aa3d3f244b9025189a3da77a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.1
+      value: 982.92
       objectReference: {fileID: 0}
     - target: {fileID: 3376077124875529491, guid: 409544b4aa3d3f244b9025189a3da77a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14693,7 +14679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3376077124875529491, guid: 409544b4aa3d3f244b9025189a3da77a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 523.2
+      value: 501.73
       objectReference: {fileID: 0}
     - target: {fileID: 3376077124875529491, guid: 409544b4aa3d3f244b9025189a3da77a, type: 3}
       propertyPath: m_LocalRotation.w
