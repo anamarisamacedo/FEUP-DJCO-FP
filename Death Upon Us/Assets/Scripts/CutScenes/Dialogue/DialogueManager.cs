@@ -51,7 +51,7 @@ public class DialogueManager : MonoBehaviour
             {
                 if (currentScene.name != "SampleScene")
                 {
-                    Destroy(nextButton);
+                    nextButton.transform.localScale = new Vector3(0f, 0f, 0f);
                     playButton.text = "Play";
                 }
             }
@@ -71,14 +71,7 @@ public class DialogueManager : MonoBehaviour
     {
         Character character = girl.GetComponent<Character>();
 
-        if (currentIndex > currentConvo.GetLength())
-        {
-            if (currentScene.name == "SampleScene")
-            {
-                character.CloseDialogue();
-            }
-        }
-        else
+        if (currentIndex <= currentConvo.GetLength())
         {
 
             if (typing == null)
