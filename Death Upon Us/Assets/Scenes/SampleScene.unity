@@ -12364,10 +12364,10 @@ MonoBehaviour:
   - {fileID: 976243691}
   - {fileID: 1496183931}
   - {fileID: 757559503}
-  spawnTime: 6
-  maxNoEnemies: 6
-  protectedRange: 20
-  spawnRange: 100
+  spawnTime: 4
+  maxNoEnemies: 7
+  protectedRange: 35
+  spawnRange: 75
   freeSpace: 2
 --- !u!4 &1940525826
 Transform:
