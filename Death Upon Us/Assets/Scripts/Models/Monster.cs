@@ -13,6 +13,8 @@ public class Monster : MonoBehaviour
     private FMOD.Studio.EventInstance instance;
     private TerrainUtils tu;
     public GameObject drop;
+    public LayerMask playersMask;
+    private float nextAttackTime = 0f;
 
     private void Start()
     {
@@ -31,6 +33,7 @@ public class Monster : MonoBehaviour
             MoveRandomly();
         }
         instance.setParameterByName("Terrain", tu.SelectFootstep(this.transform.position));
+        Attack();
     }
 
     public bool FollowPlayer()
@@ -76,8 +79,18 @@ public class Monster : MonoBehaviour
 
     public void Attack()
     {
-        //do attack character
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Monster/MeleeAttack");
+        if (Time.time >= nextAttackTime)
+        {
+            nextAttackTime = Time.time + 1f / MonsterAttackRate;
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Monster/MeleeAttack");
+
+            Collider[] hitPlayers = Physics.OverlapSphere(transform.position, PlayerAttackRadius, playersMask);
+
+            foreach (Collider player in hitPlayers)
+            {
+                player.gameObject.GetComponent<Character>().TakeDamage(MonsterDamage);
+            }
+        }
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -86,11 +99,11 @@ public class Monster : MonoBehaviour
             TakeDamage(ArrowDamage);
         }
 
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Character character = collision.collider.GetComponent<Character>();
-            character.TakeDamage(MonsterDamage);
-        }
+        // if (collision.gameObject.CompareTag("Player"))
+        // {
+        //     Character character = collision.collider.GetComponent<Character>();
+        //     character.TakeDamage(MonsterDamage);
+        // }
     }
 
     public void TakeDamage(int value)
@@ -106,7 +119,6 @@ public class Monster : MonoBehaviour
     private void Die()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/Monster/Die");
-        Debug.Log("instantiate called");
         Instantiate(drop, gameObject.transform.position + new Vector3(0, 2, 0), Quaternion.identity);
         Destroy(gameObject);
     }

@@ -1998,3 +1998,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drop: {fileID: 4330546103804104716, guid: 704e508013d45cb4e8d90d3b341377b6, type: 3}
+  playersMask:
+    serializedVersion: 2
+    m_Bits: 8

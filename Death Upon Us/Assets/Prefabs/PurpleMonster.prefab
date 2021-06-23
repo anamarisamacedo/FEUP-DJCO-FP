@@ -1123,6 +1123,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drop: {fileID: 6017592931316645093, guid: c40ec27b4c3fd4f42bc84f458e0c40be, type: 3}
+  playersMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &5131125457539752209
 GameObject:
   m_ObjectHideFlags: 0

@@ -175,7 +175,6 @@ public class Character : MonoBehaviour
 
         foreach (Collider monster in hitMonsters)
         {
-            Debug.Log(monster);
             monster.gameObject.GetComponent<Monster>().TakeDamage(KnifeDamage);
         }
         IncreaseHunger(HungerOnMeleeAttack);
