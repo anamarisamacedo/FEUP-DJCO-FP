@@ -12,6 +12,7 @@ public class Monster : MonoBehaviour
     private int hp;
     private FMOD.Studio.EventInstance instance;
     private TerrainUtils tu;
+    public GameObject drop;
 
     private void Start()
     {
@@ -105,6 +106,8 @@ public class Monster : MonoBehaviour
     private void Die()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/Monster/Die");
+        Debug.Log("instantiate called");
+        Instantiate(drop, gameObject.transform.position + new Vector3(0, 2, 0), Quaternion.identity);
         Destroy(gameObject);
     }
 }

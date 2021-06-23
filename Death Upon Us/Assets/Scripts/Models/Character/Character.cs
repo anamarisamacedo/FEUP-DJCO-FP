@@ -48,7 +48,6 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
-
         state = new IdleState(this);
         rigidBody = GetComponent<Rigidbody>();
         capsuleCollider = GetComponent<CapsuleCollider>();
