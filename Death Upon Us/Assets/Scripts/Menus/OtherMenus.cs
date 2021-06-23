@@ -46,6 +46,7 @@ public class OtherMenus : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        Cursor.visible = true;
         Time.timeScale = 1;
         backgroundMusic.SetActive(false);
         SceneManager.LoadScene(MenuScene);
@@ -53,6 +54,7 @@ public class OtherMenus : MonoBehaviour
 
     public void RestartGame()
     {
+        Cursor.visible = false;
         Time.timeScale = 1;
         backgroundMusic.SetActive(false);
         SceneManager.LoadScene(GameScene);
@@ -60,6 +62,7 @@ public class OtherMenus : MonoBehaviour
 
     public void Resume()
     {
+        Cursor.visible = false;
         pauseMenuUI.SetActive(false);
         backgroundMusic.SetActive(true);
         Time.timeScale = 1;
@@ -68,6 +71,7 @@ public class OtherMenus : MonoBehaviour
 
     public void Pause()
     {
+        Cursor.visible = true;
         pauseMenuUI.SetActive(true);
         backgroundMusic.SetActive(false);
         Time.timeScale = 0;

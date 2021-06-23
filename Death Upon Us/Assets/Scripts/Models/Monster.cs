@@ -83,13 +83,13 @@ public class Monster : MonoBehaviour
         if (Time.time >= nextAttackCheckTime && Time.time >= nextAttackTime)
         {
             nextAttackCheckTime = Time.time + 1f / 5f;
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Monster/MeleeAttack");
 
             Collider[] hitPlayers = Physics.OverlapSphere(transform.position, MonsterAttackRadius, playersMask);
 
             foreach (Collider player in hitPlayers)
             {
                 nextAttackTime = Time.time + 1f / MonsterAttackRate;
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Monster/MeleeAttack");
                 gameObject.GetComponent<Animator>().SetBool("IsAttacking", true);
                 StartCoroutine(StopAttackAnimation(player));
             }
