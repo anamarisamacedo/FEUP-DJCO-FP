@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Inventory
 {
@@ -15,9 +13,9 @@ public class Inventory
         itemList = new List<Item>();
         selectedItem = -1;
         AddItem(new Item { itemType = Item.ItemType.Medkit, amount = 5});
-        AddItem(new Item { itemType = Item.ItemType.BlueMonsterDrop, amount = 15});
-        AddItem(new Item { itemType = Item.ItemType.OrangeMonsterDrop, amount = 15});
-        AddItem(new Item { itemType = Item.ItemType.PurpleMonsterDrop, amount = 15});
+        AddItem(new Item { itemType = Item.ItemType.BlueMonsterDrop, amount = 5});
+        AddItem(new Item { itemType = Item.ItemType.OrangeMonsterDrop, amount = 5});
+        AddItem(new Item { itemType = Item.ItemType.PurpleMonsterDrop, amount = 5});
     }
 
     public void AddItem(Item item)

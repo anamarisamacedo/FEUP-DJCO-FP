@@ -15,8 +15,9 @@ namespace utils
 
         /* Attack mechanics */
         public const float PlayerAttackRadius = 2f;
+        public const float MonsterAttackRadius = 3.5f;
         public const float PlayerAttackRate = 2f;
-        public const float MonsterAttackRate = 1f;
+        public const float MonsterAttackRate = 0.5f;
         public const int ArrowDamage = 20;
         public const int KnifeDamage = 35;
 

@@ -15,6 +15,7 @@ public class Monster : MonoBehaviour
     public GameObject drop;
     public LayerMask playersMask;
     private float nextAttackTime = 0f;
+    private float nextAttackCheckTime = 0f;
 
     private void Start()
     {
@@ -77,21 +78,32 @@ public class Monster : MonoBehaviour
         }
     }
 
-    public void Attack()
+    private void Attack()
     {
-        if (Time.time >= nextAttackTime)
+        if (Time.time >= nextAttackCheckTime && Time.time >= nextAttackTime)
         {
-            nextAttackTime = Time.time + 1f / MonsterAttackRate;
+            nextAttackCheckTime = Time.time + 1f / 5f;
             FMODUnity.RuntimeManager.PlayOneShot("event:/Monster/MeleeAttack");
 
-            Collider[] hitPlayers = Physics.OverlapSphere(transform.position, PlayerAttackRadius, playersMask);
+            Collider[] hitPlayers = Physics.OverlapSphere(transform.position, MonsterAttackRadius, playersMask);
 
             foreach (Collider player in hitPlayers)
             {
-                player.gameObject.GetComponent<Character>().TakeDamage(MonsterDamage);
+                nextAttackTime = Time.time + 1f / MonsterAttackRate;
+                gameObject.GetComponent<Animator>().SetBool("IsAttacking", true);
+                StartCoroutine(StopAttackAnimation(player));
             }
         }
     }
+
+    private IEnumerator StopAttackAnimation(Collider player)
+    {
+        yield return new WaitForSeconds(1f);
+        player.gameObject.GetComponent<Character>().TakeDamage(MonsterDamage);
+        yield return new WaitForSeconds(0.94f);
+        gameObject.GetComponent<Animator>().SetBool("IsAttacking", false);
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Arrow"))

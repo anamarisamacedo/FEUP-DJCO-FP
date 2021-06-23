@@ -1087,10 +1087,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.13700615
+  m_Radius: 0.2014178
   m_Height: 0.50879306
   m_Direction: 1
-  m_Center: {x: -0.013446594, y: 0.25882873, z: 0.016880298}
+  m_Center: {x: -0.013446594, y: 0.25882873, z: 0.051570464}
 --- !u!95 &3649977491818152403
 Animator:
   serializedVersion: 3
@@ -1101,7 +1101,7 @@ Animator:
   m_GameObject: {fileID: 4496346017960809683}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a8cc075f54a67c04b85cc9ec20026cff, type: 2}
+  m_Controller: {fileID: 9100000, guid: d23792a203de93f489b56be372d35536, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
