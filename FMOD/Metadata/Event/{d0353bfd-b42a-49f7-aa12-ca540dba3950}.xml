@@ -139,7 +139,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{5d4631b0-812b-4d7f-b5dd-7c3b4bf89865}" />
 	<object class="MixerBusFader" id="{4cda6397-6111-46a5-90d9-4cc778edc089}" />
-	<object class="SpatialiserEffect" id="{cac441b7-27a8-44f4-9b51-189b87788428}" />
+	<object class="SpatialiserEffect" id="{cac441b7-27a8-44f4-9b51-189b87788428}">
+		<property name="minimumDistance">
+			<value>1.80000007</value>
+		</property>
+		<property name="maximumDistance">
+			<value>65</value>
+		</property>
+	</object>
 	<object class="ADSRModulator" id="{da3bc727-3508-488d-8a37-927adeaaa28f}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>volume</value>

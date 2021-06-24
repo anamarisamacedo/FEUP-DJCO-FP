@@ -166,7 +166,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{8efea65f-a2b9-47a3-93fa-c0df7972d5b4}" />
 	<object class="MixerBusFader" id="{09a7c4af-24fd-42c8-8f02-b0c07137e90b}" />
-	<object class="SpatialiserEffect" id="{3fc644e4-92be-483a-82d9-343b9fc79816}" />
+	<object class="SpatialiserEffect" id="{3fc644e4-92be-483a-82d9-343b9fc79816}">
+		<property name="minimumDistance">
+			<value>1.80000007</value>
+		</property>
+		<property name="maximumDistance">
+			<value>65</value>
+		</property>
+	</object>
 	<object class="RandomizerModulator" id="{285adbd4-fef9-4611-9c33-d8ab5c9296df}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>pitch</value>
