@@ -11,6 +11,7 @@ public class DoorResistance : MonoBehaviour
 
     public void OpenDoor(Animator door)
     {
+        door.SetBool("idOpenRight", true);
         door.SetBool("isOpen", true);
     }
 

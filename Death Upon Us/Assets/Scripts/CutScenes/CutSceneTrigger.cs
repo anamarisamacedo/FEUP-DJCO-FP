@@ -39,6 +39,7 @@ public class CutSceneTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(10f);
         gameWinMenuUI.SetActive(true);
+        Cursor.visible = true;
         backgroundMusic.SetActive(false);
     }
 }

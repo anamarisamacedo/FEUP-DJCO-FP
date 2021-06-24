@@ -22,20 +22,16 @@ public class HouseDoor : MonoBehaviour
     private bool vaultIsOpened = false;
 
     private bool isCodeCorrect = false;
+    private string secretCode = "I043TKBR";
     [SerializeField] private UI_Input_Field mainInputField;
-    private void Update()
-    {
-        if (character != null)
-        {
-            bool hasDecoded = character.hasDecoded;
-            if (isCodeCorrect)
-            {
-                this.hasKeyVault = true;
-                OpenDoor(door);
-                isCodeCorrect = false;
-            }
-        }
+    Sprite mapSprite;
+    private GameObject boy;
+
+    private void Start(){
+        boy = GameObject.Find("BoyCharacter");
+        mapSprite = Resources.Load<Sprite>("fullMapBoy");
     }
+    
     public void OpenDoor(Animator door)
     {
         FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance("event:/Environment/DoorOpen");
@@ -116,7 +112,7 @@ public class HouseDoor : MonoBehaviour
             {
                 if (this.hasDecoded == false)
                 {
-                    character.EnableInputButton();
+                    EnableInputField();
                 }
 
             }
@@ -164,7 +160,7 @@ public class HouseDoor : MonoBehaviour
 
             if (this.CompareTag("CodeNumberBox"))
             {
-                character.DisableInputButton();
+                DisableInputField();
             }
         }
     }
@@ -173,13 +169,15 @@ public class HouseDoor : MonoBehaviour
     {
         DisableInputField();
         string valueCode = mainInputField.inputField.text;
-        if (valueCode == character.generatedCode)
+        if (valueCode == boy.GetComponent<Character>().GetGeneratedCode())
         {
             isCodeCorrect = true;
             GameObject key = GameObject.FindGameObjectsWithTag("VaultKey")[0];
             WorldItem worldItem = key.GetComponent<WorldItem>();
             inventory.AddItem(worldItem.GetItem());
             worldItem.DestroySelf();
+            this.hasKeyVault = true;
+            OpenDoor(door);
         }
         else
         {
@@ -189,16 +187,40 @@ public class HouseDoor : MonoBehaviour
         
     }
 
+    public void EnterSecretCode()
+    {
+        DisableInputField();
+        string valueCode = mainInputField.inputField.text;
+        if (valueCode == secretCode)
+        {
+            character.DisplayMessage("Congratulations, you have found the completed map to get to resistance.");
+            GameObject[] borders = GameObject.FindGameObjectsWithTag("BorderLevel1Boy");
+            foreach (GameObject border in borders)
+            {
+                Destroy(border);
+            }
+            boy.GetComponent<Character>().transform.Find("Canvas/Map").GetComponent<Image>().sprite = mapSprite;
+        }
+        else
+        {
+            character.DisplayMessage("Secret code is not correct! Try again.");
+        }
+
+        
+    }
+
     public void EnableInputField()
     {
         mainInputField.Show();
         character.inputEnabled = false;
+        Cursor.visible = true;
     }
 
     public void DisableInputField()
     {
         mainInputField.Hide();
         character.inputEnabled = true;
+        Cursor.visible = false;
     }
    
 }

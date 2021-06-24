@@ -5,6 +5,7 @@ using System;
 using static utils.Configs;
 using UnityEngine.UI;
 using utils;
+using Random = UnityEngine.Random;
 
 public class Character : MonoBehaviour
 {
@@ -23,19 +24,13 @@ public class Character : MonoBehaviour
     [SerializeField] public Health hp;
     [SerializeField] public Hunger hunger;
     [SerializeField] public BloodEffect blood;
-    [SerializeField] private UI_Input_Button mainInputButton;
     public Text textElement;
     public string message;
     private bool hasKeysHouse1 = false;
     private bool hasCodeVault1 = false;
     private GameObject clue;
-    public Conversation convoNeedVault;
-    public Conversation convoHaveVault;
     public string generatedCode;
-    private string generatedPIN = "124";
-    public bool hasDecoded = false;
     public bool inputEnabled = true;
-    [SerializeField] private Animator dialogue;
     public bool isGirl = true;
     public TerrainUtils tu;
     FMOD.Studio.EventInstance snapshot;
@@ -57,6 +52,7 @@ public class Character : MonoBehaviour
         clue = GameObject.Find("Clipboard");
         isJumping = false;
         tu = new TerrainUtils();
+        generatedCode = GenerateRandomCode(4);
     }
 
     private void Update()
@@ -218,12 +214,12 @@ public class Character : MonoBehaviour
     {
         if (collider.CompareTag("Clue1"))
         {
-            DisplayMessage("The vault code is " + this.generatedCode);
+            DisplayMessage("Chilurians are a native race of this world. They used to be fragile and friendly creatures, but " + this.generatedCode + " that changed when you, humans, invaded their home planet and forced them to live in the dark underground.");
         }
 
         if (collider.CompareTag("Clue2"))
         {
-            DisplayMessage("The buttons order is " + this.generatedPIN);
+            DisplayMessage("after your Invasi0n, chilurians increasingly bec4me more aggr3ssive and sTarted worKing their body. Nowadays, they are muscled creatures, capaBle of combating humanity and Regaining their territory.");
         }
 
         WorldItem worldItem = collider.GetComponent<WorldItem>();
@@ -279,55 +275,10 @@ public class Character : MonoBehaviour
         this.hasCodeVault1 = hasCode;
     }
 
-    public void StartDialogueVaultCode()
+
+    public string GetGeneratedCode()
     {
-        OpenDialogue();
-
-        if (!hasCodeVault1)
-        {
-            DialogueManager.StartConversation(convoNeedVault);
-        }
-        else
-        {
-            DialogueManager.StartConversation(convoHaveVault);
-        }
-    }
-
-    public void OpenDialogue()
-    {
-        dialogue.SetBool("isDialogueOpen", true);
-    }
-
-    public void CloseDialogue()
-    {
-        dialogue.SetBool("isDialogueOpen", false);
-    }
-
-
-
-    public void EnableInputButton()
-    {
-        mainInputButton.Show();
-        this.inputEnabled = false;
-    }
-
-    public void EnterInputButton()
-    {
-        mainInputButton.Hide();
-        bool[] sequence = mainInputButton.GetSequence();
-        this.hasDecoded = true;
-        DisplayMessage("You deciphered the code!");
-    }
-
-    public void DisableInputButton()
-    {
-        mainInputButton.Hide();
-        this.inputEnabled = true;
-    }
-
-    public void SetGeneratedCode(string code)
-    {
-        this.generatedCode = code;
+        return generatedCode;
     }
 
     public void SetIsGirl(bool girl)
@@ -335,4 +286,13 @@ public class Character : MonoBehaviour
         this.isGirl = girl;
     }
 
+    public static string GenerateRandomCode(int length)
+    {
+        string myString = "";
+        for (int i = 0; i < length; i++)
+        {
+            myString += Chars[Random.Range(0, Chars.Length)];
+        }
+        return myString;
+    }
 }

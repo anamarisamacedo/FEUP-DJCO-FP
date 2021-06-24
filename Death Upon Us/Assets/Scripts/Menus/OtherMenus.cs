@@ -39,6 +39,7 @@ public class OtherMenus : MonoBehaviour
         if (newValue == 0)
         {
             gameOverMenuUI.SetActive(true);
+            Cursor.visible = true;
             backgroundMusic.SetActive(false);
             Time.timeScale = 0;
         }

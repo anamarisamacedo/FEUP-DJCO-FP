@@ -119,7 +119,7 @@ public abstract class CharacterState
 
     public virtual void HandleMouseInput()
     {
-        if (Time.timeScale == 1)
+        if (Time.timeScale == 1 && character.inputEnabled)
         {
             float mouseDelta = Input.GetAxis("Mouse X");
             if (mouseDelta != 0)
