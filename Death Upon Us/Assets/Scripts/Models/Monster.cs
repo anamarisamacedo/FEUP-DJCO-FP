@@ -110,12 +110,6 @@ public class Monster : MonoBehaviour
         {
             TakeDamage(ArrowDamage);
         }
-
-        // if (collision.gameObject.CompareTag("Player"))
-        // {
-        //     Character character = collision.collider.GetComponent<Character>();
-        //     character.TakeDamage(MonsterDamage);
-        // }
     }
 
     public void TakeDamage(int value)

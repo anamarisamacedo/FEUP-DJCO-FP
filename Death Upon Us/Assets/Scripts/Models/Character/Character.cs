@@ -29,9 +29,9 @@ public class Character : MonoBehaviour
     private bool hasKeysHouse1 = false;
     private bool hasCodeVault1 = false;
     private GameObject clue;
-    public string generatedCode;
+    private string generatedCode;
     public bool inputEnabled = true;
-    public bool isGirl = true;
+    private bool isGirl = true;
     public TerrainUtils tu;
     FMOD.Studio.EventInstance snapshot;
     private bool inside = false;
@@ -59,7 +59,7 @@ public class Character : MonoBehaviour
     {
         state.HandleInput();
         textElement.text = message;
-
+        
         if (inventory.GetItemAmount(Item.ItemType.KeyHouse1) >= 2)
         {
             hasKeysHouse1 = true;
@@ -112,11 +112,12 @@ public class Character : MonoBehaviour
     {
         hp.ChangeValue(-value);
         this.currentHP -= value;
+        Debug.Log(this.currentHP);
         if (currentHP <= 0)
         {
             FMOD.Studio.EventInstance instance1 = FMODUnity.RuntimeManager.CreateInstance("event:/Player/Die");
-
-            if (isGirl)
+            
+            if (this.isGirl)
             {
                 instance1.setParameterByName("Character", 1);
             }
@@ -131,22 +132,17 @@ public class Character : MonoBehaviour
         StartCoroutine(blood.TakeDamage());
 
         FMOD.Studio.EventInstance instance = FMODUnity.RuntimeManager.CreateInstance("event:/Player/TakeDamage");
-
-        if (isGirl)
-        {
-            instance.setParameterByName("Character", 0);
-        }
-        else
+       
+        if (this.isGirl)
         {
             instance.setParameterByName("Character", 1);
         }
+        else
+        {
+            instance.setParameterByName("Character", 0);
+        }
         instance.start();
         instance.release();
-    }
-
-    public void AddHealth(int value)
-    {
-        hp.ChangeValue(value);
     }
 
     public void TakeHunger(int value)
@@ -193,6 +189,7 @@ public class Character : MonoBehaviour
     {
         hp.ChangeValue(value);
         blood.Heal();
+        this.currentHP += value;
     }
 
     private void OnCollisionStay()

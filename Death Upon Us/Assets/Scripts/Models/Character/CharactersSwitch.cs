@@ -10,7 +10,7 @@ public class CharactersSwitch : MonoBehaviour
     GameObject boy;
     int currentCharacter;
     Scene currentScene;
-    bool isGirl;
+    bool isGirl = true;
 
     void Start()
     {
@@ -19,8 +19,7 @@ public class CharactersSwitch : MonoBehaviour
         
 
         currentCharacter = 1;
-        isGirl = currentCharacter == 1;
-
+        
         currentScene = SceneManager.GetActiveScene();
         if (currentScene.name == "SampleScene")
         {
@@ -38,7 +37,7 @@ public class CharactersSwitch : MonoBehaviour
                 {
                     currentCharacter = (currentCharacter + 1) % 2;
                     isGirl = currentCharacter == 1;
-
+                    
                     if (!isGirl)
                     {
                         girl.GetComponent<Character>().blood.RemoveBlood();
@@ -47,7 +46,7 @@ public class CharactersSwitch : MonoBehaviour
                     {
                         boy.GetComponent<Character>().blood.RemoveBlood();
                     }
-
+                   
                     girl.GetComponent<Character>().enabled = isGirl;
                     girl.GetComponentInChildren<Camera>().enabled = isGirl;
                     girl.GetComponentInChildren<Canvas>().enabled = isGirl;
@@ -57,7 +56,7 @@ public class CharactersSwitch : MonoBehaviour
                     boy.GetComponentInChildren<Camera>().enabled = !isGirl;
                     
                     girl.GetComponent<Character>().SetIsGirl(isGirl);
-                    boy.GetComponent<Character>().SetIsGirl(!isGirl);
+                    boy.GetComponent<Character>().SetIsGirl(isGirl);
                     SetCharacterActive(isGirl);
                 }
         }

@@ -25,7 +25,7 @@ class Spawner : MonoBehaviour
     float SampleHeightWithRaycast(Vector3 pos)
     {
         RaycastHit hit;
-        float y = 3;
+        float y = 10;
         //Raycast down to terrain
         if (Physics.Raycast(pos, -Vector3.up, out hit))
         {

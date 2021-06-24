@@ -34,10 +34,10 @@ namespace utils
         public const float CutSceneSpeed = 4; // degrees per second
 
         /* Hunger */
-        public const int HungerOnWalk = 3;
+        public const int HungerOnWalk = 2;
         public const int HungerOnRun = HungerOnWalk * 2;
-        public const int HungerOnJump = 100;
-        public const int HungerOnMeleeAttack = 100;
+        public const int HungerOnJump = 70;
+        public const int HungerOnMeleeAttack = 70;
         public const int HungerOnBowAttack = 50;
         public const int MinHungerValToRun = 2500;
 
