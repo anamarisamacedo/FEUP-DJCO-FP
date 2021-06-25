@@ -25,10 +25,10 @@ public class HouseDoor : MonoBehaviour
     private string secretCode = "I043TKBR";
     [SerializeField] private UI_Input_Field mainInputField;
     Sprite mapSprite;
-    private GameObject boy;
+    private Character boy;
 
     private void Start(){
-        boy = GameObject.Find("BoyCharacter");
+        boy = GameObject.Find("BoyCharacter").GetComponent<Character>();
         mapSprite = Resources.Load<Sprite>("fullMapBoy");
     }
     
@@ -193,13 +193,14 @@ public class HouseDoor : MonoBehaviour
         string valueCode = mainInputField.inputField.text;
         if (valueCode == secretCode)
         {
-            character.DisplayMessage("Congratulations, you have found the completed map to get to resistance.");
+            character.DisplayMessage("You just deciphered the secret code, so you get a new map. Check it out!");
             GameObject[] borders = GameObject.FindGameObjectsWithTag("BorderLevel1Boy");
             foreach (GameObject border in borders)
             {
                 Destroy(border);
             }
-            boy.GetComponent<Character>().transform.Find("Canvas/Map").GetComponent<Image>().sprite = mapSprite;
+            boy.transform.Find("Canvas/Map").GetComponent<Image>().sprite = mapSprite;
+            boy.BoyFoundMap();
         }
         else
         {

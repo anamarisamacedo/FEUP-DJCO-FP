@@ -36,6 +36,7 @@ public class Character : MonoBehaviour
     FMOD.Studio.EventInstance snapshot;
     private bool inside = false;
     private bool mapFound = false;
+    private bool mapFoundBoy = false;
 
     private int currentHP = 100;
 
@@ -65,14 +66,6 @@ public class Character : MonoBehaviour
             hasKeysHouse1 = true;
         }
 
-        if (this.mapFound == true)
-        {
-            GameObject[] borders = GameObject.FindGameObjectsWithTag("BorderLevel1Girl");
-            foreach (GameObject border in borders)
-            {
-                Destroy(border);
-            }
-        }
         if (inside != tu.insideHouse(this.transform.position))
         {
             inside = !inside;
@@ -112,7 +105,7 @@ public class Character : MonoBehaviour
     {
         hp.ChangeValue(-value);
         this.currentHP -= value;
-        Debug.Log(this.currentHP);
+       
         if (currentHP <= 0)
         {
             FMOD.Studio.EventInstance instance1 = FMODUnity.RuntimeManager.CreateInstance("event:/Player/Die");
@@ -189,7 +182,7 @@ public class Character : MonoBehaviour
     {
         hp.ChangeValue(value);
         blood.Heal();
-        this.currentHP += value;
+        this.currentHP = 100;
     }
 
     private void OnCollisionStay()
@@ -230,6 +223,11 @@ public class Character : MonoBehaviour
         {
             DisplayMessage("Congrats! You've found a new map with new information! Check it out.");
             this.mapFound = true;
+            GameObject[] borders = GameObject.FindGameObjectsWithTag("BorderLevel1Girl");
+            foreach (GameObject border in borders)
+            {
+                Destroy(border);
+            }
             Sprite mapSprite = collider.gameObject.GetComponent<SpriteRenderer>().sprite;
             transform.Find("Canvas/Map").GetComponent<Image>().sprite = mapSprite;
             Destroy(collider.gameObject);
@@ -281,6 +279,18 @@ public class Character : MonoBehaviour
     public void SetIsGirl(bool girl)
     {
         this.isGirl = girl;
+    }
+
+    public bool GetHasMap(){
+        return this.mapFound;
+    }
+
+    public bool GetHasMapBoy(){
+        return this.mapFoundBoy;
+    }
+
+    public void BoyFoundMap(){
+        this.mapFoundBoy = true;
     }
 
     public static string GenerateRandomCode(int length)

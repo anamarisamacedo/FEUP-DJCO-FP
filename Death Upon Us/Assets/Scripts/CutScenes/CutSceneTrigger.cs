@@ -9,15 +9,24 @@ public class CutSceneTrigger : MonoBehaviour
     public GameObject cutSceneCamera;
     public GameObject gameWinMenuUI;
     public GameObject backgroundMusic;
-
+    Character boy;
+    Character girl;
+    public void Start()
+    {
+        boy = GameObject.Find("BoyCharacter").GetComponent<Character>();
+        girl = GameObject.Find("GirlCharacter").GetComponent<Character>();
+    }
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.CompareTag("Player") && (collider.name == "GirlCharacter"))
+        if (collider.CompareTag("Player"))
         {
-            cutSceneCamera.SetActive(true);
-            StartCoroutine(DisableCharacters(collider));
-            StartCoroutine(ShowGameWinScreen());
-            DespawnAllMonsters();
+            if (girl.GetHasMap() && boy.GetHasMapBoy())
+            {
+                cutSceneCamera.SetActive(true);
+                StartCoroutine(DisableCharacters(collider));
+                StartCoroutine(ShowGameWinScreen());
+                DespawnAllMonsters();
+            }
         }
     }
 
